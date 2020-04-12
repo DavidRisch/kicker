@@ -6,7 +6,6 @@ const app = express()
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.engine('html', require('ejs').renderFile)
 app.set('view engine', 'html')
 app.set('views', __dirname + '/html')
 
