@@ -28,3 +28,12 @@ Git branches must consist only of lowercase letters, numbers and underscores. Th
 Git commits must start with a capital letter and should describe the content of the commit. [Helpful guide](https://chris.beams.io/posts/git-commit/)
 
 File names should consist only of lower case letters and underscores.
+
+# Directory structure
+
+- _api_: js files for backend post requests, returns json
+- _css_: all css files
+- _html_: all html files, mostly for use in _pages/_
+- _js_: js files for use in the client browser
+- _page_: js files generating html on get requests
+- _src_: js files for importing in other javascript files

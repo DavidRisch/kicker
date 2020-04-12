@@ -1,15 +1,26 @@
-const http = require('http')
-
-const hostname = '0.0.0.0'
 const port = 8080
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200
-  res.setHeader('Content-Type', 'text/plain')
-  res.end('Hello World!\n')
+const express = require('express')
+const app = express()
+
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }))
+
+app.engine('html', require('ejs').renderFile)
+app.set('view engine', 'html')
+app.set('views', __dirname + '/html')
+
+app.use('/css', express.static('css'))
+app.use('/js', express.static('js'))
+
+app.get('/', function (req, res) {
+  res.writeHead(302, { 'Location': 'example' })
+  res.end()
 })
 
-server.listen(
-  port,
-  hostname,
-  () => { console.log(`Server running at http://${hostname}:${port}/`) })
+require('./page/page')(app)
+require('./api/api')(app)
+
+app.listen(port, function () {
+  console.log('Listening on port ' + port + '!')
+})

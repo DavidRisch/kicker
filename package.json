@@ -2,6 +2,7 @@
   "name": "kicker",
   "version": "0.1.0",
   "dependencies": {
-    
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0"
   }
 }
