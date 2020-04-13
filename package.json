@@ -1,5 +1,8 @@
 {
   "name": "kicker",
+  "description": "Webapp for tracking table football results",
+  "repository": "https://github.com/DavidRisch/kicker",
+  "license": "UNLICENSED",
   "version": "0.1.0",
   "dependencies": {
     "body-parser": "^1.19.0",
