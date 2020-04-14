@@ -1,8 +1,8 @@
 module.exports = {
-  'example_db_read': example_db_read
+  example_db_read: exampleDbRead
 }
 
-function example_db_read () {
-  console.log('example_db_read')
+function exampleDbRead () {
+  console.log('exampleDbRead')
   return 'abc'
 }

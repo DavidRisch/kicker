@@ -1,5 +1,5 @@
 module.exports = {
-  'add': add
+  add: add
 }
 
 function add (a, b) {

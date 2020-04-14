@@ -1,6 +1,6 @@
 module.exports = {
-  'query': query,
-  'query_async': query_async
+  query: query,
+  query_async: queryAsync
 }
 
 const mysql = require('mysql')
@@ -9,14 +9,14 @@ const connection = mysql.createConnection({
   port: process.env.DB_PORT,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
+  database: process.env.DB_DATABASE
 })
 
 connection.config.queryFormat = function (query, values) {
   // From https://stackoverflow.com/a/15779796
   if (!values) return query
   return query.replace(/:(\w+)/g, function (txt, key) {
-    if (values.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(values, key)) {
       return this.escape(values[key])
     }
     return txt
@@ -32,11 +32,11 @@ function query (statement, values) {
 
     result = rows
   })
-  require('deasync').loopWhile(function () {return result === null})
+  require('deasync').loopWhile(function () { return result === null })
   return result
 }
 
-function query_async (statement, values, callback) {
+function queryAsync (statement, values, callback) {
   connection.query(statement, values, function (err, rows) {
     if (err) {
       throw new Error('MySql error: ' + err.stack)
