@@ -1,5 +1,5 @@
 module.exports = {
-  'page': page
+  page: page
 }
 
 function page (req, res) {
@@ -15,5 +15,4 @@ function page (req, res) {
 
     res.end(html)
   })
-
 }
