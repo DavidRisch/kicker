@@ -1,15 +1,33 @@
-const http = require('http');
+const dotenv = require('dotenv')
+const path   = require('path')
 
-const hostname = '0.0.0.0';
-const port = 8080;
+if (dotenv.config({ path: path.resolve(__dirname, 'config', 'config.env') }).error) {
+  console.warn('config/config.env not found, using dummy config at config/config.env.template')
+  dotenv.config({ path: path.resolve(__dirname, 'config', 'config.env.template') })
+}
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end(' Hello World!\n');
-});
 
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
+const express = require('express')
+const app     = express()
+
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use('/css', express.static('css'))
+app.use('/js', express.static('js'))
+
+app.get('/', function (req, res) {
+  res.writeHead(302, { 'Location': 'example' })
+  res.end()
+})
+
+require('./page/page')(app)
+require('./api/api')(app)
+
+// enable to test database connection:
+// console.log(require('./src/database').query('SELECT :abc,:def', { abc: 123, def: 'test' }))
+
+app.listen(process.env.HTTP_PORT, function () {
+  console.log('Listening on port ' + process.env.HTTP_PORT + '!')
+})
 
