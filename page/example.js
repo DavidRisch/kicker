@@ -13,6 +13,6 @@ function page (req, res) {
 
     html = html.replace('§test§', (123000 + 456).toString())
 
-    res.end(html)
+    res.end(require('../src/html_creator').create_html(html, 'Anmeldemethode wählen'))
   })
 }
