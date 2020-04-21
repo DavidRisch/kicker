@@ -26,6 +26,7 @@ require('./api/api')(app)
 // enable to test database connection:
 // console.log(require('./src/database').query('SELECT :abc,:def', { abc: 123, def: 'test' }))
 
+
 app.listen(process.env.HTTP_PORT, function () {
   console.log('Listening on port ' + process.env.HTTP_PORT + '!')
 })
