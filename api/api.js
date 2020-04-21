@@ -23,7 +23,7 @@ function init (app) {
         var password = body.password
 
         var validator = require('../src/input_validator')
-        console.log(validator);
+
         response = {
           'valid-email': validator.isValidEmail(email),
           'valid-name': validator.isValidUserName(name),
