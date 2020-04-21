@@ -8,8 +8,8 @@ function isValidEmail (emailString) {
 function isSecurePassword (passwordText) {
 //  Länge mindestens 8
 //  Mind. 1 Sonderzeichen, 1 Großbuchstabe und 1 Zahl
-//  https://stackoverflow.com/a/5142164
-  const passwordRegex = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+//  A Modified version of https://stackoverflow.com/a/5142164
+  const passwordRegex = new RegExp(/^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$/)
   return passwordRegex.test(passwordRegex)
 }
 
