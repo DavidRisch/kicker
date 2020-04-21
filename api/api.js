@@ -13,6 +13,9 @@ function init (app) {
       case 'registerCredentials':
         require('../src/register_credentials').process(body.name, body.mail, body.password, body.phoneNumber)
         break
+      case 'login':
+        require('../src/login').process(body.userName, body.password)
+        break
 
         // ^^^ Insert new api calls here ^^^
 

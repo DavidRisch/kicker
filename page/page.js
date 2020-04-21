@@ -12,5 +12,9 @@ function init (app) {
     require('./register_credentials').page(req, res)
   })
 
+  app.get('/login', function (req, res) {
+    require('./login').page(req, res)
+  })
+
   // ^^^ Insert new pages here ^^^
 }
