@@ -5,7 +5,7 @@ function init (app) {
     require('./example').page(req, res)
   })
 
-  app.get('/credentials', function (req, res) {
+  app.get('/register_credentials', function (req, res) {
     require('./register_credentials').page(req, res)
   })
 

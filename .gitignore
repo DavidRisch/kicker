@@ -1,4 +1,4 @@
 /.idea/
 /node_modules/
 /config/config.env
-.vscode/launch.json
+.vscode/
