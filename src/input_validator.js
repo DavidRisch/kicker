@@ -20,7 +20,7 @@ function isSecurePassword (passwordText) {
 }
 
 function isValidUserName (userNameText) {
-  //  A-Z, a-z, 0-9, _ - ist erlaubt, mindestens 5 Zeichen
+//  A-Z, a-z, 0-9, _ - ist erlaubt, mindestens 5 Zeichen
   const userNameRegex = new RegExp(/^([A-Za-z0-9_-]+){5,}$/)
   return userNameRegex.test(userNameText)
 }
