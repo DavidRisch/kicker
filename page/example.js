@@ -15,5 +15,5 @@ function page (req, res) {
 
     res.end(html)
   })
-
+  
 }

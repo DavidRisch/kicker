@@ -1,5 +1,5 @@
 const dotenv = require('dotenv')
-const path = require('path')
+const path   = require('path')
 
 if (dotenv.config({ path: path.resolve(__dirname, 'config', 'config.env') }).error) {
   console.warn('config/config.env not found, using dummy config at config/config.env.template')
@@ -7,7 +7,7 @@ if (dotenv.config({ path: path.resolve(__dirname, 'config', 'config.env') }).err
 }
 
 const express = require('express')
-const app = express()
+const app     = express()
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))

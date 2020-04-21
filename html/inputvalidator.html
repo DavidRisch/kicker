@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" src="js/inputvalidator.js"></script>
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+              crossorigin="anonymous"></script>
+    <script> 
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"        
+        crossorigin="anonymous"    
+    </script>
+</head>
+<body>
+    <div>
+        <b>Example html:</b>
+        <form method="post" action="/api">
+            <input type="hidden" name="action" value="validateInput">
+            <label>
+                Name:
+                <input name="name">
+            </label>
+            <label>
+                E-Mail:
+                <input name="email">
+            </label>
+            <label>
+                Passwort:
+                <input name="password">
+            </label>
+            <button>submit</button>
+        </form>
+    </div>
+</body>
+<script>
+
+</script>
+</html>
