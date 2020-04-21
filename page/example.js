@@ -13,7 +13,6 @@ function page (req, res) {
 
     html = html.replace('§test§', (123000 + 456).toString())
 
-    html_shortener = require('../src/html_shortener')
-    res.end(html_shortener.html_header('Anmeldemethode wählen') + html + html_shortener.html_footer())
+    res.end(require('../src/html_creator').create_html(html, 'Anmeldemethode wählen'))
   })
 }

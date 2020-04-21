@@ -1,7 +1,8 @@
 module.exports =
   {
     html_header: html_header,
-    html_footer: html_footer
+    html_footer: html_footer,
+    create_html: create_html
   }
 
 function html_header (title) {
@@ -22,4 +23,8 @@ function html_header (title) {
 
 function html_footer () {
   return `</body></html>`
+}
+
+function create_html (html, title) {
+  return html_header(title) + html + html_footer()
 }

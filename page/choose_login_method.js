@@ -7,7 +7,6 @@ function page (req, res) {
   fs.readFile('html/choose_login_method.html', 'utf8', function (err, html) {
     if (err) throw err
 
-    html_shortener = require('../src/html_shortener')
-    res.end(html_shortener.html_header('Example') + html + html_shortener.html_footer())
+    res.end(require('../src/html_creator').create_html(html, 'Example'))
   })
 }
