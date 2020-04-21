@@ -11,19 +11,19 @@ function init (app) {
         let result = require('./add_example').add(parseInt(body.a), parseInt(body.b))
         response = { 'sum': result }
         break
-      
-      case 'validateInput':
-        name     = body.name;
-        email    = body.email;
-        password = body.password;
-      
-        validator = require('../src/inputvalidator');
 
-        response = { 
-                     'valid-email': validator.isValidEmail(email),
-                     'valid-name' : validator.isValidUserName(name),
-                     'secure-password': validator.isSecurePassword(password) 
-                    }
+      case 'validateInput':
+        var name = body.name
+        var email = body.email
+        var password = body.password
+
+        var validator = require('../src/inputvalidator')
+
+        response = {
+          'valid-email': validator.isValidEmail(email),
+          'valid-name': validator.isValidUserName(name),
+          'secure-password': validator.isSecurePassword(password)
+        }
         break
 
       // ^^^ Insert new api calls here ^^^
