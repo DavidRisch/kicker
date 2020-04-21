@@ -11,7 +11,6 @@
     "express": "^4.17.1",
     "jquery": "^3.5.0",
     "mysql": "^2.18.1",
-    "npm-install-global": "^1.0.0",
     "standard": "^14.3.3"
   }
 }
