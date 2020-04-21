@@ -23,4 +23,3 @@ function init (app) {
 
   // ^^^ Insert new pages here ^^^
 }
-
