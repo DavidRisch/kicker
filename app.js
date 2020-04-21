@@ -16,7 +16,7 @@ app.use('/css', express.static('css'))
 app.use('/js', express.static('js'))
 
 app.get('/', function (req, res) {
-  res.writeHead(302, { 'Location': 'example' })
+  res.writeHead(302, { Location: 'choose_login_method' })
   res.end()
 })
 
