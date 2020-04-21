@@ -8,6 +8,8 @@ function page (req, res) {
   var fs = require('fs')
   fs.readFile('html/register_credentials.html', 'utf8', function (err, html) {
     if (err) throw err
-    res.end(html)
+
+    html_shortener = require('../src/html_shortener')
+    res.end(html_shortener.html_header('Registrierung') + html + html_shortener.html_footer())
   })
 }
