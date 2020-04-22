@@ -27,7 +27,7 @@ function init (app) {
         response = {
           'valid-email': validator.isValidEmail(email),
           'valid-name': validator.isValidUserName(name),
-          'secure-password': validator.isSecurePassword(password)
+          'valid-password': validator.isSecurePassword(password)
         }
         break
 
