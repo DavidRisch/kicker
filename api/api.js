@@ -17,6 +17,20 @@ function init (app) {
         require('../src/login').process(body.userName, body.password)
         break
 
+      case 'validateInput':
+        var name = body.name
+        var email = body.email
+        var password = body.password
+
+        var validator = require('../src/input_validator')
+
+        response = {
+          'valid-email': validator.isValidEmail(email),
+          'valid-name': validator.isValidUserName(name),
+          'valid-password': validator.isSecurePassword(password)
+        }
+        break
+
         // ^^^ Insert new api calls here ^^^
 
       default:
