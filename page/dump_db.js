@@ -6,9 +6,7 @@ const tablesKeep = ['Badge']
 
 function page (req, res) {
   const cp = require('child_process')
-  const childProcess = cp.spawn('mysqldump', ['-u', process.env.DB_USER, '-p', process.env.DB_DATABASE])
-
-  childProcess.stdin.write(process.env.DB_PASSWORD + '\n')
+  const childProcess = cp.spawn('mysqldump', ['-u', process.env.DB_USER, '-p' + process.env.DB_PASSWORD, process.env.DB_DATABASE])
 
   let sqlDump = ''
 
@@ -18,8 +16,7 @@ function page (req, res) {
 
   childProcess.on('close', (code) => {
     if (code !== 0) {
-      res.writeHead(500)
-      res.end('Error')
+      throw new Error('mysqldump error: ' + code)
     }
     let finalSqlDump = ''
     let match
@@ -42,6 +39,8 @@ function page (req, res) {
         }
       }
     } while (match)
+
+    finalSqlDump += sqlDump
 
     res.writeHead(200, {
       'Content-Type': 'application/sql',
