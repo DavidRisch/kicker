@@ -5,10 +5,10 @@ module.exports = {
 }
 
 function isValidEmail (emailString) {
-//  Source: https://emailregex.com/
+  // Source: https://emailregex.com/
+  // eslint-disable-next-line
   const emailRegex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-  var result = emailRegex.test(emailString)
-  return result
+  return emailRegex.test(emailString)
 }
 
 function isSecurePassword (passwordText) {
