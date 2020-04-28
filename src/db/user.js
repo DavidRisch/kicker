@@ -1,13 +1,20 @@
 module.exports = {
   by_id: by_id,
   by_name: by_name,
-  by_email: by_email
+  by_email: by_email,
+  create: create,
+  InvalidUsernameException: InvalidUsernameException,
+  InvalidEmailException: InvalidEmailException,
+  InsecurePasswordException: InsecurePasswordException
 }
 
-database = require('../database')
-input_validator = require('../input_validator')
+let database = require('../database')
+let input_validator = require('../input_validator')
 
-//TODO: Better Errors
+InvalidUsernameException = class extends Error {}
+InvalidEmailException = class extends Error {}
+InsecurePasswordException = class extends Error {}
+
 let User = class {
   #_id
 
@@ -24,9 +31,9 @@ let User = class {
   }
 
   set name (name) {
-    if(!input_validator.isValidUserName(name))
-      throw new Error("Invalid username")
-    this.#update("name", name)
+    if (!input_validator.isValidUserName(name))
+      throw new InvalidUsernameException()
+    this.#update('name', name)
   }
 
   get email () {
@@ -34,9 +41,9 @@ let User = class {
   }
 
   set email (email) {
-    if(!input_validator.isValidEmail(email))
-      throw new Error("Invalid email")
-    this.#update("email", email)
+    if (!input_validator.isValidEmail(email))
+      throw new InvalidEmailException()
+    this.#update('email', email)
   }
 
   get telephone () {
@@ -44,8 +51,7 @@ let User = class {
   }
 
   set telephone (telephone) {
-    //TODO telephone checking?
-    this.#update("telephone", telephone)
+    this.#update('telephone', telephone)
   }
 
   get password () {
@@ -53,9 +59,9 @@ let User = class {
   }
 
   set password (password) {
-    if(!input_validator.isSecurePassword(password))
-      throw new Error("Insecure password")
-    this.#update("password", password)
+    if (!input_validator.isSecurePassword(password))
+      throw new InsecurePasswordException()
+    this.#update('password', password)
   }
 
   get picture () {
@@ -63,8 +69,7 @@ let User = class {
   }
 
   set picture (picture) {
-    //TODO picture checking?
-    this.#update("picture", picture)
+    this.#update('picture', picture)
   }
 
   #select (property) {
@@ -75,26 +80,38 @@ let User = class {
   }
 
   #update (property, value) {
-    database.query_async('UPDATE User SET :property = :value WHERE id = :id', {property: property, value: value, id: this.#_id}, null)
+    database.query('UPDATE User SET :property = :value WHERE id = :id', {
+      property: property,
+      value: value,
+      id: this.#_id
+    }, null)
   }
 }
 
-function get_user(property, value) {
-  return new User(database.query("SELECT id FROM User WHERE :property = :value", {property: property, value: value})[0]['id'])
+function get_user (property, value) {
+  return new User(database.query('SELECT id FROM User WHERE :property = :value', {
+    property: property,
+    value: value
+  })[0]['id'])
 }
 
 function by_id (id) {
-  return get_user("id", id)
+  return get_user('id', id)
 }
 
 function by_name (name) {
-  return get_user("name", name)
+  return get_user('name', name)
 }
 
 function by_email (email) {
-  return get_user("email", email)
+  return get_user('email', email)
 }
 
-function create (name, email) {
-
+function create (name, email, telephone, password) {
+  database.query('INSERT INTO User (name, email, telephone, password) VALUES (:name, :email, :telephone, :password)', {
+    name: name,
+    email: email,
+    telephone: telephone,
+    password: password
+  })
 }
