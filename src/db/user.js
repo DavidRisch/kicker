@@ -59,8 +59,6 @@ let User = class {
   }
 
   set password (password) {
-    if (!input_validator.isSecurePassword(password))
-      throw new InsecurePasswordException()
     this.#update('password', password)
   }
 
