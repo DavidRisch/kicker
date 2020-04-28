@@ -5,24 +5,29 @@ module.exports =
     create_html: createHtml
   }
 
-function htmlHeader (title) {
-  return `<!DOCTYPE html>
-  <html lang="en">
-    <head>
+function htmlHeader (title, js = [], additional = '') {
+  let result = `<!DOCTYPE html>
+<html lang="de">
+<head>
     <meta charset="UTF-8">
     <title>${title}</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>\n\n`
 
-    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+  js.forEach(function (scriptfile) {
+    result += `    <script type="text/javascript" src="js/${scriptfile}.js"></script>\n`
+  })
 
-    <script type="text/javascript" src="js/example.js"></script>
-    </head>
-    <body>`
+  result += additional
+
+  result += `</head>
+<body>\n`
+  return result
 }
 
 function htmlFooter () {
-  return '</body></html>'
+  return '\n</body></html>'
 }
 
-function createHtml (html, title) {
-  return htmlHeader(title) + html + htmlFooter()
+function createHtml (html, title, js = []) {
+  return htmlHeader(title, js) + html + htmlFooter()
 }
