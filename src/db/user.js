@@ -11,77 +11,76 @@ module.exports = {
 let database = require('../database')
 let input_validator = require('../input_validator')
 
-InvalidUsernameException = class extends Error {}
-InvalidEmailException = class extends Error {}
-InsecurePasswordException = class extends Error {}
+var InvalidUsernameException = class extends Error {}
+var InvalidEmailException = class extends Error {}
+var InsecurePasswordException = class extends Error {}
 
 let User = class {
-  #_id
 
   constructor (id) {
-    this.#_id = id
+    this._id = id
   }
 
   get id () {
-    return this.#_id
+    return this._id
   }
 
   get name () {
-    return this.#select('name')
+    return this._select('name')
   }
 
   set name (name) {
     if (!input_validator.isValidUserName(name))
       throw new InvalidUsernameException()
-    this.#update('name', name)
+    this._update('name', name)
   }
 
   get email () {
-    return this.#select('email')
+    return this._select('email')
   }
 
   set email (email) {
     if (!input_validator.isValidEmail(email))
       throw new InvalidEmailException()
-    this.#update('email', email)
+    this._update('email', email)
   }
 
   get telephone () {
-    return this.#select('telephone')
+    return this._select('telephone')
   }
 
   set telephone (telephone) {
-    this.#update('telephone', telephone)
+    this._update('telephone', telephone)
   }
 
   get password () {
-    return this.#select('password')
+    return this._select('password')
   }
 
   set password (password) {
-    this.#update('password', password)
+    this._update('password', password)
   }
 
   get picture () {
-    return this.#select('picture')
+    return this._select('picture')
   }
 
   set picture (picture) {
-    this.#update('picture', picture)
+    this._update('picture', picture)
   }
 
-  #select (property) {
+  _select (property) {
     return database.query('SELECT :property FROM User WHERE id = :id', {
-      id: this.#_id,
+      id: this._id,
       property: property
     })[0][property]
   }
 
-  #update (property, value) {
+  _update (property, value) {
     database.query('UPDATE User SET :property = :value WHERE id = :id', {
       property: property,
       value: value,
-      id: this.#_id
+      id: this._id
     }, null)
   }
 }
