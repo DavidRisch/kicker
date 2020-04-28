@@ -1,12 +1,12 @@
 module.exports =
   {
-    html_header: html_header,
-    html_footer: html_footer,
-    create_html: create_html
+    html_header: htmlHeader,
+    html_footer: htmlFooter,
+    create_html: createHtml
   }
 
-function html_header (title) {
-  res = `<!DOCTYPE html>
+function htmlHeader (title) {
+  return `<!DOCTYPE html>
   <html lang="en">
     <head>
     <meta charset="UTF-8">
@@ -17,14 +17,12 @@ function html_header (title) {
     <script type="text/javascript" src="js/example.js"></script>
     </head>
     <body>`
-
-  return res
 }
 
-function html_footer () {
-  return `</body></html>`
+function htmlFooter () {
+  return '</body></html>'
 }
 
-function create_html (html, title) {
-  return html_header(title) + html + html_footer()
+function createHtml (html, title) {
+  return htmlHeader(title) + html + htmlFooter()
 }
