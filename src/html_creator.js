@@ -6,25 +6,26 @@ module.exports =
   }
 
 function htmlHeader (title, js = [], additional = '') {
-  result = `<!DOCTYPE html>
-    <html lang="de">
-    <head>
+  let result = `<!DOCTYPE html>
+<html lang="de">
+<head>
     <meta charset="UTF-8">
     <title>${title}</title>
-    <link type="text/css" rel="stylesheet" href="css/style.css"/>`
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>\n\n`
 
   js.forEach(function (scriptfile) {
-    result += `<script type="text/javascript" src="js/${scriptfile}.js"></script>`
+    result += `    <script type="text/javascript" src="js/${scriptfile}.js"></script>\n`
   })
 
   result += additional
 
-  result += `</head><body>`
+  result += `</head>
+<body>\n`
   return result
 }
 
 function htmlFooter () {
-  return '</body></html>'
+  return '\n</body></html>'
 }
 
 function createHtml (html, title, js = []) {
