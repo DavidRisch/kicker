@@ -25,9 +25,9 @@ function init (app) {
         var validator = require('../src/input_validator')
 
         response = {
-          'valid-email': validator.isValidEmail(email),
-          'valid-name': validator.isValidUserName(name),
-          'valid-password': validator.isSecurePassword(password)
+          validEmail: validator.isValidEmail(email),
+          validName: validator.isValidUserName(name),
+          validPassword: validator.isSecurePassword(password)
         }
         break
 
