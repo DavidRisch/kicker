@@ -19,7 +19,7 @@ const User = class {
   }
 
   set name (name) {
-    if (!inputValidator.isValidUserName(name)) { throw new InvalidUsernameException() }
+    if (!inputValidator.is_valid_user_name(name)) { throw new InvalidUsernameException() }
     this._update('name', name)
   }
 
@@ -28,7 +28,7 @@ const User = class {
   }
 
   set email (email) {
-    if (!inputValidator.isValidEmail(email)) { throw new InvalidEmailException() }
+    if (!inputValidator.is_valid_email(email)) { throw new InvalidEmailException() }
     this._update('email', email)
   }
 

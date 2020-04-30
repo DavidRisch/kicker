@@ -29,6 +29,12 @@ Git commits must start with a capital letter and should describe the content of 
 
 File names should consist only of lower case letters and underscores.
 
+All js variables must be written in `camelCase`. Variables starting with a `_` are private and should not be accessed from outside of a class.
+
+`module.exports` must be written in `snake_case`. The definition of `module.exports` should be located at the bottom of a file.
+
+Api parameters and responses must be written in `camelCase`.
+
 # Directory structure
 
 - _api_: js files for backend post requests, returns json
