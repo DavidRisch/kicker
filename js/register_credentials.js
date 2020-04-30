@@ -29,17 +29,17 @@ async function ValidateUserInput () {
   const content = await rawResponse.json()
   const label = document.getElementById('errorLabel')
 
-  if (!content.validEmail) {
+  if (!content['valid-email']) {
     label.innerHTML = 'Ungültige Email Addresse'
     return false
   }
 
-  if (!content.validPassword) {
+  if (!content['valid-password']) {
     label.innerHTML = 'Ungültiges Password'
     return false
   }
 
-  if (!content.validName) {
+  if (!content['valid-name']) {
     label.innerHTML = 'Ungültiger Nutzername'
     return false
   }
