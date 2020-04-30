@@ -42,6 +42,8 @@ function queryAsync (statement, values, callback) {
       throw new Error('MySql error: ' + err.stack)
     }
 
-    callback(rows)
+    if (callback !== null) {
+      callback(rows)
+    }
   })
 }
