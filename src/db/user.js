@@ -1,22 +1,11 @@
-module.exports = {
-  by_id: by_id,
-  by_name: by_name,
-  by_email: by_email,
-  create: create,
-  InvalidUsernameException: InvalidUsernameException,
-  InvalidEmailException: InvalidEmailException,
-  InsecurePasswordException: InsecurePasswordException
-}
+const database = require('../database')
+const inputValidator = require('../input_validator')
 
-let database = require('../database')
-let input_validator = require('../input_validator')
+const InvalidUsernameException = class extends Error {}
+const InvalidEmailException = class extends Error {}
+const InsecurePasswordException = class extends Error {}
 
-var InvalidUsernameException = class extends Error {}
-var InvalidEmailException = class extends Error {}
-var InsecurePasswordException = class extends Error {}
-
-let User = class {
-
+const User = class {
   constructor (id) {
     this._id = id
   }
@@ -30,8 +19,7 @@ let User = class {
   }
 
   set name (name) {
-    if (!input_validator.isValidUserName(name))
-      throw new InvalidUsernameException()
+    if (!inputValidator.isValidUserName(name)) { throw new InvalidUsernameException() }
     this._update('name', name)
   }
 
@@ -40,8 +28,7 @@ let User = class {
   }
 
   set email (email) {
-    if (!input_validator.isValidEmail(email))
-      throw new InvalidEmailException()
+    if (!inputValidator.isValidEmail(email)) { throw new InvalidEmailException() }
     this._update('email', email)
   }
 
@@ -85,23 +72,23 @@ let User = class {
   }
 }
 
-function get_user (property, value) {
+function getUser (property, value) {
   return new User(database.query('SELECT id FROM User WHERE :property = :value', {
     property: property,
     value: value
-  })[0]['id'])
+  })[0].id)
 }
 
-function by_id (id) {
-  return get_user('id', id)
+function byId (id) {
+  return getUser('id', id)
 }
 
-function by_name (name) {
-  return get_user('name', name)
+function byName (name) {
+  return getUser('name', name)
 }
 
-function by_email (email) {
-  return get_user('email', email)
+function byEmail (email) {
+  return getUser('email', email)
 }
 
 function create (name, email, telephone, password) {
@@ -111,4 +98,14 @@ function create (name, email, telephone, password) {
     telephone: telephone,
     password: password
   })
+}
+
+module.exports = {
+  by_id: byId,
+  by_name: byName,
+  by_email: byEmail,
+  create: create,
+  InvalidUsernameException: InvalidUsernameException,
+  InvalidEmailException: InvalidEmailException,
+  InsecurePasswordException: InsecurePasswordException
 }
