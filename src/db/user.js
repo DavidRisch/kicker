@@ -57,15 +57,13 @@ const User = class {
   }
 
   _select (property) {
-    return database.query('SELECT :property FROM User WHERE id = :id', {
-      id: this._id,
-      property: property
+    return database.query('SELECT ' + property + ' FROM User WHERE id = :id', {
+      id: this._id
     })[0][property]
   }
 
   _update (property, value) {
-    database.query('UPDATE User SET :property = :value WHERE id = :id', {
-      property: property,
+    database.query('UPDATE User SET ' + property + ' = :value WHERE id = :id', {
       value: value,
       id: this._id
     }, null)
@@ -73,10 +71,11 @@ const User = class {
 }
 
 function getUser (property, value) {
-  return new User(database.query('SELECT id FROM User WHERE :property = :value', {
-    property: property,
+  const result = database.query('SELECT id FROM User WHERE ' + property + ' = :value', {
     value: value
-  })[0].id)
+  })
+  console.log(result)
+  return new User(result[0].id)
 }
 
 function byId (id) {
@@ -96,7 +95,8 @@ function create (name, email, telephone, password) {
     name: name,
     email: email,
     telephone: telephone,
-    password: password
+    password: password,
+    salt: require('../account_util').generate_random_string(64)
   })
 }
 
