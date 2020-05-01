@@ -48,6 +48,10 @@ const User = class {
     this._update('password', password)
   }
 
+  get salt () {
+    return this._select('salt')
+  }
+
   get picture () {
     return this._select('picture')
   }
@@ -91,12 +95,14 @@ function byEmail (email) {
 }
 
 function create (name, email, telephone, password) {
-  database.query('INSERT INTO User (name, email, telephone, password) VALUES (:name, :email, :telephone, :password)', {
+  const salt = require('../account_util').generate_random_string(64)
+
+  database.query('INSERT INTO User (name, email, telephone, password, salt) VALUES (:name, :email, :telephone, :password, :salt)', {
     name: name,
     email: email,
     telephone: telephone,
-    password: password,
-    salt: require('../account_util').generate_random_string(64)
+    password: require('../account_util').hash_password(password, salt),
+    salt: salt
   })
 }
 

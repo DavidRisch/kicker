@@ -1,6 +1,6 @@
-function hashPassword (password) {
+function hashPassword (password, salt) {
   const hash = require('js-sha256').create()
-  hash.update(process.env.SALT + password)
+  hash.update(salt + password)
   return hash.hex()
 }
 
