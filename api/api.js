@@ -26,7 +26,7 @@ function init (app) {
         break
       }
       case 'login': {
-        require('../src/login').process(body.userName, body.password)
+        response = require('./login').process(body.userName, body.password, res)
         break
       }
 
