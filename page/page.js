@@ -21,5 +21,9 @@ function init (app) {
     require('./dump_db').page(req, res)
   })
 
+  app.get('/front_page', function (req, res) {
+    require('./front_page').page(req, res)
+  })
+
   // ^^^ Insert new pages here ^^^
 }
