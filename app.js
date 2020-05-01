@@ -9,6 +9,8 @@ if (dotenv.config({ path: path.resolve(__dirname, 'config', 'config.env') }).err
 const express = require('express')
 const app = express()
 
+app.use(require('cookie-parser')())
+
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 
