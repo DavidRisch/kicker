@@ -1,31 +1,19 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Registrierung</title>
-
-    <link type="text/css" rel="stylesheet" href="css/style.css"/>
-
-    <!-- <script type="text/javascript" src="js/example.js"></script> -->
-</head>
-<body>
 <div>
     <b>Bitte gib deine Nutzerdaten ein:</b>
 
     <form method="post" action="/api">
-        <input type="hidden" name="action" value="login">
         <label>
             Benutzername:
             <br>
-            <input name="userName" placeholder="Benutzername / E-Mail">
+            <input name="userName" id="userNameInput" placeholder="Benutzername / E-Mail">
         </label><br>
         <label>
             Password:
             <br>
-            <input name="password" type="password">
+            <input name="password" id="passwordInput" type="password">
         </label><br>
-        <button>OK</button>
+        <button type="button" onclick="Login()">OK</button>
+        <br>
+        <label id="errorLabel" style="display: none;">Ungültige Zugangsdaten</label>
     </form>
 </div>
-</body>
-</html>
