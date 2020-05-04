@@ -1,4 +1,6 @@
-async function CheckDataProtectionAndSubmit () {
+/* global apiPost */
+
+async function CheckDataProtectionAndSubmit () { // eslint-disable-line no-unused-vars
   // validate user input
   if (!await ValidateUserInput()) {
     return
@@ -20,7 +22,7 @@ async function ValidateUserInput () {
     password: document.getElementById('passwordInput').value
   }
 
-  var res = await apiPost(data)
+  const res = await apiPost(data)
   const label = document.getElementById('errorLabel')
 
   if (!res.validEmail) {
