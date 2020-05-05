@@ -29,7 +29,5 @@ function htmlFooter () {
 }
 
 function createHtml (html, title, js = []) {
-  // add default scripts
-  const defaultJS = ['api_post']
-  return htmlHeader(title, defaultJS.concat(js)) + html + htmlFooter()
+  return htmlHeader(title, js) + html + htmlFooter()
 }

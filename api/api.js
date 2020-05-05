@@ -12,11 +12,7 @@ function init (app) {
         break
       }
       case 'registerCredentials': {
-<<<<<<< Updated upstream
         require('../src/register_credentials').process(body.name, body.mail, body.password, body.phoneNumber)
-=======
-        response = require('./register_credentials').process(body.name, body.mail, body.password, body.phoneNumber)
->>>>>>> Stashed changes
         break
       }
       case 'login': {

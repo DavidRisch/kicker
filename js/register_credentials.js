@@ -6,49 +6,40 @@ async function CheckDataProtectionAndSubmit () {
   // check data protection
   if (document.getElementById('checkbox1').checked) {
     document.getElementById('errorLabel').style.display = 'none'
-    SubmitForm()
+    document.getElementById('loginForm').submit()
   } else {
     document.getElementById('errorLabel').innerHTML = 'Bitte akzeptiere zuerst die Datenschutzbedingungen.'
   }
 }
 
-async function SubmitForm () {
-  const data = {
-    action: 'registerCredentials',
-    name: document.getElementById('userNameInput').value,
-    mail: document.getElementById('mailInput').value,
-    password: document.getElementById('passwordInput').value,
-    phoneNumber: document.getElementById('phoneNumberInput').value
-
-  }
-  const res = await apiPost(data)
-  if (res.success) {
-    window.location.replace('/login')
-  }
-}
-
 async function ValidateUserInput () {
-  const data = {
-    action: 'validateInput',
-    name: document.getElementById('userNameInput').value,
-    email: document.getElementById('mailInput').value,
-    password: document.getElementById('passwordInput').value
-  }
+  const rawResponse = await fetch('/api', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      action: 'validateInput',
+      name: document.getElementById('nameInput').value,
+      email: document.getElementById('mailInput').value,
+      password: document.getElementById('passwordInput').value
+    })
+  })
 
-  var res = await apiPost(data)
+  const content = await rawResponse.json()
   const label = document.getElementById('errorLabel')
 
-  if (!res.validEmail) {
+  if (!content.validEmail) {
     label.innerHTML = 'Ungültige Email Addresse'
     return false
   }
 
-  if (!res.validPassword) {
+  if (!content.validPassword) {
     label.innerHTML = 'Ungültiges Password'
     return false
   }
 
-  if (!res.validName) {
+  if (!content.validName) {
     label.innerHTML = 'Ungültiger Nutzername'
     return false
   }
