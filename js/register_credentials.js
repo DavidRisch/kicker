@@ -1,4 +1,6 @@
-async function CheckDataProtectionAndSubmit () {
+/* global apiPost */
+
+async function CheckDataProtectionAndSubmit () { // eslint-disable-line no-unused-vars
   // validate user input
   if (!await ValidateUserInput()) {
     return
@@ -13,33 +15,27 @@ async function CheckDataProtectionAndSubmit () {
 }
 
 async function ValidateUserInput () {
-  const rawResponse = await fetch('/api', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      action: 'validateInput',
-      name: document.getElementById('nameInput').value,
-      email: document.getElementById('mailInput').value,
-      password: document.getElementById('passwordInput').value
-    })
-  })
+  const data = {
+    action: 'validateInput',
+    name: document.getElementById('nameInput').value,
+    email: document.getElementById('mailInput').value,
+    password: document.getElementById('passwordInput').value
+  }
 
-  const content = await rawResponse.json()
+  const res = await apiPost(data)
   const label = document.getElementById('errorLabel')
 
-  if (!content.validEmail) {
+  if (!res.validEmail) {
     label.innerHTML = 'Ungültige Email Addresse'
     return false
   }
 
-  if (!content.validPassword) {
+  if (!res.validPassword) {
     label.innerHTML = 'Ungültiges Password'
     return false
   }
 
-  if (!content.validName) {
+  if (!res.validName) {
     label.innerHTML = 'Ungültiger Nutzername'
     return false
   }

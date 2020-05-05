@@ -1,9 +1,3 @@
-module.exports = {
-  isValidEmail: isValidEmail,
-  isSecurePassword: isSecurePassword,
-  isValidUserName: isValidUserName
-}
-
 function isValidEmail (emailString) {
   // Source: https://emailregex.com/
   // eslint-disable-next-line
@@ -30,4 +24,10 @@ function isValidUserName (userNameText) {
 //  {5,} Repeat this at least 5 times
   const userNameRegex = new RegExp(/^([A-Za-z0-9_-]+){5,}$/)
   return userNameRegex.test(userNameText)
+}
+
+module.exports = {
+  is_valid_email: isValidEmail,
+  is_secure_password: isSecurePassword,
+  is_valid_user_name: isValidUserName
 }

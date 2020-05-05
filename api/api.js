@@ -1,6 +1,16 @@
 module.exports = init
 
 function init (app) {
+  const bodyParser = require('body-parser')
+
+  app.use(
+    bodyParser.urlencoded({
+      extended: true
+    })
+  )
+
+  app.use(bodyParser.json())
+
   app.post('/api', function (req, res) {
     const body = req.body
     let response = ''
@@ -12,11 +22,11 @@ function init (app) {
         break
       }
       case 'registerCredentials': {
-        require('../src/register_credentials').process(body.name, body.mail, body.password, body.phoneNumber)
+        require('./register_credentials').process(body.name, body.mail, body.password, body.phoneNumber)
         break
       }
       case 'login': {
-        require('../src/login').process(body.userName, body.password)
+        response = require('./login').process(body.userName, body.password, res)
         break
       }
 
@@ -28,9 +38,9 @@ function init (app) {
         var validator = require('../src/input_validator')
 
         response = {
-          'valid-email': validator.isValidEmail(email),
-          'valid-name': validator.isValidUserName(name),
-          'valid-password': validator.isSecurePassword(password)
+          validEmail: validator.is_valid_email(email),
+          validName: validator.is_valid_user_name(name),
+          validPassword: validator.is_secure_password(password)
         }
         break
       }
