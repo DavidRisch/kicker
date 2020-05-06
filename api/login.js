@@ -12,7 +12,7 @@ function handle (userName, password, res) {
     const hashedPassword = accountUtil.hash_password(password, user.salt)
     if (hashedPassword === user.password || process.env.DEBUG_ACCEPT_ALL_PASSWORDS === '1') {
       session.valid = true
-      accountUtil.set_session_cookie(res, session.token)
+      accountUtil.set_session_cookie(res, session.cookieToken)
       return {
         success: true
       }
