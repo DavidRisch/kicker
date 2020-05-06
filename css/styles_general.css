@@ -1,3 +1,5 @@
+@import url("../css/hamburgers.css");
+
 body {
 	background-color: #000000;
 	margin: 0;
@@ -8,6 +10,14 @@ nav {
 	background-color: #2a333c;
 	padding: 10px;
 	padding-bottom: 60px;
+}
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after,
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+    background-color: #31bebe;
 }
 .dark {
 	background-color: #12141e;

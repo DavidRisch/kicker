@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="../css/styles_general.css">
+    <link rel="stylesheet" href="../css/styles_general.css">
 </head>
 <nav>
+    <button class="hamburger hamburger--squeeze" type="button" onclick="toggleButton()">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+    <script>
+        function toggleButton() {
+            var menu = document.querySelector(".hamburger") // Using a class instead, see note below.
+            menu.classList.toggle("is-active");
+        }
+    </script>
 	<h1 class="menu_title">Testturnier I</h1>
 </nav>
 <body>
@@ -17,7 +28,7 @@
 		<h1 class="box_value">42</h1>
 		<h1 class="box_title">Rang</h1>
 	</div>
-	
+
 	<button class="button_big" style="grid-row: 2; grid-column: 3 / 11;">Spiel eintragen</button>
 </div>
 
@@ -30,7 +41,7 @@
 		<h1 class="box_value">42</h1>
 		<h1 class="box_title">Rang</h1>
 	</div>
-	
+
 	<button class="button_big" style="grid-row: 2; grid-column: 3 / 11;">Spiel eintragen</button>
 </div>
 
