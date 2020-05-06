@@ -2,14 +2,58 @@
 
 body {
 	background-color: #000000;
-	margin: 0;
-	margin-left: auto;
-    margin-right: auto;
+	margin: 0 auto;
 }
 nav {
 	background-color: #2a333c;
 	padding: 10px;
 	padding-bottom: 60px;
+    display: flex;
+}
+#main, #nav {
+  transition: margin-left .5s;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    background-color: #12141e;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: ;
+    transition: 0.5s;
+}
+.sidenav a {
+    padding: 5px 10px 5px 35px;
+    color: #fefefe;
+    font: 30px sans-serif, Arial;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+.sidenav a:hover {
+  color: #2a333c;
+}
+.sidenav-button {
+    width: 100%;
+    padding: 10px 0;
+    color: #ffffff;
+    background-color: #31bebe;
+    font: 30px sans-serif, Arial;
+    border-radius: 25px;
+    border-width: 0;
+    cursor: pointer;
+}
+.sidenav hr {
+    height: 2px;
+    color: #2a333c;
+    background-color: #2a333c;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 .hamburger-inner,
 .hamburger-inner::before,
@@ -33,7 +77,6 @@ nav {
 	padding-left: 0;
 	padding-right: 0;
 	margin-top: -40px;
-
 	display: grid;
 	grid-template-columns: repeat(12, 8.3333333%);
 
@@ -47,8 +90,7 @@ nav {
 .menu_title {
 	color: #ffffff;
 	font: 60px sans-serif, Arial;
-	text-align: center;
-	margin: 0;
+	margin: 0 auto;
 }
 .box_value {
 	color: #ffffff;
@@ -63,8 +105,8 @@ nav {
 	margin: 0;
 }
 .button_big {
+    color: #ffffff;
 	background-color: #31bebe;
-	color: #ffffff;
 	font: 40px sans-serif, Arial;
 	margin: 10px;
 	border-radius: 25px;
@@ -73,8 +115,8 @@ nav {
     cursor: pointer;
 }
 .text_input {
+    color: #ffffff;
 	background-color: #000000;
-	color: #ffffff;
 	border-color: #31bebe;
 	border-style: solid;
 	border-radius: 10px;
