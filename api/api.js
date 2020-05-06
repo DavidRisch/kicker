@@ -22,7 +22,7 @@ function init (app) {
         break
       }
       case 'registerCredentials': {
-        require('./register_credentials').process(body.name, body.mail, body.password, body.phoneNumber)
+        response = require('./register_credentials').process(body.name, body.mail, body.password, body.phoneNumber)
         break
       }
       case 'login': {
