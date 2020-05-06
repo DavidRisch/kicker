@@ -37,7 +37,7 @@ async function ValidateUserInput () {
     password: document.getElementById('passwordInput').value
   }
 
-  var res = await apiPost(data)
+  const res = await apiPost(data)
   const label = document.getElementById('errorLabel')
 
   if (!res.validEmail) {
