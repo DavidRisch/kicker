@@ -5,7 +5,7 @@ module.exports =
     create_html: createHtml
   }
 
-function htmlHeader (title, js = [], additional = '') {
+function htmlHeader (title, js = [], css = [], additional = '') {
   let result = `<!DOCTYPE html>
 <html lang="de">
 <head>
@@ -13,8 +13,14 @@ function htmlHeader (title, js = [], additional = '') {
     <title>${title}</title>
     <link type="text/css" rel="stylesheet" href="css/style.css"/>\n\n`
 
-  js.forEach(function (scriptfile) {
-    result += `    <script type="text/javascript" src="js/${scriptfile}.js"></script>\n`
+  css.forEach(function (name) {
+    result += `    <link rel="stylesheet" href="css/${name}.css">\n`
+  })
+
+  result += '\n'
+
+  js.forEach(function (name) {
+    result += `    <script type="text/javascript" src="js/${name}.js"></script>\n`
   })
 
   result += additional
@@ -28,8 +34,12 @@ function htmlFooter () {
   return '\n</body></html>'
 }
 
-function createHtml (html, title, js = []) {
-  // add default scripts
-  const defaultJS = ['api_post']
-  return htmlHeader(title, defaultJS.concat(js)) + html + htmlFooter()
+function createHtml (html, title, js = [], css = []) {
+  // add defaults
+  const defaultJs = ['api_post']
+  const defaultCss = []
+  // TODO: activate when pages are ready:
+  // const defaultCss = ['styles_general']
+
+  return htmlHeader(title, defaultJs.concat(js), defaultCss.concat(css)) + html + htmlFooter()
 }
