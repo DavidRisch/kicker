@@ -18,9 +18,9 @@ async function SubmitForm () {
   const data = {
     action: 'registerCredentials',
     name: document.getElementById('userNameInput').value,
-    mail: document.getElementById('mailInput').value,
+    email: document.getElementById('mailInput').value,
     password: document.getElementById('passwordInput').value,
-    phoneNumber: document.getElementById('phoneNumberInput').value
+    telephone: document.getElementById('phoneNumberInput').value
 
   }
   const res = await apiPost(data)
