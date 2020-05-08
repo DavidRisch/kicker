@@ -161,7 +161,7 @@ nav .menu_title {
 nav .group_icon_button {
 	float: right;
 	background: black;
-	background-image: url(images/no_group_selected.png); 	/*Here you'll put the image of selected group, this is default */
+	background-image: url(/images/no_group_selected.png); 	/*Here you'll put the image of selected group, this is default */
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -191,7 +191,6 @@ nav .group_select_button {
 	position: relative;
 	left: 15px;
 	margin-top: 5px;
-	background-color: #000000;
 	color: #ffffff;
 	border-color: #31bebe;
 	border-style: solid;
@@ -214,7 +213,6 @@ nav .group_select_button img {
 	float: left;
 	background: black;
 	padding: 5px;
-	border-radius: 5px;
 	width: 20px;
 	height: 20px;
 	border-color: #31bebe;
