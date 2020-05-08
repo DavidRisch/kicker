@@ -1,9 +1,14 @@
-@import url("../css/hamburgers.css");
+@import url("../css/hamburger_icons.css");
 
 body {
 	background-color: #000000;
 	margin: 0 auto;
 }
+
+a {
+    color: #31bebe;
+}
+
 nav {
 	background-color: #2a333c;
     padding: 10px 0 40px 0;
@@ -15,9 +20,11 @@ nav {
     border-bottom-style: solid;
     border-bottom-color: #12141E;
 }
+
 #main, #nav {
   transition: margin-left .5s;
 }
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -30,6 +37,7 @@ nav {
     padding-top: ;
     transition: 0.5s;
 }
+
 .sidenav a {
     padding: 5px 10px 5px 35px;
     color: #fefefe;
@@ -38,9 +46,11 @@ nav {
     display: block;
     transition: 0.4s;
 }
+
 .sidenav a:hover {
   color: #2a333c;
 }
+
 .sidenav-button {
     width: 100%;
     padding: 35px 0;
@@ -51,20 +61,24 @@ nav {
     cursor: pointer;
     transition: 0.6s;
 }
+
 .sidenav-button:hover {
     color: #2a333c;
 }
+
 .sidenav hr {
     height: 2px;
     color: #2a333c;
     background-color: #2a333c;
 }
+
 .sidenav hr.bold{
     height: 2px;
     color: #31bebe;
     background-color: #31bebe;
     margin:15px 0
 }
+
 .hamburger-inner,
 .hamburger-inner::before,
 .hamburger-inner::after,
@@ -73,12 +87,15 @@ nav {
 .hamburger.is-active .hamburger-inner::after {
     background-color: #31bebe;
 }
+
 .dark {
 	background-color: #12141e;
 }
+
 .light {
 	background-color: #2a333c;
 }
+
 .division {
 	border-top-left-radius: 50px;
 	border-top-right-radius: 50px;
@@ -89,41 +106,45 @@ nav {
 	margin-top: -40px;
 	display: grid;
 	grid-template-columns: repeat(12, 8.3333333%);
-
-	/*box-shadow: 0px -5px 10px #000000F0;*/
 }
+
 .box {
 	margin: 20px;
 	padding: 5px;
 	border-radius: 20px;
 }
+
 .menu_title {
 	color: #ffffff;
 	font: 60px sans-serif, Arial;
 	margin: 0 auto;
 }
+
 .box_value {
 	color: #ffffff;
 	font: 70px sans-serif, Arial;
 	text-align: center;
 	margin: 0;
 }
+
 .box_title {
 	color: #31bebe;
 	font: 40px sans-serif, Arial;
 	text-align: center;
 	margin: 0;
 }
+
 .button_big {
     color: #ffffff;
 	background-color: #31bebe;
 	font: 40px sans-serif, Arial;
-	margin: 10px;
 	border-radius: 25px;
 	border-width: 0;
 	height: 50px;
+    margin: 10px;
     cursor: pointer;
 }
+
 .text_input {
     color: #ffffff;
 	background-color: #000000;
@@ -134,5 +155,25 @@ nav {
 	font: 18px sans-serif, Arial;
 	height: 35px;
 	margin: 10px;
-	padding-left: 5px;
+	padding-left: 20px;
+}
+
+.checkbox {
+    -webkit-appearance: none;
+    color: #ffffff;
+	background-color: #000000;
+    border: 1px solid #31bebe;
+	border-radius: 8px;
+    margin: 10px 10px;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.checkbox:checked:after {
+    color: #ffffff;
+	content: "\2714";
+	font-size: 20px;
+    position: absolute;
+    left: 6px
 }
