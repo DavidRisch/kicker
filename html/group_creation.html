@@ -1,164 +1,141 @@
-<html lang="de">
-
-<head>
-    <meta charset="utf-8">
-    <title>Gruppen Erstellung</title>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-    <script>
-        src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.js"></script>
-    <script src="../css/dropzone-5.7.0/dist/dropzone.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css">
-    <link rel="stylesheet" href="../css/styles_general.css">
-    <link rel="stylesheet" href="../css/groups.css">
-    <link rel="stylesheet" href="../css/hamburgers.css">
-    <link rel="stylesheet" href="../css/dropzone-5.7.0/dist/dropzone.css">
-</head>
-
-<body>
-    <!-- Configure Dropzone -->
-    <script type="text/javascript">
-        Dropzone.opttions.group_member_select = {
-            paramName: "groupImage", //Name of the transfered file
-            maxFilesize: 8, //MB
-            uploadMultiple: false,
-            clickable: true,
-            acceptedFiles: "image/jpeg,image/png",
-            dictDefaultMessage: null
-        }
-    </script>
-    <!-- Chosen init script -->
-    <script type="text/javascript">
-        $(function () {
-            $(".group_member_select").chosen({
-                allow_single_deselect: true,
-                placeholder_text_multiple: "Gruppenmitglieder hinzufügen",
-                display_selected_options: false,
-                inherit_select_classes: true,
-                width: "98%"
-            });
-        });
-    </script>
-    <!-- Nav bar -->
-    <nav id="nav">
-        <button class="hamburger hamburger--squeeze" type="button" onclick="toggleButton()">
+<!-- Configure Dropzone -->
+<script type="text/javascript">
+  Dropzone.options.group_member_select = {
+    paramName: 'groupImage', //Name of the transferred file
+    maxFilesize: 8, //MB
+    uploadMultiple: false,
+    clickable: true,
+    acceptedFiles: 'image/jpeg,image/png',
+    dictDefaultMessage: null
+  }
+</script>
+<!-- Chosen init script -->
+<script type="text/javascript">
+  $(function () {
+    $('.group_member_select').chosen({
+      allow_single_deselect: true,
+      placeholder_text_multiple: 'Gruppenmitglieder hinzufügen',
+      display_selected_options: false,
+      inherit_select_classes: true,
+      width: '98%'
+    })
+  })
+</script>
+<!-- Nav bar -->
+<nav id="nav">
+    <button class="hamburger hamburger--squeeze" type="button" onclick="toggleButton()">
             <span class="hamburger-box">
                 <span class="hamburger-inner"></span>
             </span>
+    </button>
+    <div id="sidenav" class="sidenav">
+        <button class="sidenav-button" style="margin-bottom:20px">Einstellungen</button>
+        <a href="#">Startseite</a>
+        <hr class="bold">
+        <a href="#">Neues Spiel</a>
+        <hr>
+        <a href="#">Spielverlauf</a>
+        <hr class="bold">
+        <a href="#">Neue Gruppe</a>
+        <hr>
+        <a href="#">Gruppenübersicht</a>
+        <hr class="bold">
+        <a href="#">Neues Turnier</a>
+        <hr>
+        <a href="#">Turnierübersicht</a>
+        <hr class="bold">
+        <a href="#">Statistiken</a>
+        <hr>
+        <a href="#">Achievements</a>
+        <hr class="bold">
+        <a href="#">FAQ</a>
+        <hr>
+        <a href="#">Datenschutz / Impressum</a>
+        <button class="sidenav-button" style="margin-top:20px;position:absolute;bottom:0">Logout</button>
+    </div>
+    <script>
+      let stateModule = (function () {
+        let state
+        let pub = {}
+        pub.changeState = function (newstate) {
+          state = newstate
+        }
+        pub.getState = function () {
+          return state
+        }
+        return pub
+      }())
+
+      function toggleButton () {
+        let menu = document.querySelector('.hamburger')
+        menu.classList.toggle('is-active')
+        if (!stateModule.getState()) {
+          openNav()
+          stateModule.changeState(1)
+        } else {
+          closeNav()
+          stateModule.changeState(0)
+        }
+      }
+
+      function openNav () {
+        document.getElementById('sidenav').style.width = '300px'
+        document.getElementById('nav').style.marginLeft = '300px'
+        document.getElementById('main').style.marginLeft = '300px'
+      }
+
+      function closeNav () {
+        document.getElementById('sidenav').style.width = '0'
+        document.getElementById('nav').style.marginLeft = '0'
+        document.getElementById('main').style.marginLeft = '0'
+      }
+    </script>
+    <div class="menu_title">Neue Gruppe</div>
+    <div id="group_select" class="group_sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeGroups()">X</a>
+        <button class="group_select_button">
+            <img src="images/no_group_selected.png" alt="Gruppe"/>
+            <span>Gruppe 1wads gsdfgnfghsbfsfgbsfd</span>
         </button>
-        <div id="sidenav" class="sidenav">
-            <button class="sidenav-button" style="margin-bottom:20px">Einstellungen</button>
-            <a href="#">Startseite</a>
-            <hr class="bold">
-            <a href="#">Neues Spiel</a>
-            <hr>
-            <a href="#">Spielverlauf</a>
-            <hr class="bold">
-            <a href="#">Neue Gruppe</a>
-            <hr>
-            <a href="#">Gruppenübersicht</a>
-            <hr class="bold">
-            <a href="#">Neues Turnier</a>
-            <hr>
-            <a href="#">Turnierübersicht</a>
-            <hr class="bold">
-            <a href="#">Statistiken</a>
-            <hr>
-            <a href="#">Achievements</a>
-            <hr class="bold">
-            <a href="#">FAQ</a>
-            <hr>
-            <a href="#">Datenschutz / Impressum</a>
-            <button class="sidenav-button" style="margin-top:20px;position:absolute;bottom:0">Logout</button>
-        </div>
-        <script>
-            var stateModule = (function () {
-                var state;
-                var pub = {};
-                pub.changeState = function (newstate) {
-                    state = newstate;
-                };
-                pub.getState = function () {
-                    return state;
-                }
-                return pub;
-            }());
-            function toggleButton() {
-                var menu = document.querySelector(".hamburger")
-                menu.classList.toggle("is-active");
-                if (!stateModule.getState()) {
-                    openNav();
-                    stateModule.changeState(1);
-                } else {
-                    closeNav();
-                    stateModule.changeState(0);
-                }
-            }
-            function openNav() {
-                document.getElementById("sidenav").style.width = "300px";
-                document.getElementById("nav").style.marginLeft = "300px";
-                document.getElementById("main").style.marginLeft = "300px";
-            }
-            function closeNav() {
-                document.getElementById("sidenav").style.width = "0";
-                document.getElementById("nav").style.marginLeft = "0";
-                document.getElementById("main").style.marginLeft = "0";
-            }
-        </script>
-        <div class="menu_title">Neue Gruppe</div>
-        <div id="group_select" class="group_sidepanel">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeGroups()">X</a>
-            <button class="group_select_button">
-                <img src="../css/no_group_selected.png"/>
-                <span>Gruppe 1wads gsdfgnfghsbfsfgbsfd</span>    
-            </button>
-            <button class="group_select_button">
-                <img src="../css/no_group_selected.png"/>
-                <span>Gruppe 2</span>    
-            </button>
-        </div>
-        <button class="group_icon_button" onclick="openGroups()"></button>
+        <button class="group_select_button">
+            <img src="images/no_group_selected.png" alt="Gruppe"/>
+            <span>Gruppe 2</span>
+        </button>
+    </div>
+    <button class="group_icon_button" onclick="openGroups()"></button>
 
-        <script>
-            /* Set the width of the sidebar to 300px (show it) */
-            function openGroups() {
-                document.getElementById("group_select").style.width = "300px";
-            }
-        </script>
-        <script>
+    <script>
+      /* Set the width of the sidebar to 300px (show it) */
+      function openGroups () {
+        document.getElementById('group_select').style.width = '300px'
+      }
+    </script>
+    <script>
 
-            /* Set the width of the sidebar to 0 (hide it) */
-            function closeGroups() {
-                document.getElementById("group_select").style.width = "0";
-            } 
-        </script>
+      /* Set the width of the sidebar to 0 (hide it) */
+      function closeGroups () {
+        document.getElementById('group_select').style.width = '0'
+      }
+    </script>
 
-    </nav>
+</nav>
 
-    <div class="division dark">
-        <div class="box light background">
-            <form action="/file-upload" class="dropzone" id="group_image_dropzone"></form>
-            <form method="post" id="groupForm" action="/api">
-                <input class="text_input input_group" name="groupName" id="groupNameInput" placeholder="Gruppenname">
-                <br>
-                <select class="group_member_select" multiple="true" name="faculty" style="width:200px;">
-                    <option value="User00">Max Mustermann</option>
-                    <option value="User01">Mia Musterfrau</option>
-                    <option value="User02">Kai Pflaume</option>
-                    <option value="User03">Donald Trump</option>
-                </select><br>
-                <textarea class="text_input description_group" name="groupDescription" id="groupDescriptionInput"
-                    placeholder="Beschreibung (optional)...">
+<div class="division dark">
+    <div class="box light background">
+        <form action="/file-upload" class="dropzone" id="group_image_dropzone"></form>
+        <form method="post" id="groupForm" action="/api">
+            <input class="text_input input_group" name="groupName" id="groupNameInput" placeholder="Gruppenname">
+            <br>
+            <select class="group_member_select" multiple="true" name="faculty" style="width:200px;">
+                <option value="User00">Max Mustermann</option>
+                <option value="User01">Mia Musterfrau</option>
+                <option value="User02">Kai Pflaume</option>
+                <option value="User03">Donald Trump</option>
+            </select><br>
+            <textarea class="text_input description_group" name="groupDescription" id="groupDescriptionInput"
+                      placeholder="Beschreibung (optional)...">
                     </textarea><br>
-                <button class="button_big" type="button" onclick="CheckAndCreateGroup()">Gruppe erstellen</button>
-            </form>
-        </div>
-</body>
-
-</html>
+            <button class="button_big" type="button" onclick="CheckAndCreateGroup()">Gruppe erstellen</button>
+        </form>
+    </div>
+</div>
