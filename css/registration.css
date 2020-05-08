@@ -97,6 +97,7 @@ form {
     width: 30px;
     height: 30px;
     position: relative;
+    cursor: pointer;
 }
 
 .checkbox:checked:after {
