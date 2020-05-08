@@ -14,13 +14,35 @@ function htmlHeader (title, js = [], css = [], additional = '') {
     <link type="text/css" rel="stylesheet" href="css/style.css"/>\n\n`
 
   css.forEach(function (name) {
-    result += `    <link rel="stylesheet" href="css/${name}.css">\n`
+    let path = `css/${name}.css`
+
+    if (name === 'chosen') {
+      path = 'chosen/chosen.css'
+    } else if (name === 'jquery-ui') {
+      path = 'jquery-ui/jquery-ui.css'
+    } else if (name === 'dropzone') {
+      path = 'dropzone/dropzone.css'
+    }
+
+    result += `    <link rel="stylesheet" href="${path}">\n`
   })
 
   result += '\n'
 
   js.forEach(function (name) {
-    result += `    <script type="text/javascript" src="js/${name}.js"></script>\n`
+    let path = `js/${name}.js`
+
+    if (name === 'chosen') {
+      path = 'chosen/chosen.jquery.min.js'
+    } else if (name === 'jquery') {
+      path = 'jquery/jquery.min.js'
+    } else if (name === 'jquery-ui') {
+      path = 'jquery-ui/jquery-ui.min.js'
+    } else if (name === 'dropzone') {
+      path = 'dropzone/dropzone.js'
+    }
+
+    result += `    <script type="text/javascript" src="${path}"></script>\n`
   })
 
   result += additional
