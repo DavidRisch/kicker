@@ -45,9 +45,14 @@ body {
 	font: 40px sans-serif, Arial;
 	text-align: center;
 	margin: 0;
+	padding: 10px 0;
 }
 
-.padded_vertically {
+.box_subtitle {
+	color: #31bebe;
+	font: 28px sans-serif, Arial;
+	text-align: left;
+	margin: 0;
 	padding: 20px 0
 }
 
