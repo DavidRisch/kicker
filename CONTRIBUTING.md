@@ -43,3 +43,20 @@ Api parameters and responses must be written in `camelCase`.
 - _js_: js files for use in the client browser
 - _page_: js files generating html on get requests
 - _src_: js files for importing in other javascript files
+
+# Installation
+
+- Install nodejs:  
+  https://nodejs.org/en/download/
+- Clone this repository:  
+  ```git clone https://github.com/DavidRisch/kicker.git```  
+  Run the following commands from inside the repo.
+- Run npm (package manager that comes with nodejs):  
+  `npm install`  
+  This step must be repeated when dependencies are added to `package.json` (by yourself or by others).
+- Run nodejs:  
+  `nodejs app.js`  
+  This step should be repeated after changes to any *.js or *.env files but it is not required for changes to *.html and *.css files.
+- Open in your browser:  
+  `localhost:8080`
+  
