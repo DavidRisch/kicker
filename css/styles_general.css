@@ -59,24 +59,24 @@ body {
 /* unvisited link */
 a:link {
 	text-decoration: none;
-	color: #ffffff;
+	color: #31bebe;
 }
 
 /* visited link */
 a:visited {
 	text-decoration: none;
-	color: #ffffff;
+	color: #31bebe;
 }
 
 /* mouse over link */
 a:hover {
-	text-decoration: none;
+	text-decoration: underline;
 	color: #31bebe;
 }
 
 /* selected link */
 a:active {
-	text-decoration: none;
+	text-decoration: underline;
 	color: #31bebe;
 }
 
