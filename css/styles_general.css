@@ -6,10 +6,12 @@ body {
 }
 .dark {
 	background-color: #12141e;
+	color: #ffffff;
 }
 
 .light {
 	background-color: #2a333c;
+	color: #ffffff;
 }
 
 .division {
@@ -27,7 +29,7 @@ body {
 
 .box {
 	margin: 20px;
-	padding: 5px;
+	padding: 5px 40px;
 	border-radius: 20px;
 }
 
@@ -43,6 +45,39 @@ body {
 	font: 40px sans-serif, Arial;
 	text-align: center;
 	margin: 0;
+	padding: 10px 0;
+}
+
+.box_subtitle {
+	color: #31bebe;
+	font: 28px sans-serif, Arial;
+	text-align: left;
+	margin: 0;
+	padding: 20px 0
+}
+
+/* unvisited link */
+a:link {
+	text-decoration: none;
+	color: #31bebe;
+}
+
+/* visited link */
+a:visited {
+	text-decoration: none;
+	color: #31bebe;
+}
+
+/* mouse over link */
+a:hover {
+	text-decoration: underline;
+	color: #31bebe;
+}
+
+/* selected link */
+a:active {
+	text-decoration: underline;
+	color: #31bebe;
 }
 
 .button_big {
