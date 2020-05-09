@@ -1,26 +1,3 @@
-<!-- Configure Dropzone -->
-<script type="text/javascript">
-  Dropzone.options.group_member_select = {
-    paramName: 'groupImage', //Name of the transferred file
-    maxFilesize: 8, //MB
-    uploadMultiple: false,
-    clickable: true,
-    acceptedFiles: 'image/jpeg,image/png',
-    dictDefaultMessage: null
-  }
-</script>
-<!-- Chosen init script -->
-<script type="text/javascript">
-  $(function () {
-    $('.group_member_select').chosen({
-      allow_single_deselect: true,
-      placeholder_text_multiple: 'Gruppenmitglieder hinzufügen',
-      display_selected_options: false,
-      inherit_select_classes: true,
-      width: '98%'
-    })
-  })
-</script>
 <!-- Nav bar -->
 <nav id="nav">
     <button class="hamburger hamburger--squeeze" type="button" onclick="toggleButton()">
@@ -90,7 +67,7 @@
         document.getElementById('main').style.marginLeft = '0'
       }
     </script>
-    <div class="menu_title">Neue Gruppe</div>
+    <div class="menu_title">Impressum</div>
     <div id="group_select" class="group_sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeGroups()">X</a>
         <button class="group_select_button">
@@ -117,25 +94,41 @@
         document.getElementById('group_select').style.width = '0'
       }
     </script>
-
 </nav>
 
 <div class="division dark">
-    <div class="box light background">
-        <form action="/file-upload" class="dropzone" id="group_image_dropzone"></form>
-        <form method="post" id="groupForm" action="/api">
-            <input class="text_input input_group" name="groupName" id="groupNameInput" placeholder="Gruppenname">
-            <br>
-            <select class="group_member_select" multiple="true" name="faculty" style="width:200px;">
-                <option value="User00">Max Mustermann</option>
-                <option value="User01">Mia Musterfrau</option>
-                <option value="User02">Kai Pflaume</option>
-                <option value="User03">Donald Trump</option>
-            </select><br>
-            <textarea class="text_input description_group" name="groupDescription" id="groupDescriptionInput"
-                      placeholder="Beschreibung (optional)...">
-                    </textarea><br>
-            <button class="button_big" type="button" onclick="CheckAndCreateGroup()">Gruppe erstellen</button>
-        </form>
+    <div class="box light" style="grid-row: 1; grid-column: 1 / 13;">
+        <p>Diese Website wurde im Rahmen der Vorlesung Softwareengineering der DHBW Mannheim entwickelt.</p>
+    </div>
+
+    <div class="box light" style="grid-row: 2; grid-column: 1 / 13;">
+        <h1 class="box_title padded_vertically">Angaben gemäß § 5 TMG</h1>
+        <p>DHBW Mannheim <br>
+            (Duale Hochschule Baden-Württemberg Mannheim)<br>
+            Coblitzallee 1-9<br>
+            68163 Mannheim</p>
+    </div>
+    <div class="box light" style="grid-row: 3; grid-column: 1 / 13;">
+        <h1 class="box_title padded_vertically">Projektbetreuung</h1>
+        <p>Herr Schultheis</p>
+    </div>
+    <div class="box light" style="grid-row: 4; grid-column: 1 / 13;">
+        <h1 class="box_title padded_vertically">Kontakt</h1>
+        <div style="padding: 20px 0"><table style="border-collapse: collapse; border: none;">
+            <tr style="border: none;">
+                <td style="border: none;">Telefon:</td>
+                <td style="border: none;">&emsp;<a href="tel:+4962141050">+49 621 4105-0</a></td>
+            </tr>
+            <tr style="border: none;">
+                <td style="border: none;">E-Mail:</td>
+                <td style="border: none;">&emsp;<a href="mailto:info@dhbw-mannheim.de">info@dhbw-mannheim.de</a></td>
+            </tr>
+        </table></div>
+    </div>
+</div>
+
+<div class="division light">
+    <div class="box dark" style="grid-row: 1; grid-column: 1 / 13;">
+        Diese Website wurde im Rahmen der Vorlesung Softwareengineering der DHBW Mannheim entwickelt.
     </div>
 </div>
