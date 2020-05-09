@@ -19,6 +19,27 @@ The workflow is identical for issues. Please mention the issue in the pull reque
 
 The description of pull requests should be detailed enough to be helpful resource for the documentation team.
 
+## Creating a new page
+
+- Select an existing page as a base, this example uses `group_creation`
+- Pick a short but descriptive name for your page, this example uses `my_page`
+- Copy `html/group_creation.html` to `html/my_page.html`
+- Copy `page/group_creation.js` to `page/my_page.js`
+- Edit `page/my_page.js`:
+  - Replace the path parameter of `readFile` with your new path `html/my_page.html`
+  - Replace the title parameter of `create_html` with your new title `Meine Seite`
+- Add to `page/page.js`:
+  ```js
+  app.get('/my_page', function (req, res) {
+    require('./my_page').page(req, res)
+  })
+  ```
+- Start the server (see [Installation](#installation)), open `localhost:8080/my_page`.  
+  You should see a copy of the page you based yours on.
+- Now you can modify the previously copied files to create the desired page
+- If your page requires a new css file create it in the `css/` directory and 
+include it by adding it to the list of css files passed to the `create_html` function in `page/my_page.js`.
+
 # Naming conventions
 
 Git branches must consist only of lowercase letters, numbers and underscores. They must follow one of these patterns:
