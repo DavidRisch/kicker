@@ -1,6 +1,4 @@
 function page (req, res) {
-  console.log('making credentials page...')
-
   require('fs').readFile('html/group_creation.html', 'utf8', function (err, html) {
     if (err) throw err
 
