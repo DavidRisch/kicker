@@ -13,6 +13,9 @@ function init (app) {
       case 'registerCredentials':
         require('../src/register_credentials').process(body.name, body.mail, body.password, body.phoneNumber)
         break
+      case 'enterGame':
+        require('../js/enter_game').process(body.playerA1, body.playerA2, body.playerB1, body.playerB2, body.goalsA, body.goalsB)
+        break
 
         // ^^^ Insert new api calls here ^^^
 

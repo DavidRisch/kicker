@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Neues Spiel</title>
+
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+
+    <script type="text/javascript" src="../js/enter_game.js"></script>
+</head>
+<body>
+
+    <div>
+    <b>Neues Spiel:</b><br>
+
+    <input id="1v1" type="button" value="1 vs 1" onclick="oneVsOne()" disabled="true"/>
+    <input id="2v2" type="button" value="2 vs 2" onclick="twoVsTwo()"/><br>
+
+    <form method="post" action="/api">
+        <input type="hidden" name="action" value="enterGame">
+        <label>
+            <br> 
+            Team A:
+            <br>
+            <input id="playerA1" name="playerA1">
+            <input id="playerA2" name="playerA2" style="display:none">
+        </label>
+        <label>
+            <br>
+            Team B:
+            <br>
+            <input id="playerB1" name="playerB1">
+            <input id="playerB2" name="playerB2" style="display:none">
+        </label>
+        <br> 
+        <label>
+            <br>
+            Tore A:
+            <input name="goalsA" type="number">
+            Tore B:
+            <input name="goalsB" type="number">   
+        </label><br>    
+        <button>Hinzufügen</button>
+    </form>
+    </div>
+</body>
+</html>
