@@ -51,7 +51,7 @@ function init (app) {
       }
 
       case 'enterGame': {
-        require('../js/enter_game').process(body.playerA1, body.playerA2, body.playerB1, body.playerB2, body.goalsA, body.goalsB)
+        require('./enter_game').process(body.playerA1, body.playerA2, body.playerB1, body.playerB2, body.goalsA, body.goalsB)
         break
       }
 
