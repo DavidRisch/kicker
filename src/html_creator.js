@@ -70,7 +70,7 @@ function createHtml (html, title, js = [], css = [], needsNav) {
 
   var nav = ''
   if (needsNav) {
-    nav = htmlNav();
+    nav = htmlNav()
     nav = nav.replace('§nav_title§', title)
     defaultJs.push('nav')
     defaultCss.push('groups')
