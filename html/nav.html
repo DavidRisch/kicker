@@ -1,0 +1,48 @@
+<!-- Nav bar -->
+<nav id="nav">
+    <button class="hamburger hamburger--squeeze" type="button" onclick="toggleButton()">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+    </button>
+    <div id="sidenav" class="sidenav">
+        <button class="sidenav-button" style="margin-bottom:20px">Einstellungen</button>
+        <a href="#">Startseite</a>
+        <hr class="bold">
+        <a href="#">Neues Spiel</a>
+        <hr>
+        <a href="#">Spielverlauf</a>
+        <hr class="bold">
+        <a href="#">Neue Gruppe</a>
+        <hr>
+        <a href="#">Gruppenübersicht</a>
+        <hr class="bold">
+        <a href="#">Neues Turnier</a>
+        <hr>
+        <a href="#">Turnierübersicht</a>
+        <hr class="bold">
+        <a href="#">Statistiken</a>
+        <hr>
+        <a href="#">Achievements</a>
+        <hr class="bold">
+        <a href="#">FAQ</a>
+        <hr>
+        <a href="#">Datenschutz / Impressum</a>
+        <button class="sidenav-button" style="margin-top:20px;position:absolute;bottom:0">Logout</button>
+    </div>
+    
+    <div class="menu_title">Neue Gruppe</div>
+    <div id="group_select" class="group_sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeGroups()">X</a>
+        <button class="group_select_button">
+            <img src="images/no_group_selected.png" alt="Gruppe"/>
+            <span>Gruppe 1wads gsdfgnfghsbfsfgbsfd</span>
+        </button>
+        <button class="group_select_button">
+            <img src="images/no_group_selected.png" alt="Gruppe"/>
+            <span>Gruppe 2</span>
+        </button>
+    </div>
+    <button class="group_icon_button" onclick="openGroups()"></button>
+
+</nav>
