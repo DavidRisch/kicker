@@ -8,6 +8,6 @@ function page (req, res) {
   require('fs').readFile('html/register_credentials.html', 'utf8', function (err, html) {
     if (err) throw err
 
-    res.end(require('../src/html_creator').create_html(html, 'Registrierung', ['register_credentials']))
+    res.end(require('../src/html_creator').create_html(html, { title: 'Registrierung', js: ['register_credentials'] }))
   })
 }

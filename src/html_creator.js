@@ -53,6 +53,7 @@ function htmlHeader (title, js = [], css = [], additional = '') {
 }
 
 const nav = require('fs').readFileSync('html/nav.html', 'utf8')
+
 function htmlNav () {
   return nav
 }
@@ -61,21 +62,30 @@ function htmlFooter () {
   return '\n</body></html>'
 }
 
-function createHtml (html, title, js = [], css = [], needsNav) {
+function createHtml (html, options) {
   // add defaults
-  const defaultJs = ['api_post']
-  const defaultCss = []
+  let jsFiles = ['api_post']
+  let cssFiles = []
   // TODO: activate when pages are ready:
-  // const defaultCss = ['styles_general']
+  // const cssFiles = ['styles_general']
 
-  var nav = ''
-  if (needsNav) {
+  let nav = ''
+  if (options.nav) {
     nav = htmlNav()
-    nav = nav.replace('§nav_title§', title)
-    defaultJs.push('nav')
-    defaultCss.push('groups')
-    defaultCss.push('hamburgers')
+    nav = nav.replace('§nav_title§', options.title)
+    jsFiles.push('nav')
+    cssFiles.push('groups')
+    cssFiles.push('hamburgers')
   }
 
-  return htmlHeader(title, defaultJs.concat(js), defaultCss.concat(css)) + nav + html + htmlFooter()
+  if (options.js !== undefined) {
+    jsFiles = jsFiles.concat(options.js)
+  }
+
+  if (options.css !== undefined) {
+    cssFiles = cssFiles.concat(options.css)
+  }
+
+  return htmlHeader(options.title, jsFiles, cssFiles) +
+    nav + html + htmlFooter()
 }
