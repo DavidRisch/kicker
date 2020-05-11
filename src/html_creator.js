@@ -72,6 +72,8 @@ function createHtml (html, title, js = [], css = [], needsNav) {
   if (needsNav) {
     nav = htmlNav();
     defaultJs.push('nav')
+    defaultCss.push('groups')
+    defaultCss.push('hamburgers')
   }
 
   return htmlHeader(title, defaultJs.concat(js), defaultCss.concat(css)) + nav + html + htmlFooter()

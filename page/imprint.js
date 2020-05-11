@@ -4,7 +4,7 @@ function page (req, res) {
 
     res.end(require('../src/html_creator').create_html(html, 'Impressum',
       [],
-      ['styles_general', 'groups', 'hamburgers'], true))
+      ['styles_general'], true))
   })
 }
 
