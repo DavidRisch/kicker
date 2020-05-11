@@ -37,7 +37,7 @@ function getCurrentUser (req) {
 
   let session
   try {
-    session = require('./db/session').by_token(token)
+    session = require('./db/session').by_cookie_token(token)
   } catch (e) {
     return null
   }

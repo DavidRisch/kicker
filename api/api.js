@@ -22,7 +22,12 @@ function init (app) {
         break
       }
       case 'registerCredentials': {
-        require('./register_credentials').process(body.name, body.mail, body.password, body.phoneNumber)
+        response = require('./register_credentials').process(body.name, body.email, body.password, body.telephone)
+        break
+      }
+      case 'editAccount': {
+        // if password is '' the current password remains unchanged
+        response = require('./edit_account').process(req, body.name, body.email, body.password, body.telephone)
         break
       }
       case 'login': {

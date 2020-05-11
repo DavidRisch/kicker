@@ -8,6 +8,6 @@ function page (req, res) {
   var fs = require('fs')
   fs.readFile('html/login.html', 'utf8', function (err, html) {
     if (err) throw err
-    res.end(html)
+    res.end(require('../src/html_creator').create_html(html, 'Login', ['login']))
   })
 }

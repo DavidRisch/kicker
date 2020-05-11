@@ -5,7 +5,7 @@ module.exports =
     create_html: createHtml
   }
 
-function htmlHeader (title, js = [], additional = '') {
+function htmlHeader (title, js = [], css = [], additional = '') {
   let result = `<!DOCTYPE html>
 <html lang="de">
 <head>
@@ -13,8 +13,36 @@ function htmlHeader (title, js = [], additional = '') {
     <title>${title}</title>
     <link type="text/css" rel="stylesheet" href="css/style.css"/>\n\n`
 
-  js.forEach(function (scriptfile) {
-    result += `    <script type="text/javascript" src="js/${scriptfile}.js"></script>\n`
+  css.forEach(function (name) {
+    let path = `css/${name}.css`
+
+    if (name === 'chosen') {
+      path = 'chosen/chosen.css'
+    } else if (name === 'jquery-ui') {
+      path = 'jquery-ui/jquery-ui.css'
+    } else if (name === 'dropzone') {
+      path = 'dropzone/dropzone.css'
+    }
+
+    result += `    <link rel="stylesheet" href="${path}">\n`
+  })
+
+  result += '\n'
+
+  js.forEach(function (name) {
+    let path = `js/${name}.js`
+
+    if (name === 'chosen') {
+      path = 'chosen/chosen.jquery.min.js'
+    } else if (name === 'jquery') {
+      path = 'jquery/jquery.min.js'
+    } else if (name === 'jquery-ui') {
+      path = 'jquery-ui/jquery-ui.min.js'
+    } else if (name === 'dropzone') {
+      path = 'dropzone/dropzone.js'
+    }
+
+    result += `    <script type="text/javascript" src="${path}"></script>\n`
   })
 
   result += additional
@@ -28,6 +56,12 @@ function htmlFooter () {
   return '\n</body></html>'
 }
 
-function createHtml (html, title, js = []) {
-  return htmlHeader(title, js) + html + htmlFooter()
+function createHtml (html, title, js = [], css = []) {
+  // add defaults
+  const defaultJs = ['api_post']
+  const defaultCss = []
+  // TODO: activate when pages are ready:
+  // const defaultCss = ['styles_general']
+
+  return htmlHeader(title, defaultJs.concat(js), defaultCss.concat(css)) + html + htmlFooter()
 }

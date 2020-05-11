@@ -28,5 +28,13 @@ function init (app) {
   app.get('/group_selection', function (req, res) {
     require('./group_selection').page(req, res)
   })
+
+  app.get('/group_creation', function (req, res) {
+    require('./group_creation').page(req, res)
+  })
+
+  app.get('/imprint', function (req, res) {
+    require('./imprint').page(req, res)
+  })
   // ^^^ Insert new pages here ^^^
 }
