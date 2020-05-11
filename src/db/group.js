@@ -63,6 +63,15 @@ function getGroup (property, value) {
   return new Group(result[0].id)
 }
 
+function getAllGroups () {
+  const result = database.query('SELECT id FROM Group')
+  let groupsList = []
+  result.forEach(element => {
+    groupsList.add(new Group(element.id))
+  })
+  return groupsList
+}
+
 function byId (id) {
   return getGroup('id', id)
 }
@@ -77,5 +86,6 @@ function create (name, description) {
 
 module.exports = {
   by_id: byId,
-  create: create
+  create: create,
+  get_all: getAllGroups
 }

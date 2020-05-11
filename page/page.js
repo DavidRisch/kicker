@@ -25,5 +25,8 @@ function init (app) {
     require('./front_page').page(req, res)
   })
 
+  app.get('/group_selection', function (req, res) {
+    require('./group_selection').page(req, res)
+  })
   // ^^^ Insert new pages here ^^^
 }
