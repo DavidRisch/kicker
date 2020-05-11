@@ -10,6 +10,4 @@ function page (req, res) {
     if (err) throw err
     res.end(html)
   })
-
-  
 }

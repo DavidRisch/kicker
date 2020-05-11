@@ -32,7 +32,7 @@ function init (app) {
   app.get('/imprint', function (req, res) {
     require('./imprint').page(req, res)
   })
-  
+
   app.get('/enter_game', function (req, res) {
     require('./enter_game').page(req, res)
   })
