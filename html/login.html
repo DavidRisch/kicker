@@ -1,0 +1,19 @@
+<div>
+    <b>Bitte gib deine Nutzerdaten ein:</b>
+
+    <form method="post" action="/api">
+        <label>
+            Benutzername:
+            <br>
+            <input name="userName" id="userNameInput" placeholder="Benutzername / E-Mail">
+        </label><br>
+        <label>
+            Password:
+            <br>
+            <input name="password" id="passwordInput" type="password">
+        </label><br>
+        <button type="button" onclick="Login()">OK</button>
+        <br>
+        <label id="errorLabel" style="display: none;">Ungültige Zugangsdaten</label>
+    </form>
+</div>
