@@ -52,16 +52,30 @@ function htmlHeader (title, js = [], css = [], additional = '') {
   return result
 }
 
+const nav = require('fs').readFileSync('html/nav.html', 'utf8')
+function htmlNav () {
+  return nav
+}
+
 function htmlFooter () {
   return '\n</body></html>'
 }
 
-function createHtml (html, title, js = [], css = []) {
+function createHtml (html, title, js = [], css = [], needsNav) {
   // add defaults
   const defaultJs = ['api_post']
   const defaultCss = []
   // TODO: activate when pages are ready:
   // const defaultCss = ['styles_general']
 
-  return htmlHeader(title, defaultJs.concat(js), defaultCss.concat(css)) + html + htmlFooter()
+  var nav = ''
+  if (needsNav) {
+    nav = htmlNav()
+    nav = nav.replace('§nav_title§', title)
+    defaultJs.push('nav')
+    defaultCss.push('groups')
+    defaultCss.push('hamburgers')
+  }
+
+  return htmlHeader(title, defaultJs.concat(js), defaultCss.concat(css)) + nav + html + htmlFooter()
 }
