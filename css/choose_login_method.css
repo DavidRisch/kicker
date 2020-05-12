@@ -1,0 +1,13 @@
+@import url("../css/general.css");
+
+@import url("../css/hamburger_icons.css");
+
+body{
+	background-color: #2a333c;
+}
+button{
+	padding-top: 4px;
+	padding-bottom: 8px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
