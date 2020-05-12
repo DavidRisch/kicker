@@ -26,6 +26,10 @@ async function SubmitForm () {
   const res = await apiPost(data)
   if (res.success) {
     window.location.replace('/login')
+  } else {
+    const errorLabel = document.getElementById('errorLabel')
+    errorLabel.innerHTML = 'Nutzername wird bereits verwendet'
+    errorLabel.style.display = 'block'
   }
 }
 

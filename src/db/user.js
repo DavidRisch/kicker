@@ -4,6 +4,7 @@ const inputValidator = require('../input_validator')
 const InvalidUsernameException = class extends Error {}
 const InvalidEmailException = class extends Error {}
 const InsecurePasswordException = class extends Error {}
+const DuplicateKeyException = class extends Error {}
 
 const User = class {
   constructor (id) {
@@ -99,6 +100,16 @@ function byEmail (email) {
 }
 
 function create (name, email, telephone, password) {
+  // check user exists
+  const result = database.query('SELECT name FROM User WHERE name = :value', {
+    value: name
+  })
+
+  // if username already taken throw
+  if (result.length !== 0) {
+    throw new DuplicateKeyException()
+  }
+
   const salt = require('../account_util').generate_random_string(64)
 
   database.query('INSERT INTO User (name, email, telephone, password, salt) VALUES (:name, :email, :telephone, :password, :salt)', {
@@ -117,5 +128,6 @@ module.exports = {
   create: create,
   InvalidUsernameException: InvalidUsernameException,
   InvalidEmailException: InvalidEmailException,
-  InsecurePasswordException: InsecurePasswordException
+  InsecurePasswordException: InsecurePasswordException,
+  DuplicateKeyException: DuplicateKeyException
 }
