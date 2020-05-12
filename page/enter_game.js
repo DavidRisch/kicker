@@ -1,13 +1,13 @@
-module.exports = {
-  page: page
+function page (req, res) {
+  require('fs').readFile('html/enter_game.html', 'utf8', function (err, html) {
+    if (err) throw err
+
+    res.end(require('../src/html_creator').create_html(html, 'Neues Spiel',
+      [],
+      ['styles_general', 'jquery-ui', 'chosen', 'groups', 'hamburgers', 'dropzone']))
+  })
 }
 
-function page (req, res) {
-  console.log('making enter game page...')
-
-  var fs = require('fs')
-  fs.readFile('html/enter_game.html', 'utf8', function (err, html) {
-    if (err) throw err
-    res.end(html)
-  })
+module.exports = {
+  page: page
 }

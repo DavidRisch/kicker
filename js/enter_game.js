@@ -27,9 +27,9 @@ function twoVsTwo () {
 
   // enable inputs for second players
   var secondPlayers = document.getElementById('playerA2')
-  secondPlayers.style.display = 'block'
+  secondPlayers.style.display = 'inline'
   secondPlayers = document.getElementById('playerB2')
-  secondPlayers.style.display = 'block'
+  secondPlayers.style.display = 'inline'
 }
 
 
