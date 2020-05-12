@@ -9,7 +9,7 @@ const Round = class {
     return this._id
   }
 
-  get tournament_id () {
+  get tournamentId () {
     return this._select('tournament_id')
   }
 
@@ -31,9 +31,9 @@ function byId (id) {
   return getRound('id', id)
 }
 
-function create (tournament_id) {
+function create (tournamentId) {
   database.query('INSERT INTO Round (tournament_id) VALUES (:tournament_id)', {
-    tournament_id: tournament_id
+    tournament_id: tournamentId
   })
 }
 

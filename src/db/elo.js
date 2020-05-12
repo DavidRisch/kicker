@@ -9,15 +9,15 @@ const Elo = class {
     return this._id
   }
 
-  get group_id () {
+  get groupId () {
     return this._select('group_id')
   }
 
-  get user_id () {
+  get userId () {
     return this._select('user_id')
   }
 
-  get match_id () {
+  get matchId () {
     return this._select('match_id')
   }
 
@@ -47,10 +47,10 @@ function byId (id) {
   return getElo('id', id)
 }
 
-function create (group_id, user_id, elo) {
+function create (groupId, userId, elo) {
   database.query('INSERT INTO Elo (group_id, user_id, elo) VALUES (:group_id, :user_id, :elo)', {
-    group_id: group_id,
-    user_id: user_id,
+    group_id: groupId,
+    user_id: userId,
     elo: elo
   })
 }

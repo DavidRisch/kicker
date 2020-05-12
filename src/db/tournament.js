@@ -9,7 +9,7 @@ const Tournament = class {
     return this._id
   }
 
-  get group_id () {
+  get groupId () {
     return this._select('group_id')
   }
 
@@ -39,9 +39,9 @@ function byId (id) {
   return getTournament('id', id)
 }
 
-function create (group_id, name, mode) {
+function create (groupId, name, mode) {
   database.query('INSERT INTO Tournament (group_id, name, mode) VALUES (:group_id, :name, :mode)', {
-    group_id: group_id,
+    group_id: groupId,
     name: name,
     mode: mode
   })
