@@ -4,7 +4,7 @@ function page (req, res) {
 
     res.end(require('../src/html_creator').create_html(html, 'Neues Spiel',
       ['enter_game'],
-      ['styles_general', 'jquery-ui', 'chosen', 'groups', 'hamburgers', 'dropzone']))
+      ['styles_general']))
   })
 }
 
