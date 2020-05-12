@@ -50,6 +50,11 @@ function init (app) {
         break
       }
 
+      case 'enterGame': {
+        require('./enter_game').process(body.playerA1, body.playerA2, body.playerB1, body.playerB2, body.goalsA, body.goalsB)
+        break
+      }
+
       // ^^^ Insert new api calls here ^^^
 
       default:
