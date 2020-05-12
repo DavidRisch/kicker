@@ -1,21 +1,20 @@
 // helper functions
 function hideElment (id, hide) {
-  var element = document.getElementById(id) // textinput A
+  const element = document.getElementById(id) // textinput A
   if (hide) {
     element.style.display = 'none'
-  }
-  else {
+  } else {
     element.style.display = 'inline'
   }
 }
 
 function disableElment (id, disable) {
-  var element = document.getElementById(id) // textinput A  
+  const element = document.getElementById(id) // textinput A
   element.disabled = disable
 }
 
-function setCheckbox(id, checked) {
-  var element = document.getElementById(id) // textinput A  
+function setCheckbox (id, checked) {
+  const element = document.getElementById(id) // textinput A
   element.checked = checked
 }
 
@@ -31,14 +30,14 @@ function oneVsOne () {
   disableElment('2v2', false)
 
   // disable inputs for second players
-  hideElment('playerA2', true)      // textinput A
-  hideElment('playerB2', true)      // textinput B
-  hideElment('checkboxA', true)     // checkbox A
-  hideElment('checkboxB', true)     // checkbox B
+  hideElment('playerA2', true) // textinput A
+  hideElment('playerB2', true) // textinput B
+  hideElment('checkboxA', true) // checkbox A
+  hideElment('checkboxB', true) // checkbox B
 
   // uncheck checkboxes
-  setCheckbox('checkboxA', false)   // checkbox A
-  setCheckbox('checkboxB', false)   // checkbox B
+  setCheckbox('checkboxA', false) // checkbox A
+  setCheckbox('checkboxB', false) // checkbox B
 }
 
 function twoVsTwo () {
@@ -49,22 +48,21 @@ function twoVsTwo () {
   disableElment('2v2', true)
 
   // disable inputs for second players
-  hideElment('playerA2', false)     // textinput A
-  hideElment('playerB2', false)     // textinput B
-  hideElment('checkboxA', false)    // checkbox A
-  hideElment('checkboxB', false)    // checkbox B
+  hideElment('playerA2', false) // textinput A
+  hideElment('playerB2', false) // textinput B
+  hideElment('checkboxA', false) // checkbox A
+  hideElment('checkboxB', false) // checkbox B
 
   // check checkboxes
-  setCheckbox('checkboxA', true)    // checkbox A
-  setCheckbox('checkboxB', true)    // checkbox B
+  setCheckbox('checkboxA', true) // checkbox A
+  setCheckbox('checkboxB', true) // checkbox B
 }
 
 function teamAHas2ndPlayer () { // textinput A
   if (isAhidden) {
     hideElment('playerA2', false)
     isAhidden = false
-  }
-  else {
+  } else {
     hideElment('playerA2', true)
     isAhidden = true
   }
@@ -74,8 +72,7 @@ function teamBHas2ndPlayer () { // textinput B
   if (isBhidden) {
     hideElment('playerB2', false)
     isBhidden = false
-  }
-  else {
+  } else {
     hideElment('playerB2', true)
     isBhidden = true
   }
