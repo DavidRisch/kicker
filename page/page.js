@@ -41,5 +41,9 @@ function init (app) {
     require('./enter_game').page(req, res)
   })
 
+  app.get('/running_tournament', function (req, res) {
+    require('./running_tournament').page(req, res)
+  })
+
   // ^^^ Insert new pages here ^^^
 }

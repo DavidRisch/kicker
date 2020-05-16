@@ -2,7 +2,7 @@
 /* -------------- Main Elements -------------- */
 body {
 	background-color: #000000;
-	margin: 0 auto;
+	margin: 0;
 }
 .dark {
 	background-color: #12141e;
@@ -25,6 +25,11 @@ body {
 	display: grid;
 	grid-template-columns: repeat(12, 8.3333333%);
 	/*box-shadow: 0px -5px 10px #000000F0;*/
+}
+
+.divisiontop {
+	padding: 50px;
+	margin-bottom: -100px;
 }
 
 .box {
@@ -103,6 +108,15 @@ a:active {
 	padding-left: 5px;
 	padding-right: 5px;
 }
+
+.division_description {
+	color: #bababa;
+	font: 35px sans-serif, Arial;
+	text-align: left;
+	margin: 20px;
+	margin-left: 60px;
+}
+
 /* -------------- The Nav Bar -------------- */
 nav {
 	z-index: 10;
@@ -118,6 +132,7 @@ nav {
 	border-bottom: 8px;
 	border-bottom-style: solid;
 	border-bottom-color: #12141E;
+	margin-bottom: 0;
 }
 
 #main, #nav {
