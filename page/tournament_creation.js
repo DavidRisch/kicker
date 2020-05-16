@@ -4,7 +4,8 @@ function page (req, res) {
 
     res.end(require('../src/html_creator').create_html(html, {
       title: 'Turnier erstellen',
-      css: ['styles_general'],
+      js: ['jquery', 'tokenize2', 'tournament_creation'],
+      css: ['bootstrap', 'styles_general', 'tokenize2'],
       nav: true
     }))
   })
