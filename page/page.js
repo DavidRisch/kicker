@@ -33,6 +33,10 @@ function init (app) {
     require('./group_creation').page(req, res)
   })
 
+  app.get('/tournament_creation', function (req, res) {
+    require('./tournament_creation').page(req, res)
+  })
+
   app.get('/imprint', function (req, res) {
     require('./imprint').page(req, res)
   })
