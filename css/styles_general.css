@@ -122,9 +122,10 @@ nav {
 	z-index: 10;
 	/*Because chosen-multi-select is kind of poser :p */
 	/*width: 100%; */
+	height: 80px;
 	background-color: #2a333c;
 	padding: 10px;
-	padding-bottom: 40px;
+	padding-bottom: 10px;
 	display: flex;
 	position: sticky;
 	top: 0;
@@ -201,7 +202,7 @@ nav .menu_title {
 	text-align: center;
 	margin: 0;
 	position: absolute;
-	top: 40px;
+	top: 50px;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
