@@ -117,6 +117,26 @@ a:active {
 	margin-left: 60px;
 }
 
+/* ---------------- tables ----------------- */
+table {
+	border-collapse: collapse;
+	margin: 20px;
+	padding: 20px;
+}
+
+th, td {
+	font: 38px sans-serif, Arial;
+	text-align: center;
+}
+
+.table_top_row {
+	border-bottom: 2px solid #ffffff;
+}
+
+.table_highlight_row {
+	color: #31bebe;
+}
+
 /* -------------- The Nav Bar -------------- */
 nav {
 	z-index: 10;
