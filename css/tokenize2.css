@@ -1,0 +1,144 @@
+.tokenize > .tokens-container {
+    position: relative;
+    list-style: none;
+    padding: 0.25em 0.75em;
+    cursor: text;
+    background-color: #000000;
+    border: 1px solid #31bebe;
+    border-radius: 10px;
+    line-height: 1.25;
+    height: auto;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+.tokenize > .tokens-container.disabled {
+    cursor: not-allowed;
+}
+
+.tokenize > .tokens-container > .token {
+    padding: 3px 1.2em 1px 5px;
+    background-color: #2a333c;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.tokenize > .tokens-container > .token,
+.tokenize > .tokens-container > .placeholder,
+.tokenize > .tokens-container > .token-search {
+    border: 1px solid #31bebe;
+    caret-color: #ffffff;
+    color: #ffffff;
+    display: inline-block;
+    margin: 0.5em;
+    position: relative;
+    vertical-align: middle;
+}
+
+.tokenize > .tokens-container > .token-search {
+    min-width: 10px;
+}
+
+.tokenize.sortable > .tokens-container > .token {
+    cursor: move;
+}
+
+.tokenize.single > .tokens-container > .token {
+    display: block;
+    border-color: #fff;
+    background-color: transparent;
+}
+
+.tokenize > .tokens-container > .placeholder,
+.tokenize > .tokens-container > .token-search {
+    padding: 0;
+    border-color: transparent;
+}
+.tokenize > .tokens-container > .placeholder {
+    color: #ccc;
+}
+
+.tokenize > .tokens-container > .token-search > input {
+    padding: 2px 0 0 0;
+    margin: 0;
+    line-height: 1em;
+    color: #ffffff;
+    background: transparent;
+    border-style: none;
+    outline: none;
+    width: 100%;
+}
+
+.tokenize > .tokens-container > .token-search > input::-ms-clear {
+    display: none;
+}
+
+.tokenize > .tokens-container > .token.pending-delete {
+    background-color: #12141e;
+    border-color: #12141e;
+}
+
+.tokenize > .tokens-container > .token > .dismiss {
+    position: absolute;
+    right: 5px;
+    color: #31bebe;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tokenize > .tokens-container > .token > .dismiss:after {
+    content: "×";
+}
+
+.tokenize > .tokens-container > .token.pending-delete > .dismiss {
+    color: #aaa;
+}
+
+.tokenize-dropdown {
+    position: absolute;
+    display: none;
+}
+
+.tokenize-dropdown > .dropdown-menu {
+    background-color: #12141e;
+    border: 1px solid #31bebe;
+    border-radius: 10px;
+    min-height: 10px;
+    width: 100%;
+    display: block;
+    margin: -1px 0 0 0;
+    visibility: visible;
+    opacity: 1;
+}
+
+.tokenize-dropdown > .dropdown-menu li {
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #12141e;
+}
+
+.tokenize-dropdown > .dropdown-menu li.active {
+    background-color: #2a333c;
+}
+
+.tokenize-dropdown > .dropdown-menu li > a .tokenize-highlight {
+    color: #31bebe;
+    font-weight: bold;
+}
+
+.tokenize-dropdown > .dropdown-menu li.locked {
+    padding: 3px 20px;
+    color: #333;
+    white-space: nowrap;
+}
+
+.tokenize-dropdown > .dropdown-menu li.locked,
+.tokenize-dropdown > .dropdown-menu li > a {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+.tokenize-dropdown > .dropdown-menu li:not(.active) a:hover,
+.tokenize-dropdown > .dropdown-menu li:not(.active) a:focus {
+    background-color: transparent;
+}

@@ -22,7 +22,10 @@ function htmlHeader (title, js = [], css = [], additional = '') {
       path = 'jquery-ui/jquery-ui.css'
     } else if (name === 'dropzone') {
       path = 'dropzone/dropzone.css'
+    } else if (name === 'bootstrap') {
+      path = 'bootstrap/css/bootstrap.min.css'
     }
+
 
     result += `    <link rel="stylesheet" href="${path}">\n`
   })
@@ -40,6 +43,8 @@ function htmlHeader (title, js = [], css = [], additional = '') {
       path = 'jquery-ui/jquery-ui.min.js'
     } else if (name === 'dropzone') {
       path = 'dropzone/dropzone.js'
+    } else if (name === 'tokenize2') {
+      path = 'tokenize2/tokenize2.js'
     }
 
     result += `    <script type="text/javascript" src="${path}"></script>\n`
