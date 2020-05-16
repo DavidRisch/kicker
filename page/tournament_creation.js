@@ -3,9 +3,8 @@ function page (req, res) {
     if (err) throw err
 
     res.end(require('../src/html_creator').create_html(html, {
-      title: 'Turnier Erstellung',
-      js: ['jquery', 'jquery-ui', 'chosen', 'tournament_creation'],
-      css: ['styles_general', 'jquery-ui', 'chosen'],
+      title: 'Turnier erstellen',
+      css: ['styles_general'],
       nav: true
     }))
   })
