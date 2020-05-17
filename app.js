@@ -23,6 +23,8 @@ app.use('/chosen', express.static('node_modules/chosen-js'))
 app.use('/dropzone', express.static('node_modules/dropzone/dist'))
 app.use('/jquery-ui', express.static('node_modules/jquery-ui-dist'))
 app.use('/hamburgers', express.static('node_modules/hamburgers/dist'))
+app.use('/bootstrap/css', express.static('node_modules/bootstrap/dist/css'))
+app.use('/tokenize2', express.static('node_modules/tokenize2/dist'))
 
 app.get('/', function (req, res) {
   res.writeHead(302, { Location: 'choose_login_method' })

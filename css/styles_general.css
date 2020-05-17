@@ -40,14 +40,14 @@ body {
 
 .box_value {
 	color: #ffffff;
-	font: 70px sans-serif, Arial;
+	font: 60px sans-serif, Arial;
 	text-align: center;
 	margin: 0;
 }
 
 .box_title {
 	color: #31bebe;
-	font: 40px sans-serif, Arial;
+	font: 36px sans-serif, Arial;
 	text-align: center;
 	margin: 0;
 	padding: 10px 0;
@@ -90,9 +90,9 @@ a:active {
 	color: #ffffff;
 	font: 40px sans-serif, Arial;
 	margin: 10px;
+	padding: 25px 0;
 	border-radius: 25px;
 	border-width: 0;
-	height: 50px;
 }
 
 .text_input {
@@ -103,10 +103,148 @@ a:active {
 	border-radius: 10px;
 	border-width: 1px;
 	font: 18px sans-serif, Arial;
-	height: 35px;
+	line-height: 1.25;
+	outline: 0;
+	padding: 0.25em 0.75em;
 	margin: 10px;
-	padding-left: 5px;
-	padding-right: 5px;
+	box-sizing: border-box;
+}
+
+.intrinsic_area {
+	display: table;
+	width: 100%;
+}
+
+.intrinsic_row {
+	display: table-row;
+	width: 100%;
+}
+
+.intrinsic_left {
+	display: table-cell;
+	width: 1px;
+}
+
+.intrinsic_right {
+	display: table-cell;
+	width: 100%;
+}
+
+
+.dropdown_box {
+	-webkit-appearance: none;
+	appearance: none;
+	font: 18px sans-serif, Arial;
+	color: #ffffff;
+	border: 1px solid #31bebe;
+	line-height: 1.25;
+	outline: 0;
+	box-sizing: border-box;
+	padding: 0.25em 0.75em;
+	border-radius: 10px;
+	background-color: #000000;
+	background-image: linear-gradient(#31bebe, #31bebe),
+		linear-gradient(-135deg, transparent 50%, #000000 50%),
+		linear-gradient(-225deg, transparent 50%, #000000 50%),
+		linear-gradient(#000000 42%, #31bebe 42%);
+	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+	background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+	background-position: right 20px center, right bottom, right bottom, right bottom;
+	margin: 10px;
+}
+
+.dropdown_box:hover {
+	background-image: linear-gradient(#31bebe, #31bebe),
+		linear-gradient(-135deg, transparent 50%, #31bebe 50%),
+		linear-gradient(-225deg, transparent 50%, #31bebe 50%),
+		linear-gradient(#31bebe 42%, #000000 42%);
+}
+
+.dropdown_box:active {
+	color: #ffffff;
+	border-color: #31bebe;
+	background-color: #000000;
+	background-image: linear-gradient(#31bebe, #31bebe),
+		linear-gradient(-135deg, transparent 50%, #31bebe 50%),
+		linear-gradient(-225deg, transparent 50%, #31bebe 50%),
+		linear-gradient(#31bebe 42%, #000000 42%);
+}
+
+/* -------------- Tokenize2 (Multi-Selection) -------------- */
+.tokenize > .tokens-container {
+	padding: 0.25em 0.75em;
+	background-color: #000000;
+	border: 1px solid #31bebe;
+	border-radius: 10px;
+	line-height: 1.25;
+	outline: 0;
+	box-sizing: border-box;
+}
+
+.tokenize > .tokens-container > .token {
+	padding: 3px 1.2em 1px 5px;
+	background-color: #2a333c;
+	color: #ffffff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.tokenize.focus > .tokens-container {
+	border-color: #31bebe;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.tokenize > .tokens-container > .token,
+.tokenize > .tokens-container > .placeholder,
+.tokenize > .tokens-container > .token-search {
+	border: 1px solid #31bebe;
+	caret-color: #ffffff;
+	color: #ffffff;
+	margin: 0.5em;
+}
+
+.tokenize > .tokens-container > .placeholder,
+.tokenize > .tokens-container > .token-search {
+	/*padding: 0;*/
+	border-color: transparent;
+}
+
+.tokenize > .tokens-container > .token-search > input {
+	padding: 2px 0 0 0;
+	color: #ffffff;
+	border-style: none;
+}
+
+.tokenize > .tokens-container > .token.pending-delete {
+	background-color: #12141e;
+	border-color: #12141e;
+}
+
+.tokenize > .tokens-container > .token > .dismiss {
+	color: #31bebe;
+}
+
+.tokenize-dropdown > .dropdown-menu {
+	background-color: #12141e;
+	border: 1px solid #31bebe;
+	-webkit-border-right: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.tokenize-dropdown > .dropdown-menu li {
+	color: #ffffff;
+	background-color: #12141e;
+}
+
+.tokenize-dropdown > .dropdown-menu li.active {
+	background-color: #2a333c;
+}
+
+.tokenize-dropdown > .dropdown-menu li > a .tokenize-highlight {
+	color: #31bebe;
 }
 
 .division_description {
