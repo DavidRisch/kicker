@@ -165,6 +165,83 @@ a:active {
 		linear-gradient(#31bebe 42%, #000000 42%);
 }
 
+/* -------------- Tokenize2 (Multi-Selection) -------------- */
+.tokenize > .tokens-container {
+	padding: 0.25em 0.75em;
+	background-color: #000000;
+	border: 1px solid #31bebe;
+	border-radius: 10px;
+	line-height: 1.25;
+	outline: 0;
+	box-sizing: border-box;
+}
+
+.tokenize > .tokens-container > .token {
+	padding: 3px 1.2em 1px 5px;
+	background-color: #2a333c;
+	color: #ffffff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.tokenize.focus > .tokens-container {
+	border-color: #31bebe;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.tokenize > .tokens-container > .token,
+.tokenize > .tokens-container > .placeholder,
+.tokenize > .tokens-container > .token-search {
+	border: 1px solid #31bebe;
+	caret-color: #ffffff;
+	color: #ffffff;
+	margin: 0.5em;
+}
+
+.tokenize > .tokens-container > .placeholder,
+.tokenize > .tokens-container > .token-search {
+	/*padding: 0;*/
+	border-color: transparent;
+}
+
+.tokenize > .tokens-container > .token-search > input {
+	padding: 2px 0 0 0;
+	color: #ffffff;
+	border-style: none;
+}
+
+.tokenize > .tokens-container > .token.pending-delete {
+	background-color: #12141e;
+	border-color: #12141e;
+}
+
+.tokenize > .tokens-container > .token > .dismiss {
+	color: #31bebe;
+}
+
+.tokenize-dropdown > .dropdown-menu {
+	background-color: #12141e;
+	border: 1px solid #31bebe;
+	-webkit-border-right: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.tokenize-dropdown > .dropdown-menu li {
+	color: #ffffff;
+	background-color: #12141e;
+}
+
+.tokenize-dropdown > .dropdown-menu li.active {
+	background-color: #2a333c;
+}
+
+.tokenize-dropdown > .dropdown-menu li > a .tokenize-highlight {
+	color: #31bebe;
+}
+
 /* -------------- The Nav Bar -------------- */
 nav {
 	z-index: 10;
