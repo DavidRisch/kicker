@@ -2,7 +2,7 @@
 /* -------------- Main Elements -------------- */
 body {
 	background-color: #000000;
-	margin: 0 auto;
+	margin: 0;
 }
 .dark {
 	background-color: #12141e;
@@ -25,6 +25,11 @@ body {
 	display: grid;
 	grid-template-columns: repeat(12, 8.3333333%);
 	/*box-shadow: 0px -5px 10px #000000F0;*/
+}
+
+.divisiontop {
+	padding: 50px;
+	margin-bottom: -100px;
 }
 
 .box {
@@ -103,21 +108,52 @@ a:active {
 	padding-left: 5px;
 	padding-right: 5px;
 }
+
+.division_description {
+	color: #bababa;
+	font: 35px sans-serif, Arial;
+	text-align: left;
+	margin: 20px;
+	margin-left: 60px;
+}
+
+/* ---------------- tables ----------------- */
+table {
+	border-collapse: collapse;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 20px;
+	width: 100%;
+}
+
+th, td {
+	font: 38px sans-serif, Arial;
+	text-align: center;
+}
+
+.table_top_row {
+	border-bottom: 2px solid #ffffff;
+}
+
+.table_highlight_row {
+	color: #31bebe;
+}
+
 /* -------------- The Nav Bar -------------- */
 nav {
 	z-index: 10;
 	/*Because chosen-multi-select is kind of poser :p */
-	width: 100%;
+	/*width: 100%; */
+	height: 80px;
 	background-color: #2a333c;
 	padding: 10px;
-	padding-bottom: 40px;
+	padding-bottom: 10px;
 	display: flex;
 	position: sticky;
 	top: 0;
 	overflow: hidden;
-	border-bottom: 8px;
-	border-bottom-style: solid;
-	border-bottom-color: #12141E;
+	margin-bottom: 0;
+	box-shadow: 0px 5px 20px #000000F0;
 }
 
 #main, #nav {
@@ -188,7 +224,7 @@ nav .menu_title {
 	text-align: center;
 	margin: 0;
 	position: absolute;
-	top: 40px;
+	top: 50px;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
