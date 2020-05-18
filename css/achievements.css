@@ -3,3 +3,10 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.achievement_icon_dark {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
