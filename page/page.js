@@ -49,5 +49,9 @@ function init (app) {
     require('./running_tournament').page(req, res)
   })
 
+  app.get('/achievements', function (req, res) {
+    require('./achievements').page(req, res)
+  })
+
   // ^^^ Insert new pages here ^^^
 }
