@@ -1,152 +1,71 @@
-<!DOCTYPE html>
-<html>
+<div class="division dark">
+	<div class="box dark" style="grid-row: 1; grid-column: 1 / 13;">
+		<h1 class="box_value">Beispiel Frage 1</h1>
+        <br>
+		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
+	</div>
+</div>
 
-    <head>
-        <link rel="stylesheet" href="../css/styles_general.css">
-    </head>
+<div class="division light">
+	<div class="box light" style="grid-row: 1; grid-column: 1 / 13;">
+		<h1 class="box_value">Beispiel Frage 2</h1>
+        <br>
+		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
+	</div>
+</div>
 
-    <nav id="nav">
-        <button class="hamburger hamburger--squeeze" type="button" onclick="toggleButton()">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button>
-        <div id="sidenav" class="sidenav">
-            <button class="sidenav-button" style="margin-bottom:20px">Einstellungen</button>
-            <a href="#">Startseite</a>
-            <hr class="bold">
-            <a href="#">Neues Spiel</a>
-            <hr>
-            <a href="#">Spielverlauf</a>
-            <hr class="bold">
-            <a href="#">Neue Gruppe</a>
-            <hr>
-            <a href="#">Gruppenübersicht</a>
-            <hr class="bold">
-            <a href="#">Neues Turnier</a>
-            <hr>
-            <a href="#">Turnierübersicht</a>
-            <hr class="bold">
-            <a href="#">Statistiken</a>
-            <hr>
-            <a href="#">Achievements</a>
-            <hr class="bold">
-            <a href="#">FAQ</a>
-            <hr>
-            <a href="#">Datenschutz / Impressum</a>
-            <button class="sidenav-button" style="margin-top:20px;">Logout</button>
-        </div>
-        <script>
-            var stateModule = (function () {
-                var state;
-                var pub = {};
-                pub.changeState = function (newstate) {
-                    state = newstate;
-                };
-                pub.getState = function() {
-                    return state;
-                }
-                return pub;
-            }());
-            function toggleButton() {
-                var menu = document.querySelector(".hamburger")
-                menu.classList.toggle("is-active");
-                if (!stateModule.getState()) {
-                    openNav();
-                    stateModule.changeState(1);
-                } else {
-                    closeNav();
-                    stateModule.changeState(0);
-                }
-            }
-            function openNav() {
-                document.getElementById("sidenav").style.width = "300px";
-                document.getElementById("nav").style.marginLeft = "300px";
-                document.getElementById("main").style.marginLeft = "300px";
-            }
-            function closeNav() {
-                document.getElementById("sidenav").style.width = "0";
-                document.getElementById("nav").style.marginLeft = "0";
-                document.getElementById("main").style.marginLeft = "0";
-            }
-        </script>
-    	<h1 class="menu_title">FAQ</h1>
-    </nav>
+<div class="division dark">
+	<div class="box dark" style="grid-row: 1; grid-column: 1 / 13;">
+		<h1 class="box_value">Beispiel Frage 3</h1>
+        <br>
+		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
+	</div>
+</div>
 
-    <div id="main">
-        <body>
-            <div class="division dark">
-            	<div class="box dark" style="grid-row: 1; grid-column: 1 / 13;">
-            		<h1 class="box_value">Beispiel Frage 1</h1>
-                    <br>
-            		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
-            	</div>
-            </div>
+<div class="division light">
+	<div class="box light" style="grid-row: 1; grid-column: 1 / 13;">
+		<h1 class="box_value">Beispiel Frage 4</h1>
+        <br>
+		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
+	</div>
+</div>
 
-            <div class="division light">
-            	<div class="box light" style="grid-row: 1; grid-column: 1 / 13;">
-            		<h1 class="box_value">Beispiel Frage 2</h1>
-                    <br>
-            		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
-            	</div>
-            </div>
+<div class="division dark">
+	<div class="box dark" style="grid-row: 1; grid-column: 1 / 13;">
+		<h1 class="box_value">Beispiel Frage 5</h1>
+        <br>
+		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
+	</div>
+</div>
 
-            <div class="division dark">
-            	<div class="box dark" style="grid-row: 1; grid-column: 1 / 13;">
-            		<h1 class="box_value">Beispiel Frage 3</h1>
-                    <br>
-            		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
-            	</div>
-            </div>
+<div class="division light">
+	<div class="box light" style="grid-row: 1; grid-column: 1 / 13;">
+		<h1 class="box_value">Beispiel Frage 6</h1>
+        <br>
+		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
+	</div>
+</div>
 
-            <div class="division light">
-            	<div class="box light" style="grid-row: 1; grid-column: 1 / 13;">
-            		<h1 class="box_value">Beispiel Frage 4</h1>
-                    <br>
-            		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
-            	</div>
-            </div>
+<div class="division dark">
+	<div class="box dark" style="grid-row: 1; grid-column: 1 / 13;">
+		<h1 class="box_value">Beispiel Frage 7</h1>
+        <br>
+		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
+	</div>
+</div>
 
-            <div class="division dark">
-            	<div class="box dark" style="grid-row: 1; grid-column: 1 / 13;">
-            		<h1 class="box_value">Beispiel Frage 5</h1>
-                    <br>
-            		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
-            	</div>
-            </div>
+<div class="division light">
+	<div class="box light" style="grid-row: 1; grid-column: 1 / 13;">
+		<h1 class="box_value">Beispiel Frage 8</h1>
+        <br>
+		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
+	</div>
+</div>
 
-            <div class="division light">
-            	<div class="box light" style="grid-row: 1; grid-column: 1 / 13;">
-            		<h1 class="box_value">Beispiel Frage 6</h1>
-                    <br>
-            		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
-            	</div>
-            </div>
-
-            <div class="division dark">
-            	<div class="box dark" style="grid-row: 1; grid-column: 1 / 13;">
-            		<h1 class="box_value">Beispiel Frage 7</h1>
-                    <br>
-            		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
-            	</div>
-            </div>
-
-            <div class="division light">
-            	<div class="box light" style="grid-row: 1; grid-column: 1 / 13;">
-            		<h1 class="box_value">Beispiel Frage 8</h1>
-                    <br>
-            		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
-            	</div>
-            </div>
-
-            <div class="division dark">
-            	<div class="box dark" style="grid-row: 1; grid-column: 1 / 13;">
-            		<h1 class="box_value">Beispiel Frage 9</h1>
-                    <br>
-            		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
-            	</div>
-            </div>
-        </body>
-    </div>
-
-</html>
+<div class="division dark">
+	<div class="box dark" style="grid-row: 1; grid-column: 1 / 13;">
+		<h1 class="box_value">Beispiel Frage 9</h1>
+        <br>
+		<h1 class="box_title">Hier könnte eine Antwort stehen oder auch nicht.</h1>
+	</div>
+</div>
