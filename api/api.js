@@ -56,18 +56,4 @@ function init (app) {
     res.writeHead(200, { 'Content-Type': 'text/json' })
     res.end(JSON.stringify(response))
   })
-
-  app.get('/api', function (req, res) {
-    const queryData = req.query
-    let response = ''
-
-    switch (queryData.action) {
-      case 'create_group_invite': {
-        // temporary method to get invite links -> change params in join_group.js
-        response = require('./join_group').createInvite(req, res)
-      }
-    }
-
-    res.end(JSON.stringify(response))
-  })
 }
