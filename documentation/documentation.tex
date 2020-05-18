@@ -1,0 +1,52 @@
+% Header Setup
+
+\input{header/packages}
+\input{header/macros}
+\input{header/preferences}
+
+\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis} % change list of listings to Quellcodeverzeichnis
+\usepackage{pdfpages}
+\begin{document}
+
+%----------------------------------
+%-- Setup of the Essential Parts --
+%----------------------------------
+\pagenumbering{Roman} %Start Roman Numbering for Essentials
+\include{essentials/frontpage} 
+
+\selectlanguage{ngerman}
+\include{essentials/kurzfassung}
+
+\numberwithin{figure}{chapter}
+\numberwithin{table}{chapter}
+
+\tableofcontents \clearpage
+\listoffigures \clearpage
+\listoftables \clearpage
+\lstlistoflistings \clearpage
+
+\include{essentials/acronym}
+
+\pagenumbering{arabic} 
+
+\input{content/content}
+
+
+
+%-----------------------------
+%-- Appendix & Bibliography --
+%-----------------------------
+
+
+%\clearpage
+%\pagenumbering{Roman} 
+%\setcounter{page}{10} %Set Page Number for continues Roman Page Numbers
+
+%-- Anhang --
+%\appendix 
+%\input{appendix/app1} 
+%\clearpage
+
+
+
+\end{document}

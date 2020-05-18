@@ -1,0 +1,69 @@
+\documentclass
+[	
+	enabledeprecatedfontcommands,	
+	pdftex,	 	
+	paper				= a4,
+	toc					= listof,			% Abbildungs- und Tabellenverzeichnis zum Inhaltsverzeichnis
+	titlepage			= true,	 			% Titel wird in der "titlepage" Umgebung gesetzt
+	numbers 				= noendperiod, 		% "letzter" Punkt hinter Nummerierungen wird entfernt
+	draft 				= false,			
+	twoside 				= false,	 			% Seitenränder werden an zweiseitig angepasst		 
+	headinclude			= true,				% Einstellung, ob der Kopf zum Textkörper gerechnet werden sollen	 
+	footinclude			= false,				% Einstellung, ob der Fuß zum Textkörper gerechnet werden sollen	 
+	fontsize = 12pt,
+	chapteratlists
+	]
+{scrreprt}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage[
+    top     = 2.5cm,                                % Seitenabstand oben
+    right     = 2.5cm,                                % Seitenabstand recht           
+    bottom     = 2.5cm,                                % Seitenabstand unten
+    left    = 2.5cm,                                % Seitenabstand links
+    bindingoffset = 0.5cm,
+    includeheadfoot                               
+]{geometry}
+
+\usepackage[perpage]{footmisc}
+
+
+%\usepackage{ngerman}
+\usepackage[english, ngerman]{babel}
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\graphicspath{{images/}} 	% Dort liegen die Bilder
+
+\usepackage{abstract}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[utf8]{inputenc}	
+
+\usepackage[usenames, dvipsnames]{color}
+
+\usepackage{listings}
+
+
+\usepackage{scrpage2} 
+\usepackage{scrbase} 
+
+\usepackage[printonlyused]{acronym}
+
+\usepackage{caption}
+
+\usepackage{hyperref}
+
+\usepackage[all]{hypcap}
+
+\usepackage{tabularx}
+
+\usepackage{xcolor}
+
+\usepackage{csquotes}
+
+\usepackage[export]{adjustbox}
+

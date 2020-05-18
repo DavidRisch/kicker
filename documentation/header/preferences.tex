@@ -1,0 +1,104 @@
+	\parskip3pt												% Zeilenabstand nach Absatz
+	\parindent6pt											% horizontaler Abstand nach Absatz
+	\setkomafont{sectioning}{\scshape\bfseries}       			% serifenbehaftete Übeschriften
+	\setkomafont{captionlabel}{\bfseries}     			  		% Fette Beschriftungen für alle "caption"
+	\renewcommand{\familydefault}{\sfdefault}					% Verwendung von serifenloser Schrift im gesamten Dokument
+	\captionsetup{figurewithin = none, tablewithin = none}		% fortlaufende Nummerierung von Abbildungen und Tabellen
+	
+	
+%---------------------------
+%-- Listing-Einstellungen --
+%---------------------------
+
+\makeatletter
+\AtBeginDocument	
+{													
+	\renewcommand*{\thelstlisting}{\arabic{chapter}.\arabic{lstlisting}}			
+}
+\makeatother													
+
+%\renewcommand{\lstlistingname}{Quellcode} 
+\renewcommand{\lstlistlistingname}{List of Listings}
+
+\lstset{
+		captionpos 			= b,                   				% Caption-Position unten, weitere Option: t (Caption-Position oben)
+		numbers 				= left,            					% Zeilennummern links
+		% stepnumber 		= 1,            						% Jede Zeile nummerieren, default: 1
+		numbersep 			= 5pt,           					% 5pt Abstand zum Quellcode
+		numberstyle 			= \tiny,       						% Zeichengrösse 'tiny' für die Nummern, weitere Option: \footnotesize
+		breaklines 			= true,         						% Zeilen umbrechen, wenn notwendFor the calibration of the sensorsig.
+		breakautoindent 		= true,    							% Nach dem Zeilenumbruch Zeile einrücken
+		% postbreak 			= \space,        					% Bei Leerzeichen umbrechen.
+		tabsize 				= 2,               					% Tabulatorgrösse 2
+		frame 				= shadowbox,							% Schattenbox, auch möglich: single
+		rulesepcolor 		= \color{Gray},						% Farbe des Schattens
+		framexleftmargin 	= 5mm,								% linken Rand vergrößern, um Zeilennummerierung mit einzubinden
+		basicstyle 			= \ttfamily\footnotesize,				% \footnotesize \small \scriptsize
+		keywordstyle 		= \color{Red}\bfseries,				% Schlüsselwortfarbe
+		commentstyle 		= \color{ForestGreen}\bfseries, 		% Kommentarfarbe
+		stringstyle 			= \color{NavyBlue},					% Farbe der Strings
+		showspaces			= false,        						% Leerzeichen nicht anzeigen.
+		showstringspaces		= false   							% Leerzeichen auch in Strings nicht anzeigen.
+	   }
+
+%\definecolor{dkgreen}{rgb}{0,0.6,0}
+%\definecolor{gray}{rgb}{0.5,0.5,0.5}
+%\definecolor{mauve}{rgb}{0.58,0,0.82}
+	
+%\lstset{frame=tb,
+%  language=Python,
+%  aboveskip=3mm,
+%  belowskip=3mm,
+%  showstringspaces=false,
+%  columns=flexible,
+%  basicstyle={\small\ttfamily},
+%  numbers=none,
+%  numberstyle=\tiny\color{gray},
+%  keywordstyle=\color{blue},
+%  commentstyle=\color{dkgreen},
+%  stringstyle=\color{mauve},
+%  breaklines=true,
+%  breakatwhitespace=true,
+%  tabsize=4
+%}
+
+%-------------------------
+%-- Kopf- und Fußzeile --
+%-------------------------
+		
+\pagestyle{scrheadings}
+		
+\clearscrheadfoot 												% Kopfzeilen "säubern", um eigene Einstellungen vorzunehmen
+		
+\automark{chapter} 												% Die Anweisung \automark aktiviert die automatische 
+								 								% Aktualisierung des Kolumnentitels. 
+		
+\setheadsepline{0.5pt}											% Trennlinie in der Kopfzeile
+% \setfootsepline{0.5pt}											% Trennlinie in der Fußzeile
+		
+%-- Kopfzeile --
+\ohead{\rightmark}												% Ebene "chapter" rechtsbündig setzen
+\setkomafont{pageheadfoot}{\normalfont\sffamily\bfseries\small}  	% Schriftart des Kopfzeiletitels
+	
+\renewcommand*{\chapterheadstartvskip}{\vspace*{.5\baselineskip}}
+	
+%-- Seitennummerierung --
+\cfoot[\pagemark]{\pagemark}										% Seitennummer zentriert setzen
+\setkomafont{pagenumber}{\normalfont\sffamily}						% Schriftart des Fußzeiletitels
+
+%-----------------------------------------------
+%-- Optionen für Links und pdf Informationen --
+%-----------------------------------------------
+	
+\hypersetup{					
+		pdftitle				= 	{Dokumentation},   						
+		pdfauthor			= 	{David Schader, Martina Scheffler},     
+		pdfsubject			=	{Dokumentation},   										
+		bookmarksnumbered	= 	true, 							% Nummerierung der Kapitel in Lesezeichenleiste
+		colorlinks			= 	true,       						% sollen Links farbig gemacht werden? 
+		linkcolor			= 	Black,          					% Links (Inhaltsverzeichnis, Abbildungen, Tabellen usw.)
+		citecolor			= 	Black,        					% Links zum Literaturverzeichnis
+		urlcolor				= 	Brown,    						% Farbe der URL
+		filecolor			= 	Brown							% kann auskommentiert werden, wenn keine Verlinkung auf
+																% externe Dateien verwendet wird
+		}
