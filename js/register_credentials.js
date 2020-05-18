@@ -1,4 +1,6 @@
-async function CheckDataProtectionAndSubmit () {
+/* global apiPost */
+
+async function CheckDataProtectionAndSubmit () { // eslint-disable-line no-unused-vars
   // validate user input
   if (!await ValidateUserInput()) {
     return
@@ -6,40 +8,49 @@ async function CheckDataProtectionAndSubmit () {
   // check data protection
   if (document.getElementById('checkbox1').checked) {
     document.getElementById('errorLabel').style.display = 'none'
-    document.getElementById('loginForm').submit()
+    SubmitForm()
   } else {
     document.getElementById('errorLabel').innerHTML = 'Bitte akzeptiere zuerst die Datenschutzbedingungen.'
   }
 }
 
-async function ValidateUserInput () {
-  const rawResponse = await fetch('/api', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      action: 'validateInput',
-      name: document.getElementById('nameInput').value,
-      email: document.getElementById('mailInput').value,
-      password: document.getElementById('passwordInput').value
-    })
-  })
+async function SubmitForm () {
+  const data = {
+    action: 'registerCredentials',
+    name: document.getElementById('userNameInput').value,
+    email: document.getElementById('mailInput').value,
+    password: document.getElementById('passwordInput').value,
+    telephone: document.getElementById('phoneNumberInput').value
 
-  const content = await rawResponse.json()
+  }
+  const res = await apiPost(data)
+  if (res.success) {
+    window.location.replace('/login')
+  }
+}
+
+async function ValidateUserInput () {
+  const data = {
+    action: 'validateInput',
+    name: document.getElementById('userNameInput').value,
+    email: document.getElementById('mailInput').value,
+    password: document.getElementById('passwordInput').value
+  }
+
+  const res = await apiPost(data)
   const label = document.getElementById('errorLabel')
 
-  if (!content.validEmail) {
+  if (!res.validEmail) {
     label.innerHTML = 'Ungültige Email Addresse'
     return false
   }
 
-  if (!content.validPassword) {
+  if (!res.validPassword) {
     label.innerHTML = 'Ungültiges Password'
     return false
   }
 
-  if (!content.validName) {
+  if (!res.validName) {
     label.innerHTML = 'Ungültiger Nutzername'
     return false
   }

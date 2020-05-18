@@ -22,7 +22,12 @@ function init (app) {
         break
       }
       case 'registerCredentials': {
-        require('./register_credentials').process(body.name, body.mail, body.password, body.phoneNumber)
+        response = require('./register_credentials').process(body.name, body.email, body.password, body.telephone)
+        break
+      }
+      case 'editAccount': {
+        // if password is '' the current password remains unchanged
+        response = require('./edit_account').process(req, body.name, body.email, body.password, body.telephone)
         break
       }
       case 'login': {
@@ -42,6 +47,11 @@ function init (app) {
           validName: validator.is_valid_user_name(name),
           validPassword: validator.is_secure_password(password)
         }
+        break
+      }
+
+      case 'enterGame': {
+        require('./enter_game').process(body.playerA1, body.playerA2, body.playerB1, body.playerB2, body.goalsA, body.goalsB)
         break
       }
 

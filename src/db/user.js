@@ -48,6 +48,10 @@ const User = class {
     this._update('password', password)
   }
 
+  setPassword (password) {
+    this._update('password', require('../account_util').hash_password(password, this.salt))
+  }
+
   get salt () {
     return this._select('salt')
   }

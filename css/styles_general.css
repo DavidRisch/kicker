@@ -1,20 +1,19 @@
+@import url("../css/hamburgers.css");
+/* -------------- Main Elements -------------- */
 body {
 	background-color: #000000;
 	margin: 0;
-	margin-left: auto;
-    margin-right: auto;
-}
-nav {
-	background-color: #2a333c;
-	padding: 10px;
-	padding-bottom: 60px;
 }
 .dark {
 	background-color: #12141e;
+	color: #ffffff;
 }
+
 .light {
 	background-color: #2a333c;
+	color: #ffffff;
 }
+
 .division {
 	border-top-left-radius: 50px;
 	border-top-right-radius: 50px;
@@ -23,44 +22,79 @@ nav {
 	padding-left: 0;
 	padding-right: 0;
 	margin-top: -40px;
-	
 	display: grid;
 	grid-template-columns: repeat(12, 8.3333333%);
-	
 	/*box-shadow: 0px -5px 10px #000000F0;*/
 }
+
+.divisiontop {
+	padding: 50px;
+	margin-bottom: -100px;
+}
+
 .box {
 	margin: 20px;
-	padding: 5px;
+	padding: 5px 40px;
 	border-radius: 20px;
 }
-.menu_title {
+
+.box_value {
 	color: #ffffff;
 	font: 60px sans-serif, Arial;
 	text-align: center;
 	margin: 0;
 }
-.box_value {
-	color: #ffffff;
-	font: 70px sans-serif, Arial;
-	text-align: center;
-	margin: 0;
-}
+
 .box_title {
 	color: #31bebe;
-	font: 40px sans-serif, Arial;
+	font: 36px sans-serif, Arial;
 	text-align: center;
 	margin: 0;
+	padding: 10px 0;
 }
+
+.box_subtitle {
+	color: #31bebe;
+	font: 28px sans-serif, Arial;
+	text-align: left;
+	margin: 0;
+	padding: 20px 0
+}
+
+/* unvisited link */
+a:link {
+	text-decoration: none;
+	color: #31bebe;
+}
+
+/* visited link */
+a:visited {
+	text-decoration: none;
+	color: #31bebe;
+}
+
+/* mouse over link */
+a:hover {
+	text-decoration: underline;
+	color: #31bebe;
+}
+
+/* selected link */
+a:active {
+	text-decoration: underline;
+	color: #31bebe;
+}
+
 .button_big {
 	background-color: #31bebe;
 	color: #ffffff;
 	font: 40px sans-serif, Arial;
 	margin: 10px;
+	padding: 25px 0;
 	border-radius: 25px;
 	border-width: 0;
-	height: 50px;
 }
+
 .text_input {
 	background-color: #000000;
 	color: #ffffff;
@@ -69,7 +103,347 @@ nav {
 	border-radius: 10px;
 	border-width: 1px;
 	font: 18px sans-serif, Arial;
-	height: 35px;
+	line-height: 1.25;
+	outline: 0;
+	padding: 0.25em 0.75em;
 	margin: 10px;
-	padding-left: 5px;
+	box-sizing: border-box;
+}
+
+.intrinsic_area {
+	display: table;
+	width: 100%;
+}
+
+.intrinsic_row {
+	display: table-row;
+	width: 100%;
+}
+
+.intrinsic_left {
+	display: table-cell;
+	width: 1px;
+}
+
+.intrinsic_right {
+	display: table-cell;
+	width: 100%;
+}
+
+
+.dropdown_box {
+	-webkit-appearance: none;
+	appearance: none;
+	font: 18px sans-serif, Arial;
+	color: #ffffff;
+	border: 1px solid #31bebe;
+	line-height: 1.25;
+	outline: 0;
+	box-sizing: border-box;
+	padding: 0.25em 0.75em;
+	border-radius: 10px;
+	background-color: #000000;
+	background-image: linear-gradient(#31bebe, #31bebe),
+		linear-gradient(-135deg, transparent 50%, #000000 50%),
+		linear-gradient(-225deg, transparent 50%, #000000 50%),
+		linear-gradient(#000000 42%, #31bebe 42%);
+	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+	background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+	background-position: right 20px center, right bottom, right bottom, right bottom;
+	margin: 10px;
+}
+
+.dropdown_box:hover {
+	background-image: linear-gradient(#31bebe, #31bebe),
+		linear-gradient(-135deg, transparent 50%, #31bebe 50%),
+		linear-gradient(-225deg, transparent 50%, #31bebe 50%),
+		linear-gradient(#31bebe 42%, #000000 42%);
+}
+
+.dropdown_box:active {
+	color: #ffffff;
+	border-color: #31bebe;
+	background-color: #000000;
+	background-image: linear-gradient(#31bebe, #31bebe),
+		linear-gradient(-135deg, transparent 50%, #31bebe 50%),
+		linear-gradient(-225deg, transparent 50%, #31bebe 50%),
+		linear-gradient(#31bebe 42%, #000000 42%);
+}
+
+/* -------------- Tokenize2 (Multi-Selection) -------------- */
+.tokenize > .tokens-container {
+	padding: 0.25em 0.75em;
+	background-color: #000000;
+	border: 1px solid #31bebe;
+	border-radius: 10px;
+	line-height: 1.25;
+	outline: 0;
+	box-sizing: border-box;
+}
+
+.tokenize > .tokens-container > .token {
+	padding: 3px 1.2em 1px 5px;
+	background-color: #2a333c;
+	color: #ffffff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.tokenize.focus > .tokens-container {
+	border-color: #31bebe;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.tokenize > .tokens-container > .token,
+.tokenize > .tokens-container > .placeholder,
+.tokenize > .tokens-container > .token-search {
+	border: 1px solid #31bebe;
+	caret-color: #ffffff;
+	color: #ffffff;
+	margin: 0.5em;
+}
+
+.tokenize > .tokens-container > .placeholder,
+.tokenize > .tokens-container > .token-search {
+	/*padding: 0;*/
+	border-color: transparent;
+}
+
+.tokenize > .tokens-container > .token-search > input {
+	padding: 2px 0 0 0;
+	color: #ffffff;
+	border-style: none;
+}
+
+.tokenize > .tokens-container > .token.pending-delete {
+	background-color: #12141e;
+	border-color: #12141e;
+}
+
+.tokenize > .tokens-container > .token > .dismiss {
+	color: #31bebe;
+}
+
+.tokenize-dropdown > .dropdown-menu {
+	background-color: #12141e;
+	border: 1px solid #31bebe;
+	-webkit-border-right: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.tokenize-dropdown > .dropdown-menu li {
+	color: #ffffff;
+	background-color: #12141e;
+}
+
+.tokenize-dropdown > .dropdown-menu li.active {
+	background-color: #2a333c;
+}
+
+.tokenize-dropdown > .dropdown-menu li > a .tokenize-highlight {
+	color: #31bebe;
+}
+
+.division_description {
+	color: #bababa;
+	font: 35px sans-serif, Arial;
+	text-align: left;
+	margin: 20px;
+	margin-left: 60px;
+}
+
+/* ---------------- tables ----------------- */
+table {
+	border-collapse: collapse;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 20px;
+	width: 100%;
+}
+
+th, td {
+	font: 38px sans-serif, Arial;
+	text-align: center;
+}
+
+.table_top_row {
+	border-bottom: 2px solid #ffffff;
+}
+
+.table_highlight_row {
+	color: #31bebe;
+}
+
+/* -------------- The Nav Bar -------------- */
+nav {
+	z-index: 10;
+	/*Because chosen-multi-select is kind of poser :p */
+	/*width: 100%; */
+	height: 80px;
+	background-color: #2a333c;
+	padding: 10px;
+	padding-bottom: 10px;
+	display: flex;
+	position: sticky;
+	top: 0;
+	overflow: hidden;
+	margin-bottom: 0;
+	box-shadow: 0px 5px 20px #000000F0;
+}
+
+#main, #nav {
+	transition: margin-left .5s;
+}
+	/* -------------- Sidenav left -------------- */
+.sidenav {
+	height: 100%;
+	width: 0;
+	background-color: #12141e;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
+	padding-top: 0;
+	transition: 0.5s;
+}
+
+.sidenav a {
+	padding: 5px 10px 5px 35px;
+	color: #fefefe;
+	font: 30px sans-serif, Arial;
+	text-decoration: none;
+	display: block;
+	transition: 0.4s;
+}
+
+.sidenav a:hover {
+	color: #2a333c;
+}
+
+.sidenav-button {
+	width: 100%;
+	padding: 35px 0;
+	color: #ffffff;
+	background-color: #31bebe;
+	font: 30px sans-serif, Arial;
+	border-width: 0;
+	cursor: pointer;
+	transition: 0.6s;
+}
+
+.sidenav-button:hover {
+	color: #2a333c;
+}
+
+.sidenav hr {
+	height: 2px;
+	color: #2a333c;
+	background-color: #2a333c;
+}
+
+.sidenav hr.bold {
+	height: 2px;
+	color: #31bebe;
+	background-color: #31bebe;
+	margin: 15px 0
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after, .hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::before, .hamburger.is-active .hamburger-inner::after {
+	background-color: #31bebe;
+}
+	/* -------------- Nav Menu title -------------- */
+nav .menu_title {
+	color: #ffffff;
+	font: 60px sans-serif, Arial;
+	text-align: center;
+	margin: 0;
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+	/* -------------- Nav Group Select -------------- */
+nav .group_icon_button {
+	float: right;
+	background: black;
+	background-image: url(/images/no_group_selected.png); 	/*Here you'll put the image of selected group, this is default */
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	border: none;
+	border-radius: 50%;
+	padding: 35px;
+	position: absolute;
+	top: 15px;
+	right: 50px;
+	left: unset;
+}
+
+nav .group_sidepanel {
+	height: 100%;
+	width: 0; /* Change in Java Script */
+	position: fixed;
+	top: 0;
+	z-index: +1; /*hide the group icon under the sidepanel */
+	right: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	padding-top: 60px;
+	transition: 0.5s;
+}
+
+nav .group_select_button {
+	position: relative;
+	left: 15px;
+	margin-top: 5px;
+	color: #ffffff;
+	border-color: #31bebe;
+	border-style: solid;
+	border-radius: 10px;
+	border-width: 1px;
+	font: 18px sans-serif, Arial;
+	width: 250px;
+	height: 40px;
+	background-color: black;
+	overflow: hidden; /* This will hide too long text */
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+nav .group_select_button:hover {
+	background-color: #2a333c;
+}
+
+nav .group_select_button img {
+	float: left;
+	background: black;
+	padding: 5px;
+	width: 20px;
+	height: 20px;
+	border-color: #31bebe;
+	border-style: solid;
+	border-radius: 10px;
+	border-width: 1px;
+}
+
+nav .group_select_button span {
+	position: relative;
+	left: 10px;
+	width: 200px;
+}
+
+		/* Position and style the close button (top right corner) */
+
+nav .group_sidepanel .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	text-decoration: none;
+	color: #2a333c;
+	margin-left: 50px;
 }

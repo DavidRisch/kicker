@@ -25,5 +25,29 @@ function init (app) {
     require('./front_page').page(req, res)
   })
 
+  app.get('/group_selection', function (req, res) {
+    require('./group_selection').page(req, res)
+  })
+
+  app.get('/group_creation', function (req, res) {
+    require('./group_creation').page(req, res)
+  })
+
+  app.get('/tournament_creation', function (req, res) {
+    require('./tournament_creation').page(req, res)
+  })
+
+  app.get('/imprint', function (req, res) {
+    require('./imprint').page(req, res)
+  })
+
+  app.get('/enter_game', function (req, res) {
+    require('./enter_game').page(req, res)
+  })
+
+  app.get('/running_tournament', function (req, res) {
+    require('./running_tournament').page(req, res)
+  })
+
   // ^^^ Insert new pages here ^^^
 }

@@ -35,7 +35,7 @@ const Group = class {
 
   get users () {
     return database.query(`SELECT User_in_Group.user_id, User_in_Group.join_timestamp
-    FROM Group
+    FROM \`Group\`
     JOIN User_in_Group ON (User_in_Group.group_id = Group.id)
     WHERE Group.id = :id`, {
       id: this._id
@@ -43,13 +43,13 @@ const Group = class {
   }
 
   _select (property) {
-    return database.query('SELECT ' + property + ' FROM Group WHERE id = :id', {
+    return database.query('SELECT ' + property + ' FROM `Group` WHERE id = :id', {
       id: this._id
     })[0][property]
   }
 
   _update (property, value) {
-    database.query('UPDATE Group SET ' + property + ' = :value WHERE id = :id', {
+    database.query('UPDATE `Group` SET ' + property + ' = :value WHERE id = :id', {
       value: value,
       id: this._id
     }, null)
@@ -57,10 +57,19 @@ const Group = class {
 }
 
 function getGroup (property, value) {
-  const result = database.query('SELECT id FROM Group WHERE ' + property + ' = :value', {
+  const result = database.query('SELECT id FROM `Group` WHERE ' + property + ' = :value', {
     value: value
   })
   return new Group(result[0].id)
+}
+
+function getAllGroups () {
+  const result = database.query('SELECT id FROM `Group`', {})
+  const groupsList = []
+  result.forEach(element => {
+    groupsList.push(new Group(element.id))
+  })
+  return groupsList
 }
 
 function byId (id) {
@@ -68,7 +77,7 @@ function byId (id) {
 }
 
 function create (name, description) {
-  const result = database.query('INSERT INTO Group (name, description) VALUES (:name, :description)', {
+  const result = database.query('INSERT INTO `Group` (name, description) VALUES (:name, :description)', {
     name: name,
     description: description
   })
@@ -77,5 +86,6 @@ function create (name, description) {
 
 module.exports = {
   by_id: byId,
-  create: create
+  create: create,
+  get_all: getAllGroups
 }
