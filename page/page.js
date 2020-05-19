@@ -53,5 +53,9 @@ function init (app) {
     require('./achievements').page(req, res)
   })
 
+  app.get('/tournaments_overview', function (req, res) {
+    require('./tournaments_overview').page(req, res)
+  })
+
   // ^^^ Insert new pages here ^^^
 }
