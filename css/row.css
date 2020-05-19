@@ -1,61 +1,65 @@
-body {
-  background-color: #000000;
-}
 .rowContainer {
-  height: auto;
-  display: grid;
-  grid-template-columns: 15% 25% 10% 10% 25% 15%;
-  align-items: center;
+    height: auto;
+    display: grid;
+    grid-template-columns: 15% 23% 12% 12% 23% 15%;
+    align-items: center;
+    margin: 20px;
 }
 .playerImg {
-  position: relative;
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
+    position: relative;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
 }
 #imgLeft {
-  background: #0094ff;
+    background: #0094ff;
 }
 #imgRight {
-  background: #ff3737;
-  justify-self: end;
+    background: #ff3737;
+    justify-self: end;
 }
 .player {
-  font-family: sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 23px;
-  align-items: center;
-  text-align: center;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 23px;
+    align-items: center;
+    text-align: center;
+    height: 20px;
 
-  color: #ffffff;
+    color: #ffffff;
 }
 .score {
-  position: relative;
+    position: relative;
 
-  font-family: sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 28px;
-  align-items: center;
-  text-align: center;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 70px;
+    line-height: 28px;
+    align-items: center;
+    text-align: center;
 
-  color: #ffffff;
+    color: #ffffff;
 }
 .date {
-  grid-column: 1/7;
-  height: 23px;
+    grid-column: 1/7;
+    height: 23px;
 
-  font-family: sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 23px;
-  align-items: center;
-  text-align: right;
-  padding-right: 10px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    align-items: center;
+    text-align: right;
+    padding-right: 10px;
+    margin-bottom: 5px;
 
-  color: #ffffff;
+    color: #ffffff;
+}
+
+.row_entry_button {
+    grid-column: span 2;
 }

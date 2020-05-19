@@ -17,8 +17,12 @@ const Session = class {
     this._update('valid', isValid)
   }
 
-  get token () {
-    return this._select('token')
+  get cookieToken () {
+    return this._select('cookie_token')
+  }
+
+  get csrfToken () {
+    return this._select('csrf_token')
   }
 
   get userId () {
@@ -54,13 +58,14 @@ function byId (id) {
   return getSession('id', id)
 }
 
-function byToken (name) {
-  return getSession('token', name)
+function byCookieToken (name) {
+  return getSession('cookie_token', name)
 }
 
 function create (userId) {
-  const result = database.query('INSERT INTO Session (valid, token, user_id) VALUES (0, :token, :user_id)', {
-    token: require('../account_util').generate_random_string(64),
+  const result = database.query('INSERT INTO Session (valid, cookie_token, csrf_token, user_id) VALUES (0, :cookie_token, :csrf_token, :user_id)', {
+    cookie_token: require('../account_util').generate_random_string(64),
+    csrf_token: require('../account_util').generate_random_string(64),
     user_id: userId
   })
   return byId(result.insertId)
@@ -68,6 +73,6 @@ function create (userId) {
 
 module.exports = {
   by_id: byId,
-  by_token: byToken,
+  by_cookie_token: byCookieToken,
   create: create
 }

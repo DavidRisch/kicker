@@ -8,16 +8,31 @@ async function CheckDataProtectionAndSubmit () { // eslint-disable-line no-unuse
   // check data protection
   if (document.getElementById('checkbox1').checked) {
     document.getElementById('errorLabel').style.display = 'none'
-    document.getElementById('loginForm').submit()
+    SubmitForm()
   } else {
     document.getElementById('errorLabel').innerHTML = 'Bitte akzeptiere zuerst die Datenschutzbedingungen.'
+  }
+}
+
+async function SubmitForm () {
+  const data = {
+    action: 'registerCredentials',
+    name: document.getElementById('userNameInput').value,
+    email: document.getElementById('mailInput').value,
+    password: document.getElementById('passwordInput').value,
+    telephone: document.getElementById('phoneNumberInput').value
+
+  }
+  const res = await apiPost(data)
+  if (res.success) {
+    window.location.replace('/login')
   }
 }
 
 async function ValidateUserInput () {
   const data = {
     action: 'validateInput',
-    name: document.getElementById('nameInput').value,
+    name: document.getElementById('userNameInput').value,
     email: document.getElementById('mailInput').value,
     password: document.getElementById('passwordInput').value
   }
@@ -26,12 +41,12 @@ async function ValidateUserInput () {
   const label = document.getElementById('errorLabel')
 
   if (!res.validEmail) {
-    label.innerHTML = 'Ungültige Email Addresse'
+    label.innerHTML = 'Ungültige E-Mail Addresse'
     return false
   }
 
   if (!res.validPassword) {
-    label.innerHTML = 'Ungültiges Password'
+    label.innerHTML = 'Ungültiges Passwort'
     return false
   }
 

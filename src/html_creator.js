@@ -14,13 +14,41 @@ function htmlHeader (title, js = [], css = [], additional = '') {
     <link type="text/css" rel="stylesheet" href="css/style.css"/>\n\n`
 
   css.forEach(function (name) {
-    result += `    <link rel="stylesheet" href="css/${name}.css">\n`
+    let path = `css/${name}.css`
+
+    if (name === 'chosen') {
+      path = 'chosen/chosen.css'
+    } else if (name === 'jquery-ui') {
+      path = 'jquery-ui/jquery-ui.css'
+    } else if (name === 'dropzone') {
+      path = 'dropzone/dropzone.css'
+    } else if (name === 'bootstrap') {
+      path = 'bootstrap/css/bootstrap.min.css'
+    } else if (name === 'tokenize2') {
+      path = 'tokenize2/tokenize2.min.css'
+    }
+
+    result += `    <link rel="stylesheet" href="${path}">\n`
   })
 
   result += '\n'
 
   js.forEach(function (name) {
-    result += `    <script type="text/javascript" src="js/${name}.js"></script>\n`
+    let path = `js/${name}.js`
+
+    if (name === 'chosen') {
+      path = 'chosen/chosen.jquery.min.js'
+    } else if (name === 'jquery') {
+      path = 'jquery/jquery.min.js'
+    } else if (name === 'jquery-ui') {
+      path = 'jquery-ui/jquery-ui.min.js'
+    } else if (name === 'dropzone') {
+      path = 'dropzone/dropzone.js'
+    } else if (name === 'tokenize2') {
+      path = 'tokenize2/tokenize2.min.js'
+    }
+
+    result += `    <script type="text/javascript" src="${path}"></script>\n`
   })
 
   result += additional
@@ -30,16 +58,40 @@ function htmlHeader (title, js = [], css = [], additional = '') {
   return result
 }
 
+const nav = require('fs').readFileSync('html/nav.html', 'utf8')
+
+function htmlNav () {
+  return nav
+}
+
 function htmlFooter () {
   return '\n</body></html>'
 }
 
-function createHtml (html, title, js = [], css = []) {
+function createHtml (html, options) {
   // add defaults
-  const defaultJs = ['api_post']
-  const defaultCss = []
+  let jsFiles = ['api_post']
+  let cssFiles = []
   // TODO: activate when pages are ready:
-  // const defaultCss = ['styles_general']
+  // const cssFiles = ['styles_general']
 
-  return htmlHeader(title, defaultJs.concat(js), defaultCss.concat(css)) + html + htmlFooter()
+  let nav = ''
+  if (options.nav) {
+    nav = htmlNav()
+    nav = nav.replace('§nav_title§', options.title)
+    jsFiles.push('nav')
+    cssFiles.push('groups')
+    cssFiles.push('hamburgers')
+  }
+
+  if (options.js !== undefined) {
+    jsFiles = jsFiles.concat(options.js)
+  }
+
+  if (options.css !== undefined) {
+    cssFiles = cssFiles.concat(options.css)
+  }
+
+  return htmlHeader(options.title, jsFiles, cssFiles) +
+    nav + html + htmlFooter()
 }
