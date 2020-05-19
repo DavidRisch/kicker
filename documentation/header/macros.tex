@@ -1,0 +1,41 @@
+%----------------------------------
+%-- Vordefinierte Formatierungen --
+%----------------------------------
+
+% Darstellung von Abbildungenen mit...
+
+\newcommand{\FG}[5]
+{ 
+	\vspace{2mm}
+	 
+	\begin{figure}[!htb]
+	
+		\centering
+		
+			\includegraphics[scale = #2]{#1} 	
+			\caption[#3]{#4}
+			\label{pic:#5}
+			 
+	\end{figure}
+}
+
+% ... und Referenz
+\newcommand{\FR}[1]{\figurename~\ref{pic:#1}}
+%-------------------------------------------------------
+
+
+% ---------Schriftformatierungen------------------ 
+\newcommand{\Name}[1]{\emph{#1}}
+\newcommand{\Fachbegriff}[1]{\textbf{#1}} 
+\newcommand{\Code}[1]{\texttt{#1}}
+\newcommand{\Datei}[1]{\texttt{#1}}
+\newcommand{\Datentyp}[1]{\textsf{#1}}
+%-------------------------------------------------
+
+%----------Schreibprozess-------------------------
+\newcommand{\todo}{\marginpar{\bf\color{red}TODO}}
+\newcommand{\todoread}{\marginpar{\bf\color{RedOrange}READ}}
+\newcommand{\todoreadfinal}{\marginpar{\bf\color{orange}READ}}
+\newcommand{\todosend}{\marginpar{\bf\color{green}SEND}}
+\newcommand{\todocorrect}{\marginpar{\bf\color{blue}CORRECT}}
+%-------------------------------------------------

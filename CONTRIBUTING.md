@@ -80,4 +80,10 @@ Api parameters and responses must be written in `camelCase`.
   This step should be repeated after changes to any *.js or *.env files but it is not required for changes to *.html and *.css files.
 - Open in your browser:  
   `localhost:8080`
+- Install a local version of the database:
+  - Install a mysql server, most versions will work (known working: `10.1.44-MariaDB-0ubuntu0.18.04.1`). 
+  - Download `kicker.sql` from http://88.198.69.104/dump_db.
+  - Create a new schema `kicker` (with collation `utf8_general_ci`).
+  - Run `kicker.sql` with the `kicker` schema selected. In MySQL Workbench: File | Run SQL Script...
+  - Enter valid credentials for the db in `config/config.env`.
   

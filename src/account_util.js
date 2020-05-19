@@ -17,7 +17,9 @@ function generateRandomString (length) {
 const sessionTokenName = 'session_token'
 
 function setSessionCookie (res, token) {
-  res.cookie(sessionTokenName, token, { maxAge: 900000 })
+  res.cookie(sessionTokenName, token, {
+    maxAge: 10 * 24 * 60 * 60 * 1000 // 10 days (unit is ms)
+  })
 }
 
 function getSessionCookie (req) {
