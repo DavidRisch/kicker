@@ -1,9 +1,96 @@
 @import url("../css/hamburgers.css");
 /* -------------- Main Elements -------------- */
 body {
-	background-color: #000000;
-	margin: 0;
+	background-color: #2a333c;
+	margin: 0 auto;
 }
+
+a {
+    color: #31bebe;
+}
+
+nav {
+	background-color: #2a333c;
+    padding: 10px 0 40px 0;
+    display: flex;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    border-bottom: 8px;
+    border-bottom-style: solid;
+    border-bottom-color: #12141E;
+}
+
+#main, #nav {
+  transition: margin-left .5s;
+}
+
+.main_box {
+	grid-column: 3 / 11;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    background-color: #12141e;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.sidenav a {
+    padding: 5px 10px 5px 35px;
+    color: #fefefe;
+    font: 30px sans-serif, Arial;
+    text-decoration: none;
+    display: block;
+    transition: 0.4s;
+}
+
+.sidenav a:hover {
+  color: #2a333c;
+}
+
+.sidenav-button {
+    width: 100%;
+    padding: 35px 0;
+    color: #ffffff;
+    background-color: #31bebe;
+    font: 30px sans-serif, Arial;
+    border-width: 0;
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+.sidenav-button:hover {
+    color: #2a333c;
+}
+
+.sidenav hr {
+    height: 2px;
+    color: #2a333c;
+    background-color: #2a333c;
+}
+
+.sidenav hr.bold{
+    height: 2px;
+    color: #31bebe;
+    background-color: #31bebe;
+    margin:15px 0
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after,
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+    background-color: #31bebe;
+}
+
 .dark {
 	background-color: #12141e;
 	color: #ffffff;
@@ -38,6 +125,13 @@ body {
 	border-radius: 20px;
 }
 
+
+.menu_title {
+	color: #ffffff;
+	font: 60px sans-serif, Arial;
+	margin: 0 auto;
+}
+
 .box_value {
 	color: #ffffff;
 	font: 60px sans-serif, Arial;
@@ -64,28 +158,25 @@ body {
 /* unvisited link */
 a:link {
 	text-decoration: none;
-	color: #31bebe;
 }
 
 /* visited link */
 a:visited {
 	text-decoration: none;
-	color: #31bebe;
 }
 
 /* mouse over link */
 a:hover {
 	text-decoration: underline;
-	color: #31bebe;
 }
 
 /* selected link */
 a:active {
 	text-decoration: underline;
-	color: #31bebe;
 }
 
 .button_big {
+	display: block;
 	background-color: #31bebe;
 	color: #ffffff;
 	font: 40px sans-serif, Arial;
@@ -93,6 +184,9 @@ a:active {
 	padding: 25px 0;
 	border-radius: 25px;
 	border-width: 0;
+	height: 50px;
+	cursor: pointer;
+	text-align: center;
 }
 
 .text_input {
@@ -267,6 +361,27 @@ table {
 th, td {
 	font: 38px sans-serif, Arial;
 	text-align: center;
+}
+
+.checkbox {
+    -webkit-appearance: none;
+    color: #ffffff;
+    background-color: #000000;
+    border: 1px solid #31bebe;
+    border-radius: 8px;
+    margin: 10px 10px;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.checkbox:checked:after {
+    color: #ffffff;
+    content: "\2714";
+    font-size: 20px;
+    position: absolute;
+    left: 6px
 }
 
 .table_top_row {
