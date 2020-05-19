@@ -32,6 +32,14 @@ body {
 	margin-bottom: -100px;
 }
 
+.division_description {
+	color: #bababa;
+	font: 35px sans-serif, Arial;
+	text-align: left;
+	margin: 20px;
+	margin-left: 60px;
+}
+
 .box {
 	margin: 20px;
 	padding: 5px 40px;
@@ -59,6 +67,14 @@ body {
 	text-align: left;
 	margin: 0;
 	padding: 20px 0
+}
+
+.text_item {
+	color: #ffffff;
+	font: 50px sans-serif, Arial;
+	text-align: left;
+	align-items: center;
+	padding: 20px 20px 20px 0;
 }
 
 /* unvisited link */
@@ -245,14 +261,6 @@ a:active {
 
 .tokenize-dropdown > .dropdown-menu li > a .tokenize-highlight {
 	color: #31bebe;
-}
-
-.division_description {
-	color: #bababa;
-	font: 35px sans-serif, Arial;
-	text-align: left;
-	margin: 20px;
-	margin-left: 60px;
 }
 
 /* ---------------- tables ----------------- */
