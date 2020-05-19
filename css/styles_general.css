@@ -34,7 +34,6 @@ nav {
     top: 0;
     left: 0;
     overflow-x: hidden;
-    padding-top: ;
     transition: 0.5s;
 }
 
@@ -177,6 +176,7 @@ a:active {
 }
 
 .button_big {
+	display: block;
 	background-color: #31bebe;
 	color: #ffffff;
 	font: 40px sans-serif, Arial;
