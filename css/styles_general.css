@@ -1,7 +1,7 @@
 @import url("../css/hamburgers.css");
 /* -------------- Main Elements -------------- */
 body {
-	background-color: #000000;
+	background-color: #2a333c;
 	margin: 0 auto;
 }
 
@@ -23,6 +23,10 @@ nav {
 
 #main, #nav {
   transition: margin-left .5s;
+}
+
+.main_box {
+	grid-column: 3 / 11;
 }
 
 .sidenav {
@@ -154,25 +158,21 @@ nav {
 /* unvisited link */
 a:link {
 	text-decoration: none;
-	color: #31bebe;
 }
 
 /* visited link */
 a:visited {
 	text-decoration: none;
-	color: #31bebe;
 }
 
 /* mouse over link */
 a:hover {
 	text-decoration: underline;
-	color: #31bebe;
 }
 
 /* selected link */
 a:active {
 	text-decoration: underline;
-	color: #31bebe;
 }
 
 .button_big {
@@ -185,8 +185,8 @@ a:active {
 	border-radius: 25px;
 	border-width: 0;
 	height: 50px;
-    margin: 10px;
     cursor: pointer;
+	text-align: center;
 }
 
 .text_input {

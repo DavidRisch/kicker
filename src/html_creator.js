@@ -11,7 +11,7 @@ function htmlHeader (title, js = [], css = [], additional = '') {
 <head>
     <meta charset="UTF-8">
     <title>${title}</title>
-    <link type="text/css" rel="stylesheet" href="css/style.css"/>\n\n`
+    <link type="text/css" rel="stylesheet" href="css/styles_general.css"/>\n\n`
 
   css.forEach(function (name) {
     let path = `css/${name}.css`
