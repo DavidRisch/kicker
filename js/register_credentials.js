@@ -41,12 +41,12 @@ async function ValidateUserInput () {
   const label = document.getElementById('errorLabel')
 
   if (!res.validEmail) {
-    label.innerHTML = 'Ungültige Email Addresse'
+    label.innerHTML = 'Ungültige E-Mail Addresse'
     return false
   }
 
   if (!res.validPassword) {
-    label.innerHTML = 'Ungültiges Password'
+    label.innerHTML = 'Ungültiges Passwort'
     return false
   }
 
