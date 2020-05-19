@@ -37,6 +37,14 @@ function init (app) {
     require('./imprint').page(req, res)
   })
 
+  app.get('/create_join_link', function (req, res) {
+    require('./create_join_link').page(req, res)
+  })
+
+  app.get('/join_group', function (req, res) {
+    require('./join_group').page(req, res)
+  })
+
   app.get('/enter_game', function (req, res) {
     require('./enter_game').page(req, res)
   })
