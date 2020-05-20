@@ -1,0 +1,33 @@
+<div>
+    <b>Dein Profil:</b>
+    <form method="post" id="form" action="/api">
+        <label>
+            Name:
+            <br>
+            <input name="name" id="userNameInput">
+        </label><br>
+        <label>
+            Email:
+            <br>
+            <input name="mail" id="mailInput">
+        </label><br>
+        <label>
+            Passwort:
+            <br>
+            <input name="password" type="password" id="passwordInput" placeholder="************">
+        </label><br>
+        <label>
+            Telefonnummer:
+            <br>
+            <input name="phoneNumber" id="phoneNumberInput">
+        </label><br>
+        <br>
+        <button type="button" onclick="Submit()">Änderungen speichern</button>
+        <br>
+        <label id="errorLabel"></label>
+        <br>
+        <button type="button" onclick="LoadEntries()">Änderungen verwerfen</button>
+        <br>
+    </form>
+</div>
+<script>LoadEntries();</script>

@@ -57,5 +57,9 @@ function init (app) {
     require('./tournaments_overview').page(req, res)
   })
 
+  app.get('/account', function (req, res) {
+    require('./account').page(req, res)
+  })
+
   // ^^^ Insert new pages here ^^^
 }
