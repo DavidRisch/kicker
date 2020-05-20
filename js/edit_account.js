@@ -1,5 +1,3 @@
-/* global apiPost */
-
 async function Submit() {
   const data = {
     action: '',
