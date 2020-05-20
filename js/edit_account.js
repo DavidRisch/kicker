@@ -29,15 +29,8 @@ async function LoadEntries() {
   document.getElementById('mailInput').value = res.email
   document.getElementById('userNameInput').value = res.name
   document.getElementById('phoneNumberInput').value = res.telephone
+  // delete password entry (placeholder indicates a password is set)
   document.getElementById('passwordInput').value = ""
-  /*/
-  document.getElementById('mailInput').value = "MAIL"
-  document.getElementById('userNameInput').value ="NAME"
-  document.getElementById('passwordInput').value = ""
-  document.getElementById('phoneNumberInput').value = "PHONE NUMBER"
-*/
-
-
 }
 
 async function ValidateUserInput () {
