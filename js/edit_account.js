@@ -1,4 +1,4 @@
-async function Submit() {
+async function Submit () {
   const data = {
     action: '',
     name: document.getElementById('userNameInput').value,
@@ -21,7 +21,7 @@ async function Submit() {
   }
 }
 
-async function LoadEntries() {
+async function LoadEntries () {
   // reset entries with user data
   const data = {
     action: 'getUserData'
@@ -31,7 +31,7 @@ async function LoadEntries() {
   document.getElementById('userNameInput').value = res.name
   document.getElementById('phoneNumberInput').value = res.telephone
   // delete password entry (placeholder indicates a password is set)
-  document.getElementById('passwordInput').value = ""
+  document.getElementById('passwordInput').value = ''
 }
 
 async function ValidateUserInput (data) {
@@ -43,7 +43,7 @@ async function ValidateUserInput (data) {
     label.innerHTML = 'Ungültige Email Adresse'
     return false
   }
-  if (data.password !== ''){
+  if (data.password !== '') {
     if (!res.validPassword) {
       label.innerHTML = 'Ungültiges Passwort (mind. 8 Zeichen aus Klein-/Großbuchstaben, Zahlen & Sonderzeichen)'
       return false
