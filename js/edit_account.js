@@ -29,7 +29,7 @@ async function LoadEntries() {
   document.getElementById('mailInput').value = res.email
   document.getElementById('userNameInput').value = res.name
   document.getElementById('phoneNumberInput').value = res.telephone
-
+  document.getElementById('passwordInput').value = ""
   /*/
   document.getElementById('mailInput').value = "MAIL"
   document.getElementById('userNameInput').value ="NAME"
