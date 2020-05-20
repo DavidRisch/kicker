@@ -6,15 +6,12 @@ function process (req) {
             errorReason: 'user does not exist'
         }
     }
-    let response = ''
-    response = {
+    return {
         success: true,
         name: user.name,
         email: user.email,
         telephone: user.telephone
     }
-
-    return response
 }
 
 module.exports = {
