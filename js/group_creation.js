@@ -1,3 +1,5 @@
+/* global Dropzone $ */
+
 // Configure Dropzone
 Dropzone.options.group_member_select = {
   paramName: 'groupImage', // Name of the transferred file

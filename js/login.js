@@ -1,4 +1,6 @@
-async function Login () {
+/* global apiPost getCookieValue */
+
+async function Login () { // eslint-disable-line no-unused-vars
   const res = await apiPost({
     action: 'login',
     userName: document.getElementById('userNameInput').value,

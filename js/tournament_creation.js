@@ -1,3 +1,5 @@
+/* global $ */
+
 $(function () {
   $('.tournament_participants').tokenize2({
     // max number of tags

@@ -22,7 +22,7 @@ function setCheckbox (id, checked) {
 var isAhidden = false
 var isBhidden = false
 
-function oneVsOne () {
+function oneVsOne () { // eslint-disable-line no-unused-vars
   console.log('1 vs 1')
 
   // toggle buttons
@@ -40,7 +40,7 @@ function oneVsOne () {
   setCheckbox('checkboxB', false) // checkbox B
 }
 
-function twoVsTwo () {
+function twoVsTwo () { // eslint-disable-line no-unused-vars
   console.log('2 vs 2')
 
   // toggle buttons
@@ -58,7 +58,8 @@ function twoVsTwo () {
   setCheckbox('checkboxB', true) // checkbox B
 }
 
-function teamAHas2ndPlayer () { // textinput A
+function teamAHas2ndPlayer () { // eslint-disable-line no-unused-vars
+  // textinput A
   if (isAhidden) {
     hideElment('playerA2', false)
     isAhidden = false
@@ -68,7 +69,8 @@ function teamAHas2ndPlayer () { // textinput A
   }
 }
 
-function teamBHas2ndPlayer () { // textinput B
+function teamBHas2ndPlayer () { // eslint-disable-line no-unused-vars
+  // textinput B
   if (isBhidden) {
     hideElment('playerB2', false)
     isBhidden = false
