@@ -3,7 +3,7 @@ function process (req) {
   if (user === null) {
     return {
       success: false,
-      errorReason: 'user does not exist'
+      errorReason: 'not logged in'
     }
   }
   return {
