@@ -26,7 +26,7 @@ async function LoadEntries() {
     action: 'getUserData'
   }
   const res = await apiPost(data)
-  document.getElementById('mailInput').value = res.mail
+  document.getElementById('mailInput').value = res.email
   document.getElementById('userNameInput').value = res.name
   document.getElementById('phoneNumberInput').value = res.telephone
 
