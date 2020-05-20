@@ -30,6 +30,12 @@ function init (app) {
         response = require('./edit_account').process(req, body.name, body.email, body.password, body.telephone)
         break
       }
+
+      case 'getUserData': {
+        response = require('./get_user_data').process(req)
+        break
+      }
+
       case 'login': {
         response = require('./login').process(body.userName, body.password, res)
         break

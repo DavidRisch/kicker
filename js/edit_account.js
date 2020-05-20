@@ -22,10 +22,21 @@ async function Submit() {
 
 async function LoadEntries() {
   // reset entries with user data
+  const data = {
+    action: 'getUserData'
+  }
+  const res = await apiPost(data)
+  document.getElementById('mailInput').value = res.mail
+  document.getElementById('userNameInput').value = res.name
+  document.getElementById('phoneNumberInput').value = res.telephone
+
+  /*/
   document.getElementById('mailInput').value = "MAIL"
   document.getElementById('userNameInput').value ="NAME"
-  document.getElementById('passwordInput').value = "supersecurepassword123"
+  document.getElementById('passwordInput').value = ""
   document.getElementById('phoneNumberInput').value = "PHONE NUMBER"
+*/
+
 
 }
 
@@ -44,14 +55,15 @@ async function ValidateUserInput () {
     label.innerHTML = 'Ungültige Email Adresse'
     return false
   }
-
-  if (!res.validPassword) {
-    label.innerHTML = 'Ungültiges Passwort'
-    return false
+  if (document.getElementById('passwordInput').value !== ''){
+    if (!res.validPassword) {
+      label.innerHTML = 'Ungültiges Passwort (mindestens 1 Großbuchstabe, 1 Zahl, 1 Sonderzeichen)'
+      return false
+    }
   }
 
   if (!res.validName) {
-    label.innerHTML = 'Ungültiger Nutzername'
+    label.innerHTML = 'Ungültiger Nutzername (mindestens 5 Zeichen)'
     return false
   }
 
