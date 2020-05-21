@@ -33,6 +33,9 @@ function init (app) {
     require('./group_creation').page(req, res)
   })
 
+  app.get('/group_edit', function (req, res) {
+    require('./group_edit').page(req, res)
+  })
   app.get('/tournament_creation', function (req, res) {
     require('./tournament_creation').page(req, res)
   })

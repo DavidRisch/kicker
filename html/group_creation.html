@@ -1,19 +1,30 @@
 <div class="division dark">
     <div class="box light background">
         <form action="/file-upload" class="dropzone" id="group_image_dropzone"></form>
-        <form method="post" id="groupForm" action="/api">
-            <input class="text_input input_group" name="groupName" id="groupNameInput" placeholder="Gruppenname">
-            <br>
-            <select class="group_member_select" multiple="true" name="faculty" style="width:200px;">
-                <option value="User00">Max Mustermann</option>
-                <option value="User01">Mia Musterfrau</option>
-                <option value="User02">Kai Pflaume</option>
-                <option value="User03">Donald Trump</option>
-            </select><br>
-            <textarea class="text_input description_group" name="groupDescription" id="groupDescriptionInput"
-                      placeholder="Beschreibung (optional)...">
-                    </textarea><br>
+        <div class="intrinsic_area">
+            <div class="intrinsic_row">
+                <label for="groupNameInput" class="intrinsic_left">Gruppenname:&emsp;</label>
+                <input class="text_input intrinsic_right" name="groupName" id="groupNameInput">
+            </div>
+            <div class="intrinsic_row">
+                <label id="label_textarea" for="group_members" class="intrinsic_left">Gruppenmitglieder: </label>
+                <select id="group_members" class="group_members intrinsic_right" multiple>
+                    <option value="1">Alice</option>
+                    <option value="2">Bob</option>
+                    <option value="3">Jeff</option>
+                    <option value="4">Jonas</option>
+                    <option value="5">Michael</option>
+                    <option value="6">Natalie</option>
+                    <option value="7">Paula</option>
+                    <option value="8">Thorgan</option>
+                    <option value="9">Thorsten</option>
+                </select>
+            </div>
+            <div class="intrinsic_row">
+                <label for="groupDescriptionInput" class="intrinsic_left">Gruppenbeschreibung: </label>
+                <textarea rows="5" class="text_input intrinsic_right description_group" name="groupDescription" id="groupDescriptionInput"></textarea>
+            </div>
+        </div>
             <button class="button_big" type="button" onclick="CheckAndCreateGroup()">Gruppe erstellen</button>
-        </form>
     </div>
 </div>
