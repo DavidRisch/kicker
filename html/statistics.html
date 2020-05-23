@@ -1,0 +1,24 @@
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+
+<div id="main">
+  <body>
+    <div class="division dark">
+      <div class="box dark"></div>
+      <div class="box light" style="grid-column: 1 / 13; padding: 10px;">
+        <h2 class="box_value" style="font-size: xxx-large;">Win/Loose</h2>
+        <canvas id="winLoosePie"></canvas>
+      </div>
+    </div>
+
+    <div class="division light" style="padding-top: 40px; padding-bottom: 0px;">
+      <div class="box light" style="grid-row: 1; grid-column: 1 / 13;"></div>
+      <div class="box dark" style="grid-row: 1; grid-column: 1 / 13;">
+        <h2 class="box_value" style="font-size: xxx-large;">Elo</h2>
+        <canvas id="eloChart" style="grid-row: 2;"></canvas>
+      </div>
+    </div>
+  </body>
+</div>
+<!-- <script src="../js/example_statistics.js"></script> -->
