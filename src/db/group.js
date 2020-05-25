@@ -76,6 +76,10 @@ function byId (id) {
   return getGroup('id', id)
 }
 
+function byName (name) {
+  return getGroup('name', name)
+}
+
 function create (name, description) {
   const result = database.query('INSERT INTO `Group` (name, description) VALUES (:name, :description)', {
     name: name,
@@ -86,6 +90,7 @@ function create (name, description) {
 
 module.exports = {
   by_id: byId,
+  by_name: byName,
   create: create,
   get_all: getAllGroups
 }
