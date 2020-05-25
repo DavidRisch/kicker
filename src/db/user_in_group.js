@@ -13,7 +13,7 @@ const UserInGroup = class {
 }
 
 function getUserInGroup (property, value) {
-  const result = database.query('SELECT * FROM User_in_group WHERE ' + property + ' = :value', {
+  const result = database.query('SELECT * FROM User_in_Group WHERE ' + property + ' = :value', {
     value: value
   })
   console.log(result)
@@ -30,7 +30,7 @@ function byGroup (groupId) {
 
 function addUser (userId, groupId) {
   // check exists already
-  const result = database.query('SELECT * FROM User_in_group WHERE user_id = :value', {
+  const result = database.query('SELECT * FROM User_in_Group WHERE user_id = :value', {
     value: userId
   })
 
@@ -38,7 +38,7 @@ function addUser (userId, groupId) {
     throw new UserAlreadyInGroupException()
   }
 
-  database.query('INSERT INTO User_in_group (user_id, group_id) VALUES (:user_id, :group_id)', {
+  database.query('INSERT INTO User_in_Group (user_id, group_id) VALUES (:user_id, :group_id)', {
     user_id: userId,
     group_id: groupId
   })
