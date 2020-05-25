@@ -1,7 +1,3 @@
-module.exports = {
-  page: page
-}
-
 function page (req, res) {
   console.log('making join group page...')
 
@@ -12,13 +8,12 @@ function page (req, res) {
     res.end()
   } else {
     // join group and redirect to main page
-    const host = req.protocol + '://' + req.get('host')
-    const url = new URL(host + req.url)
-
     let groupName = ''
     try {
+      const host = req.protocol + '://' + req.get('host')
+      const url = new URL(host + req.url)
       const token = url.searchParams.get('token')
-      const invite = require('../src/db/group_invitations').byToken(token)
+      const invite = require('../src/db/group_invitations').by_Token(token)
       groupName = require('../src/db/group').by_id(invite.groupId).name
     } catch (Error) {
       // token invalid or already used
@@ -31,4 +26,8 @@ function page (req, res) {
       res.end(require('../src/html_creator').create_html(nameAsScript + html, { title: 'Gruppe beitreten', js: ['join_group', 'cookie_parser', 'query_parser'] }))
     })
   }
+}
+
+module.exports = {
+  page: page
 }

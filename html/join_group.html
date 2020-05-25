@@ -1,8 +1,12 @@
 <div>
-    <form action="/api" method="POST">
-        <label>Möchten sie der Gruppe "<label id="groupLabel"></label>" beitreten ?</label><br>
-        <button type="button" onclick="submitForm()">Ja</button><br>
-        <label id="errorLabel"></label>
-        <button type="button" id="returnButton" style="display: none;" onclick="returnToMainPage()">Zurück zur Hauptseite</button>
+    <form>
+        <div id="headRegion">
+            <label>Möchten sie der Gruppe "<label id="groupLabel"></label>" beitreten?</label><br>
+            <button type="button" id="submitButton" onclick="submitForm()">Ja</button><br>
+        </div>
+        <div id="errorRegion">
+            <label id="errorLabel"></label><br>
+            <button type="button" id="returnButton" style="display: none;" onclick="returnToMainPage()">Zurück zur Hauptseite</button>
+        </div>
     </form>
 </div>

@@ -1,4 +1,4 @@
-function getCookieValue (cname) {
+function getCookieValue (cname) { // eslint-disable-line no-unused-vars
   var name = cname + '='
   var decodedCookie = decodeURIComponent(document.cookie)
   var ca = decodedCookie.split(';')

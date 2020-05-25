@@ -55,6 +55,11 @@ function init (app) {
         break
       }
 
+      case 'joinGroup': {
+        response = require('./join_group').joinGroup(req, body.token)
+        break
+      }
+
       // ^^^ Insert new api calls here ^^^
 
       default:
