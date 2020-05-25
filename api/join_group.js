@@ -20,13 +20,11 @@ function joinGroup (req, token) {
     userInGroup.add_User(user.id, invite.groupId)
   } catch (e) {
     if (e instanceof userInGroup.UserAlreadyInGroupException) {
-      invite.deleteInvite()
       return { success: false, error: 'userAlreadyInGroup' }
     } else {
       return { success: false, error: e.message }
     }
   }
 
-  invite.deleteInvite()
   return { success: true }
 }
