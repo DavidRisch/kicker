@@ -29,9 +29,10 @@ function byGroup (groupId) {
 }
 
 function addUser (userId, groupId) {
-  // check exists already
-  const result = database.query('SELECT * FROM User_in_Group WHERE user_id = :value', {
-    value: userId
+  // check if the user is already in the group
+  const result = database.query('SELECT * FROM User_in_Group WHERE user_id = :value AND group_id = :group_id', {
+    value: userId,
+    group_id: groupId
   })
 
   if (result.length !== 0) {
