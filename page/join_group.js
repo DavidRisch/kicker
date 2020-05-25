@@ -1,6 +1,4 @@
 function page (req, res) {
-  console.log('making join group page...')
-
   const user = require('../src/account_util').get_current_user(req)
   if (user === null) {
     res.cookie('redirect', req.url)
