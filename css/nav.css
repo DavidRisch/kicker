@@ -64,17 +64,19 @@ nav .menu_title {
     height: 100px;
 }
 
-.sidenav-button {
+nav .logout_button {
 	width: 100%;
-	padding: 35px 0;
-	color: #ffffff;
+    padding: 35px 0;
+    margin-top: 20px;
+    color: #ffffff;
+    background-color: #c40000;
 	font: 30px sans-serif, Arial;
 	border-width: 0;
 	cursor: pointer;
 	transition: 0.6s;
 }
 
-.sidenav-button:hover {
+nav .logout_button:hover {
 	color: #2a333c;
 }
 
