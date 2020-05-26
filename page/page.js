@@ -73,5 +73,9 @@ function init (app) {
     require('./account').page(req, res)
   })
 
+  app.get('/statistics', function (req, res) {
+    require('./statistics').page(req, res)
+  })
+
   // ^^^ Insert new pages here ^^^
 }
