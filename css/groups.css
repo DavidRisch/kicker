@@ -3,54 +3,15 @@
     width: 92vw; 
     height: 88vh;
   }
-.input_group{
-    width: 98%;
-}
 .description_group{
-    width: 98%;
-    height: 20%;
     resize: none;
 }
+  .group_up {
+      vertical-align: top;
+  }
 
-.chosen-container{
-  z-index: auto;
-}
-.chosen-container-multi .chosen-choices{
-  background: black;
-	border-color: #31bebe;
-	border-style: solid;
-	border-radius: 10px;
-	border-width: 1px;
-	font: 18px sans-serif, Arial;
-	height: 35px;
-	margin: 10px;
-	padding-left: 5px;
-  padding-right: 5px;
-}
-.chosen-container-multi .chosen-drop{
-  background: #12141e;
-  font: 18px sans-serif, Arial;
-  color: white;
-  border: 1px solid #31bebe;
-  border-radius: 10px;
-  border-width: 1px;
-  padding-left: 5px;
-}
-.chosen-container-multi .chosen-choices li.search-choice {
-  position: relative;
-  margin: 3px 5px 3px 0;
-  padding: 3px 20px 3px 5px;
-  border: 1px solid #31bebe;
-  max-width: 100%;
-  border-radius: 3px;
-  background: #2a333c;
-  background-size: 100% 19px;
-  background-clip: padding-box;
-  -webkit-box-shadow: 0 0 2px black inset, 0 1px 0 rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 2px black inset, 0 1px 0 rgba(0, 0, 0, 0.05);
-  color: white;
-  line-height: 13px;
-  cursor: default;
+  .tokenize > .tokens-container{
+    left: 0.5em;
 }
 .dropzone{
   border-radius: 50% !important;
@@ -67,4 +28,7 @@
   background-size: contain !important;
   display: block !important;
   color: transparent;
+}
+.cancel{
+    background-color: #ff3737 !important;
 }
