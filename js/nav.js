@@ -26,19 +26,21 @@ function toggleButton () { // eslint-disable-line no-unused-vars
 function openNav () {
   document.getElementById('sidenav').style.width = '300px'
   document.getElementById('nav').style.marginLeft = '300px'
-  document.getElementById('main').style.marginLeft = '300px'
+  closeGroups()
 }
 
 function closeNav () {
   document.getElementById('sidenav').style.width = '0'
   document.getElementById('nav').style.marginLeft = '0'
-  document.getElementById('main').style.marginLeft = '0'
 }
 
 // Group selection
 /* Set the width of the sidebar to 300px (show it) */
 function openGroups () { // eslint-disable-line no-unused-vars
   document.getElementById('group_select').style.width = '300px'
+  if (stateModule.getState()) {
+    toggleButton()
+  }
 }
 
 /* Set the width of the sidebar to 0 (hide it) */
