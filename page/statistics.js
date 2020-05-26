@@ -10,7 +10,7 @@ function page (req, res) {
     res.end(
       require('../src/html_creator').create_html(html, {
         title: 'Statistiken',
-        js: ['example_statistics'],
+        js: ['example_statistics', 'chartjs'],
         css: ['styles_general'],
         nav: true
       })

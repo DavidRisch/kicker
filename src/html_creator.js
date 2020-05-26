@@ -45,6 +45,8 @@ function htmlHeader (title, js = [], css = [], additional = '') {
       path = 'dropzone/dropzone.js'
     } else if (name === 'tokenize2') {
       path = 'tokenize2/tokenize2.min.js'
+    } else if (name === 'chartjs') {
+      path = 'chartjs/Chart.min.js'
     }
 
     result += `    <script type="text/javascript" src="${path}"></script>\n`
