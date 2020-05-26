@@ -119,6 +119,14 @@ nav {
 	margin-bottom: -100px;
 }
 
+.division_description {
+	color: #bababa;
+	font: 35px sans-serif, Arial;
+	text-align: left;
+	margin: 20px;
+	margin-left: 60px;
+}
+
 .box {
 	margin: 20px;
 	padding: 5px 40px;
@@ -155,6 +163,14 @@ nav {
 	padding: 20px 0
 }
 
+.text_item {
+	color: #ffffff;
+	font: 50px sans-serif, Arial;
+	text-align: left;
+	align-items: center;
+	padding: 20px 20px 20px 0;
+}
+
 /* unvisited link */
 a:link {
 	text-decoration: none;
@@ -181,7 +197,6 @@ a:active {
 	color: #ffffff;
 	font: 40px sans-serif, Arial;
 	margin: 10px;
-	padding: 0 0;
 	border-radius: 25px;
 	border-width: 0;
 	height: 50px;
@@ -339,14 +354,6 @@ a:active {
 
 .tokenize-dropdown > .dropdown-menu li > a .tokenize-highlight {
 	color: #31bebe;
-}
-
-.division_description {
-	color: #bababa;
-	font: 35px sans-serif, Arial;
-	text-align: left;
-	margin: 20px;
-	margin-left: 60px;
 }
 
 /* ---------------- tables ----------------- */

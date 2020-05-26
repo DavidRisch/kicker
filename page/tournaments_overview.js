@@ -1,9 +1,9 @@
 function page (req, res) {
-  require('fs').readFile('html/faq.html', 'utf8', function (err, html) {
+  require('fs').readFile('html/tournaments_overview.html', 'utf8', function (err, html) {
     if (err) throw err
 
     res.end(require('../src/html_creator').create_html(html, {
-      title: 'FAQ',
+      title: 'Turniere',
       css: ['styles_general'],
       nav: true
     }))

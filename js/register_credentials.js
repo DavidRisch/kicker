@@ -1,14 +1,12 @@
 /* global apiPost */
 
 async function CheckDataProtectionAndSubmit () { // eslint-disable-line no-unused-vars
-  // validate user input
-  if (!await ValidateUserInput()) {
-    return
-  }
   // check data protection
   if (document.getElementById('checkbox1').checked) {
-    document.getElementById('errorLabel').style.display = 'none'
-    SubmitForm()
+    // validate user input
+    if (await ValidateUserInput()) {
+      SubmitForm()
+    }
   } else {
     document.getElementById('errorLabel').innerHTML = 'Bitte akzeptiere zuerst die Datenschutzbedingungen.'
   }
@@ -30,6 +28,15 @@ async function SubmitForm () {
 }
 
 async function ValidateUserInput () {
+  const label = document.getElementById('errorLabel')
+  const password = document.getElementById('passwordInput').value
+  const confirmPassword = document.getElementById('passwordConfirmInput').value
+
+  if (password !== confirmPassword) {
+    label.innerHTML = 'Passwörter stimmen nicht überein'
+    return false
+  }
+
   const data = {
     action: 'validateInput',
     name: document.getElementById('userNameInput').value,
@@ -38,7 +45,6 @@ async function ValidateUserInput () {
   }
 
   const res = await apiPost(data)
-  const label = document.getElementById('errorLabel')
 
   if (!res.validEmail) {
     label.innerHTML = 'Ungültige E-Mail Addresse'

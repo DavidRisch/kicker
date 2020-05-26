@@ -1,3 +1,4 @@
+/* global $ groupSnapshot */
 
 // This function needs jquery
 function setUpGroupSelection () {
@@ -17,7 +18,7 @@ function setUpGroupSelection () {
     console.log($('#groupSelector').val())
   })
 }
-// if the document is completly loaded, then execute the setup function
+// if the document is completely loaded, then execute the setup function
 $(document).ready(
   function () {
     setUpGroupSelection()

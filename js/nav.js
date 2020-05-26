@@ -11,7 +11,7 @@ const stateModule = (function () {
   return pub
 }())
 
-function toggleButton () {
+function toggleButton () { // eslint-disable-line no-unused-vars
   const menu = document.querySelector('.hamburger')
   menu.classList.toggle('is-active')
   if (!stateModule.getState()) {
@@ -37,11 +37,11 @@ function closeNav () {
 
 // Group selection
 /* Set the width of the sidebar to 300px (show it) */
-function openGroups () {
+function openGroups () { // eslint-disable-line no-unused-vars
   document.getElementById('group_select').style.width = '300px'
 }
 
 /* Set the width of the sidebar to 0 (hide it) */
-function closeGroups () {
+function closeGroups () { // eslint-disable-line no-unused-vars
   document.getElementById('group_select').style.width = '0'
 }
