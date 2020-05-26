@@ -5,7 +5,7 @@ function page (req, res) {
     res.end(require('../src/html_creator').create_html(html, {
       title: 'Gruppen Erstellung',
       js: ['jquery', 'jquery-ui', 'tokenize2', 'dropzone', 'group_creation'],
-      css: ['bootstrap','tokenize2','styles_general', 'jquery-ui', 'dropzone'],
+      css: ['bootstrap', 'tokenize2', 'styles_general', 'jquery-ui', 'dropzone'],
       nav: true
     }))
   })
@@ -14,4 +14,3 @@ function page (req, res) {
 module.exports = {
   page: page
 }
-

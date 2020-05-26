@@ -59,4 +59,3 @@ $(function () {
     zIndexMargin: 500
   })
 })
-
