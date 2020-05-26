@@ -8,12 +8,12 @@ function page (req, res) {
   console.log(require('../src/example').example_db_read())
 
   const fs = require('fs')
-  const player_dropdown = require('../src/player_dropdown')
+  const playerDropdown = require('../src/player_dropdown')
   fs.readFile('html/example.html', 'utf8', function (err, html) {
     if (err) throw err
 
     html = html.replace('§test§', (123000 + 456).toString())
-    html = html.replace('§users§', player_dropdown.createDropdown(1))
+    html = html.replace('§users§', playerDropdown.createDropdown(1))
 
     res.end(require('../src/html_creator').create_html(html, { title: 'Anmeldemethode wählen', js: ['example'] }))
   })
