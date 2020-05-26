@@ -18,6 +18,14 @@ a {
 	color: #ffffff;
 }
 
+.red {
+	background-color: #c40000;
+}
+
+.turquoise {
+	background-color: #31bebe;
+}
+
 .division {
 	border-top-left-radius: 50px;
 	border-top-right-radius: 50px;

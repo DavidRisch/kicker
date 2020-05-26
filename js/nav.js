@@ -24,14 +24,14 @@ function toggleButton () { // eslint-disable-line no-unused-vars
 }
 
 function openNav () {
-  document.getElementById('sidenav').style.width = '300px'
-  document.getElementById('nav').style.marginLeft = '300px'
+  document.getElementById('sidenav').style.marginLeft = '0'
+  document.getElementById('sidenav').style.boxShadow = '3px 0px 20px #000000F0'
   closeGroups()
 }
 
 function closeNav () {
-  document.getElementById('sidenav').style.width = '0'
-  document.getElementById('nav').style.marginLeft = '0'
+  document.getElementById('sidenav').style.marginLeft = '-300px'
+  document.getElementById('sidenav').style.boxShadow = 'none'
 }
 
 // Group selection

@@ -34,7 +34,7 @@ nav .menu_title {
     /* -------------- Sidenav left -------------- */
 .sidenav {
 	height: 100%;
-	width: 0;
+	width: 300px;
 	background-color: #12141e;
 	position: fixed;
 	z-index: 1;
@@ -42,11 +42,12 @@ nav .menu_title {
 	left: 0;
 	overflow-x: hidden;
 	padding-top: 0;
-	transition: 0.5s;
+    transition: 0.5s;
+    margin-left: -300px;
 }
 
 .sidenav a {
-	padding: 5px 10px 5px 35px;
+	padding: 10px 10px 10px 35px;
 	color: #fefefe;
 	font: 30px sans-serif, Arial;
 	text-decoration: none;
@@ -55,14 +56,18 @@ nav .menu_title {
 }
 
 .sidenav a:hover {
-	color: #2a333c;
+    color: #2a333c;
+    text-decoration: none;
+}
+
+.sidenav-spacer {
+    height: 100px;
 }
 
 .sidenav-button {
 	width: 100%;
 	padding: 35px 0;
 	color: #ffffff;
-	background-color: #31bebe;
 	font: 30px sans-serif, Arial;
 	border-width: 0;
 	cursor: pointer;
@@ -74,16 +79,10 @@ nav .menu_title {
 }
 
 .sidenav hr {
-	height: 2px;
+	height: 4px;
 	color: #2a333c;
-	background-color: #2a333c;
-}
-
-.sidenav hr.bold {
-	height: 2px;
-	color: #31bebe;
-	background-color: #31bebe;
-	margin: 15px 0
+    background-color: #2a333c;
+    border-width: 0;
 }
 
 .hamburger-inner,
@@ -93,6 +92,11 @@ nav .menu_title {
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
     background-color: #31bebe;
+}
+
+.hamburger {
+    z-index: 10;
+    float: left;
 }
 
 
