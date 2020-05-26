@@ -81,8 +81,7 @@ function createHtml (html, options) {
     nav = htmlNav()
     nav = nav.replace('§nav_title§', options.title)
     jsFiles.push('nav')
-    cssFiles.push('groups')
-    cssFiles.push('hamburgers')
+    cssFiles.push('nav')
   }
 
   if (options.js !== undefined) {

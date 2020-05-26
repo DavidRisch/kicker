@@ -24,24 +24,28 @@ function toggleButton () { // eslint-disable-line no-unused-vars
 }
 
 function openNav () {
-  document.getElementById('sidenav').style.width = '300px'
-  document.getElementById('nav').style.marginLeft = '300px'
-  document.getElementById('main').style.marginLeft = '300px'
+  document.getElementById('sidenav').style.marginLeft = '0'
+  document.getElementById('sidenav').style.boxShadow = '3px 0px 20px #000000F0'
+  closeGroups()
 }
 
 function closeNav () {
-  document.getElementById('sidenav').style.width = '0'
-  document.getElementById('nav').style.marginLeft = '0'
-  document.getElementById('main').style.marginLeft = '0'
+  document.getElementById('sidenav').style.marginLeft = '-300px'
+  document.getElementById('sidenav').style.boxShadow = 'none'
 }
 
 // Group selection
 /* Set the width of the sidebar to 300px (show it) */
 function openGroups () { // eslint-disable-line no-unused-vars
   document.getElementById('group_select').style.width = '300px'
+  document.getElementById('group_select').style.boxShadow = '3px 0px 20px #000000F0'
+  if (stateModule.getState()) {
+    toggleButton()
+  }
 }
 
 /* Set the width of the sidebar to 0 (hide it) */
 function closeGroups () { // eslint-disable-line no-unused-vars
   document.getElementById('group_select').style.width = '0'
+  document.getElementById('group_select').style.boxShadow = 'none'
 }
