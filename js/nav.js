@@ -38,6 +38,7 @@ function closeNav () {
 /* Set the width of the sidebar to 300px (show it) */
 function openGroups () { // eslint-disable-line no-unused-vars
   document.getElementById('group_select').style.width = '300px'
+  document.getElementById('group_select').style.boxShadow = '3px 0px 20px #000000F0'
   if (stateModule.getState()) {
     toggleButton()
   }
@@ -46,4 +47,5 @@ function openGroups () { // eslint-disable-line no-unused-vars
 /* Set the width of the sidebar to 0 (hide it) */
 function closeGroups () { // eslint-disable-line no-unused-vars
   document.getElementById('group_select').style.width = '0'
+  document.getElementById('group_select').style.boxShadow = 'none'
 }
