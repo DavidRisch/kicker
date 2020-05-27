@@ -198,7 +198,16 @@ a:active {
 		linear-gradient(-225deg, transparent 50%, #31bebe 50%),
 		linear-gradient(#31bebe 42%, #000000 42%);
 }
-
+/*Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+	-webkit-appearance: none;
+	margin: 0;
+}
+/*Firefox*/
+input[type=number]{
+	-moz-appearance: textfield;
+}
 /* -------------- Tokenize2 (Multi-Selection) -------------- */
 .tokenize > .tokens-container {
 	padding: 0.25em 0.75em;
@@ -305,10 +314,10 @@ th, td {
 
 .checkbox:checked:after {
     color: #ffffff;
-    content: "\2714";
+    /*content: "\2714";*/
     font-size: 20px;
     position: absolute;
-    left: 6px
+    left: 6px;
 }
 
 .table_top_row {

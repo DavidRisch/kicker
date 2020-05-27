@@ -4,8 +4,8 @@ function page (req, res) {
 
     res.end(require('../src/html_creator').create_html(html, {
       title: 'Neues Spiel',
-      js: ['enter_game'],
-      css: ['styles_general'],
+      js: ['jquery', 'jquery-ui', 'tokenize2','enter_game'],
+      css: ['bootstrap', 'tokenize2', 'styles_general', 'jquery-ui'],
       nav: true
     }))
   })
