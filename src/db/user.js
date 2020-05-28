@@ -4,7 +4,7 @@ const inputValidator = require('../input_validator')
 const InvalidUsernameException = class extends Error {}
 const InvalidEmailException = class extends Error {}
 const InsecurePasswordException = class extends Error {}
-const DuplicateKeyException = class extends Error {}
+const DuplicateUserException = class extends Error {}
 
 const User = class {
   constructor (id) {
@@ -107,7 +107,7 @@ function create (name, email, telephone, password) {
 
   // if username already taken throw
   if (result.length !== 0) {
-    throw new DuplicateKeyException()
+    throw new DuplicateUserException()
   }
 
   const salt = require('../account_util').generate_random_string(64)
@@ -129,5 +129,5 @@ module.exports = {
   InvalidUsernameException: InvalidUsernameException,
   InvalidEmailException: InvalidEmailException,
   InsecurePasswordException: InsecurePasswordException,
-  DuplicateKeyException: DuplicateKeyException
+  DuplicateUserException: DuplicateUserException
 }

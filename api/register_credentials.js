@@ -1,13 +1,22 @@
 function process (name, mail, password, phoneNumber) {
+  const user = require('../src/db/user')
   try {
-    require('../src/db/user').create(name, mail, phoneNumber, password)
+    user.create(name, mail, phoneNumber, password)
     console.log('registered new user: ' + name)
     return {
       success: true
     }
   } catch (e) {
-    return {
-      success: false
+    if (e instanceof user.DuplicateUserException) {
+      return {
+        success: false,
+        message: 'duplicateUserException'
+      }
+    } else {
+      return {
+        success: false,
+        message: e.message
+      }
     }
   }
 }
