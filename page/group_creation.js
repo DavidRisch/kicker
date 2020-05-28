@@ -4,8 +4,8 @@ function page (req, res) {
 
     res.end(require('../src/html_creator').create_html(html, {
       title: 'Gruppen Erstellung',
-      js: ['jquery', 'jquery-ui', 'chosen', 'dropzone', 'group_creation'],
-      css: ['styles_general', 'jquery-ui', 'chosen', 'dropzone'],
+      js: ['jquery', 'jquery-ui', 'tokenize2', 'dropzone', 'group_creation'],
+      css: ['groups', 'bootstrap', 'tokenize2', 'styles_general', 'jquery-ui', 'dropzone'],
       nav: true
     }))
   })

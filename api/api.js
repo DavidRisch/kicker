@@ -30,6 +30,12 @@ function init (app) {
         response = require('./edit_account').process(req, body.name, body.email, body.password, body.telephone)
         break
       }
+
+      case 'getUserData': {
+        response = require('./get_user_data').process(req)
+        break
+      }
+
       case 'login': {
         response = require('./login').process(body.userName, body.password, res)
         break
@@ -47,6 +53,16 @@ function init (app) {
           validName: validator.is_valid_user_name(name),
           validPassword: validator.is_secure_password(password)
         }
+        break
+      }
+
+      case 'enterGame': {
+        require('./enter_game').process(body.playerA1, body.playerA2, body.playerB1, body.playerB2, body.goalsA, body.goalsB)
+        break
+      }
+
+      case 'joinGroup': {
+        response = require('./join_group').joinGroup(req, body.token)
         break
       }
 

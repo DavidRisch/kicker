@@ -1,0 +1,199 @@
+@import url("../css/hamburgers.css");
+
+/* -------------- The Nav Bar -------------- */
+nav {
+	z-index: 10;
+	height: 80px;
+	background-color: #2a333c;
+	padding: 10px;
+	display: flex;
+	position: sticky;
+	top: 0;
+	overflow: hidden;
+	margin-bottom: 0;
+	box-shadow: 0px 5px 20px #000000F0;
+}
+
+#nav {
+	transition: margin-left .5s;
+}
+
+	/* -------------- Nav Menu title -------------- */
+nav .menu_title {
+    color: #ffffff;
+    font: 60px sans-serif, Arial;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+    /* -------------- Sidenav left -------------- */
+.sidenav {
+	height: 100%;
+	width: 300px;
+	background-color: #12141e;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
+	padding-top: 0;
+    transition: 0.5s;
+    margin-left: -300px;
+}
+
+.sidenav a {
+	padding: 10px 10px 10px 35px;
+	color: #fefefe;
+	font: 30px sans-serif, Arial;
+	text-decoration: none;
+	display: block;
+	transition: 0.4s;
+}
+
+.sidenav a:hover {
+    color: #2a333c;
+    text-decoration: none;
+}
+
+.sidenav-spacer {
+    height: 100px;
+}
+
+nav .logout_button {
+	width: 100%;
+    padding: 35px 0;
+    margin-top: 20px;
+    color: #ffffff;
+    background-color: #c40000;
+	font: 30px sans-serif, Arial;
+	border-width: 0;
+	cursor: pointer;
+	transition: 0.6s;
+}
+
+nav .logout_button:hover {
+	color: #2a333c;
+}
+
+.sidenav hr {
+	height: 4px;
+	color: #2a333c;
+    background-color: #2a333c;
+    border-width: 0;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after,
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+    background-color: #31bebe;
+}
+
+.hamburger {
+    z-index: 10;
+    float: left;
+}
+
+
+	/* -------------- Nav Group Select -------------- */
+nav .group_icon_button {
+	float: right;
+	background: black;
+	background-image: url(/images/no_group_selected.png); 	/*Here you'll put the image of selected group, this is default */
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	border: none;
+	border-radius: 50%;
+	padding: 35px;
+	position: absolute;
+	top: 15px;
+	right: 50px;
+	left: unset;
+}
+
+nav .group_sidepanel {
+	height: 100%;
+	width: 0; /* Change in Java Script */
+	position: fixed;
+	top: 0;
+	z-index: +1; /*hide the group icon under the sidepanel */
+	right: 0;
+	overflow-x: hidden;
+	transition: 0.5s;
+}
+
+nav .group_select_button {
+    padding: 10px;
+	color: #ffffff;
+	border: none;
+	font: 30px sans-serif, Arial;
+	width: 300px;
+	background-color: #12141e;
+	overflow: hidden; /* This will hide too long text */
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+nav .group_select_button:hover {
+	background-color: #2a333c;
+}
+
+nav .group_select_button img {
+	float: left;
+    background: black;
+    border: none;
+	border-radius: 50%;
+	padding: 5px;
+	width: 45px;
+	height: 45px;
+}
+
+nav .group_select_button span {
+    position: absolute;
+    padding-top: 10px;
+    margin-left: -100px;
+}
+
+nav .closebutton {
+    background: #12141e;
+    border: none;
+    padding: 20px;
+}
+
+nav .close-x {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    background: #12141e;
+}
+nav .close-x:after {
+    content: '';
+    height: 50px;
+    border-left: 4px solid #31bebe;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 28px;
+}
+nav .close-x:before {
+    content: '';
+    height: 50px;
+    border-left: 4px solid #31bebe;
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 28px;
+}
+
+.group_sidepanel hr {
+	height: 4px;
+	color: #2a333c;
+    background-color: #2a333c;
+    border-width: 0;
+}
