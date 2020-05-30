@@ -11,10 +11,10 @@
     height: 128px;
     border-radius: 50%;
 }
-#imgLeft {
+.imgLeft {
     background: #0094ff;
 }
-#imgRight {
+.imgRight {
     background: #ff3737;
     justify-self: end;
 }
@@ -23,10 +23,8 @@
     font-style: normal;
     font-weight: 500;
     font-size: 40px;
-    line-height: 23px;
     align-items: center;
     text-align: center;
-    height: 20px;
 
     color: #ffffff;
 }
