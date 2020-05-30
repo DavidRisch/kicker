@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/css', express.static('css'))
 app.use('/js', express.static('js'))
 app.use('/images', express.static('images'))
+app.use('/favicon.ico', express.static('images/favicon.ico'))
 
 app.use('/jquery', express.static('node_modules/jquery/dist'))
 app.use('/chosen', express.static('node_modules/chosen-js'))
