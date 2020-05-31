@@ -45,6 +45,8 @@ function htmlHeader (title, js = [], css = [], additional = '') {
       path = 'dropzone/dropzone.js'
     } else if (name === 'tokenize2') {
       path = 'tokenize2/tokenize2.min.js'
+    } else if (name === 'chartjs') {
+      path = 'chartjs/Chart.min.js'
     }
 
     result += `    <script type="text/javascript" src="${path}"></script>\n`
@@ -79,8 +81,7 @@ function createHtml (html, options) {
     nav = htmlNav()
     nav = nav.replace('§nav_title§', options.title)
     jsFiles.push('nav')
-    cssFiles.push('groups')
-    cssFiles.push('hamburgers')
+    cssFiles.push('nav')
   }
 
   if (options.js !== undefined) {

@@ -33,6 +33,10 @@ function init (app) {
     require('./group_creation').page(req, res)
   })
 
+  app.get('/group_edit', function (req, res) {
+    require('./group_edit').page(req, res)
+  })
+
   app.get('/tournament_creation', function (req, res) {
     require('./tournament_creation').page(req, res)
   })
@@ -71,7 +75,20 @@ function init (app) {
 
   app.get('/leave_group', function (req, res) {
     require('./leave_group').page(req, res)
+  })  
+
+  app.get('/statistics', function (req, res) {
+    require('./statistics').page(req, res)
   })
 
+  app.get('/matches', function (req, res) {
+    require('./matches').page(req, res)
+  })
+
+  app.get('/dummy_db', function (req, res) {
+    require('./dummy_db').page(req, res)
+  })
+  
   // ^^^ Insert new pages here ^^^
+
 }

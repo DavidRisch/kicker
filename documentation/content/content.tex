@@ -169,4 +169,144 @@ Herr Schultheis\\\\
 Telefon: +49 621 4105-0\\
 E-Mail: info@dhbw-mannheim.de
 
+\chapter{Use Cases und Aktivitätsdiagramme}
+\section{Registrierung und Anmeldung}
+\begin{figure}[h!]
+	\centering
+	\includegraphics{text/registrierung_anmeldung.png}
+	\caption{Use Case: Registrierung und Anmeldung}
+	\label{uc_reg_anm}
+\end{figure}
+\textbf{Registrieren}
+\begin{itemize}
+	\item \textbf{Use Case:} Registrieren
+	\item \textbf{Ziel:} Registriert
+	\item \textbf{Kategorie:} Primär
+	\item \textbf{Vorbedingung:} Nutzer hat bisher kein Konto
+	\item \textbf{Nachbedingung Erfolg:} Konto angelegt
+	\item \textbf{Nachbedingung Fehlschlag:} Konto nicht anlegbar
+	\item \textbf{Akteure:} Nutzer
+	\item \textbf{Auslösendes Ereignis:} Nutzer beendet Registrierungsprozess
+	\item \textbf{Beschreibung:} \begin{enumerate}
+		\item Eingegebenen Namen auf erlaubte Eingabewerte überprüfen
+		\item Überprüfung, ob eingegebener Name bisher unbekannt ist
+		\item E-Mail-Adresse auf erlaubte Eingabewerte überprüfen
+		\item Überprüfung, ob eingegebene E-Mail-Adresse bisher unbekannt ist
+		\item Eingegebenes Passwort auf erlaubte Eingabewerte überprüfen
+		\item Telefonnummer auf reine Verwendung von Zahlen überprüfen
+		\item Überprüfen, ob Datenschutzbedingungen akzeptiert wurden
+		\item Eintragen der angegebenen Werte in die Datenbank
+	\end{enumerate}
+	\item \textbf{Erweiterungen:} /
+	\item \textbf{Alternativen:} /
+\end{itemize}
+
+
+\textbf{Anmelden}
+\begin{itemize}
+	\item \textbf{Use Case:} Anmelden
+	\item \textbf{Ziel:} Angemeldet
+	\item \textbf{Kategorie:} Primär
+	\item \textbf{Vorbedingung:} Nutzer hat bereits ein Konto
+	\item \textbf{Nachbedingung Erfolg:} Nutzer ist am Server authentifiziert
+	\item \textbf{Nachbedingung Fehlschlag:} Nutzer konnte nicht am Server authentifiziert werden
+	\item \textbf{Akteure:} Nutzer
+	\item \textbf{Auslösendes Ereignis:} Nutzer beendet Anmeldeprozess
+	\item \textbf{Beschreibung:} \begin{enumerate}
+		\item Nutzer an eingegebenem Namen bestimmen
+		\item Nutzer mit eingegebenem Passwort identifizieren
+		\item Nutzer auf Startseite weiterleiten
+	\end{enumerate}
+	\item \textbf{Erweiterungen:} /
+	\item \textbf{Alternativen:} 1a. Nutzer an eingegebener E-Mail-Adresse bestimmen
+\end{itemize}
+\clearpage
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{text/aktiv_reg_anm.png}
+	\caption{Aktivitätsdiagramm: Registrierung und Anmeldung}
+	\label{ak_reg_anm}
+\end{figure}
+
+
+\section{Turniererstellung}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{text/uc_turnier.png}
+	\caption{Use Case: Turniererstellung}
+	\label{uc_turnier}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Use Case:} Turnier erstellen
+	\item \textbf{Ziel:} Erstellen eines Turniers und Wechsel zur Turnieransicht
+	\item \textbf{Kategorie:} Primär
+	\item \textbf{Vorbedingung:} Nutzer hat ein Konto und ist angemeldet
+	\item \textbf{Nachbedingung Erfolg:} Turnieransicht wird geöffnet und die angegebenen Teilnehmer werden benachrichtigt
+	\item \textbf{Nachbedingung Fehlschlag:} Turnier wird nicht erstellt, es wird eine erneute Eingabe der Daten gefordert
+	\item \textbf{Akteure:} Nutzer
+	\item \textbf{Auslösendes Ereignis:} Nutzer klickt auf Link "Turnier erstellen" in der Seitenleiste oder auf der Startseite
+	\item \textbf{Beschreibung:} \begin{enumerate}
+		\item Eingabe eines Namens für das Turnier
+		\item Auswahl des Spielmodus
+		\item Auswahl des Turniermodus
+		\item Auswahl der Mitspieler
+		\item Absenden der Eingaben führt zur Erstellung des Turniers
+	\end{enumerate}
+	\item \textbf{Erweiterungen:} /
+	\item \textbf{Alternativen:} Die Ausführungsschritte 2.-4. können in beliebiger Reihenfolge ausgeführt werden
+\end{itemize}
+
+
+\section{Spielerstellung}
+\begin{figure}[h!]
+	\centering
+	\includegraphics{text/uc_spiel.png}
+	\caption{Use Case: Spielerstellung}
+	\label{uc_spiel}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{text/aktiv_spiel.png}
+	\caption{Aktivitätsdiagramm: Spielerstellung}
+	\label{aktiv_spiel}
+\end{figure}
+
+
+\section{Gruppenerstellung}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{text/uc_ak_gruppenerstellung.jpg}
+	\caption{Use Case und Aktivitätsdiagramm: Gruppenerstellung}
+	\label{uc_ac_gruppenerstellung}
+\end{figure}
+
+\section{Gruppenbeitritt}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{text/uc_ak_gruppenbeitritt.png}
+	\caption{Use Case und Aktivitätsdiagramm: Gruppenbeitritt}
+	\label{uc_ac_gruppenbeitritt}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Use Case:} Gruppe beitreten
+	\item \textbf{Ziel:} Erfolgreicher Gruppenbeitritt
+	\item \textbf{Kategorie:} Primär
+	\item \textbf{Vorbedingung:} Nutzer hat ein Konto
+	\item \textbf{Nachbedingung Erfolg:} Beitrittsanfrage annehmen
+	\item \textbf{Nachbedingung Fehlschlag:} Beitrittsanfrage ablehnen
+	\item \textbf{Akteure:} Gruppenmitglied, neues Mitglied
+	\item \textbf{Auslösendes Ereignis:} Nutzer erhält Einladungslink
+	\item \textbf{Beschreibung:} \begin{enumerate}
+		\item Einladungslink öffnen
+		\item Beitrittsanfrage bestätigen
+		\item Eintrag in Datenbank vornehmen
+		\item Gruppenansicht anzeigen
+		\item Startseite anzeigen
+	\end{enumerate}
+	\item \textbf{Erweiterungen:} 1a. Auf Kicker-Website anmelden\\
+	2b. Beitrittsanfrage ablehnen
+	\item \textbf{Alternativen:} /
+\end{itemize}
+
+
 

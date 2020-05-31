@@ -1,3 +1,5 @@
+const NotLoggedInException = class extends Error {}
+
 function hashPassword (password, salt) {
   const hash = require('js-sha256').create()
   hash.update(salt + password)
@@ -15,6 +17,7 @@ function generateRandomString (length) {
 }
 
 const sessionTokenName = 'session_token'
+const currentGroupCookieName = 'current_group_id'
 
 function setSessionCookie (res, token) {
   res.cookie(sessionTokenName, token, {
@@ -54,6 +57,24 @@ function requireLoggedInUser (req, res) {
   } else {
     res.writeHead(302, { Location: '/login' })
     res.end()
+    throw new NotLoggedInException('NotLoggedInException')
+  }
+}
+
+function setGroup (res, groupId) {
+  res.cookie(currentGroupCookieName, groupId, {
+    maxAge: 100 * 24 * 60 * 60 * 1000 // 100 days (unit is ms)
+  })
+}
+
+function getGroup (req) {
+  return 1 // TODO: remove this once the group can be set
+
+  const cookie = req.cookies[currentGroupCookieName]
+  if (cookie === undefined) {
+    return null
+  } else {
+    return cookie
   }
 }
 
@@ -63,5 +84,7 @@ module.exports = {
   set_session_cookie: setSessionCookie,
   get_session_cookie: getSessionCookie,
   get_current_user: getCurrentUser,
-  require_logged_in_user: requireLoggedInUser
+  require_logged_in_user: requireLoggedInUser,
+  set_group: setGroup,
+  get_group: getGroup
 }
