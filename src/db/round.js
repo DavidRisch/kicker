@@ -13,6 +13,20 @@ const Round = class {
     return this._select('tournament_id')
   }
 
+  get matches () {
+    const result = database.query(`SELECT \`Match\`.id
+    FROM Round
+    JOIN \`Match\` ON (\`Match\`.round_id = Round.id)
+    WHERE Round.id = :round_id`, {
+      round_id: this._id
+    })
+    const matches = []
+    for (const row of result) {
+      matches.push(require('./match').by_id(row.id))
+    }
+    return matches
+  }
+
   _select (property) {
     return database.query('SELECT ' + property + ' FROM Round WHERE id = :id', {
       id: this._id
@@ -32,9 +46,11 @@ function byId (id) {
 }
 
 function create (tournamentId) {
-  database.query('INSERT INTO Round (tournament_id) VALUES (:tournament_id)', {
+  const result = database.query('INSERT INTO Round (tournament_id) VALUES (:tournament_id)', {
     tournament_id: tournamentId
   })
+
+  return byId(result.insertId)
 }
 
 module.exports = {

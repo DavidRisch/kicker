@@ -21,6 +21,24 @@ const Tournament = class {
     return this._select('mode')
   }
 
+  addRound () {
+    return require('./round').create(this._id)
+  }
+
+  get rounds () {
+    const result = database.query(`SELECT Round.id
+    FROM Round
+    JOIN Tournament ON (Round.tournament_id = Tournament.id)
+    WHERE Tournament.id = :tournament_id`, {
+      tournament_id: this._id
+    })
+    const rounds = []
+    for (const row of result) {
+      rounds.push(require('./round').by_id(row.id))
+    }
+    return rounds
+  }
+
   _select (property) {
     return database.query('SELECT ' + property + ' FROM Tournament WHERE id = :id', {
       id: this._id
@@ -40,11 +58,13 @@ function byId (id) {
 }
 
 function create (groupId, name, mode) {
-  database.query('INSERT INTO Tournament (group_id, name, mode) VALUES (:group_id, :name, :mode)', {
+  const result = database.query('INSERT INTO Tournament (group_id, name, mode) VALUES (:group_id, :name, :mode)', {
     group_id: groupId,
     name: name,
     mode: mode
   })
+
+  return byId(result.insertId)
 }
 
 module.exports = {

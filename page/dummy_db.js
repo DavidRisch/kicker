@@ -3,7 +3,7 @@ function page (req, res) {
     res.end('DEBUG_DUMMY_DB must be 1 to use dummy_db')
   }
 
-  const truncateTables = ['User', 'Group', 'User_in_Group', 'Match', 'User_in_Match']
+  const truncateTables = ['User', 'Group', 'User_in_Group', 'Match', 'User_in_Match', 'Tournament', 'Round']
   require('../src/database').query('SET FOREIGN_KEY_CHECKS = 0;')
   for (const table of truncateTables) {
     require('../src/database').query('TRUNCATE TABLE `' + table + '`;')
@@ -13,6 +13,7 @@ function page (req, res) {
   const dbUser = require('../src/db/user')
   const dbGroup = require('../src/db/group')
   const dbMatch = require('../src/db/match')
+  const srcTournament = require('../src/tournament')
 
   const password = 'AAAAAAAAAAAAAa1!'
   const userA = dbUser.create('user_a', 'email_a@aa.bb', '', password)
@@ -44,6 +45,15 @@ function page (req, res) {
   match2.addUser(userC.id, 1)
   match2.addUser(userD.id, 1)
   match2.finish(34, 56)
+
+  const tournament1 = srcTournament.create_tournament(group1.id, 'tournament_a', 'DEATHMATCH')
+
+  const matches = tournament1.rounds[0].matches
+  srcTournament.add_round_if_required(tournament1)
+  matches[0].finish(10, 11)
+  srcTournament.add_round_if_required(tournament1)
+  matches[1].finish(12, 13)
+  srcTournament.add_round_if_required(tournament1)
 
   res.end('done')
 }

@@ -19,6 +19,13 @@ const Match = class {
     })[0].date
   }
 
+  get isFinished () {
+    const result = database.query('SELECT (finished_timestamp IS NULL) AS is_finished FROM `Match` WHERE id = :id', {
+      id: this._id
+    })
+    return result[0].is_finished === 0
+  }
+
   get goalsA () {
     return this._select('goals_a')
   }
@@ -54,6 +61,22 @@ const Match = class {
     WHERE \`Match\`.id = :id`, {
       id: this._id
     })
+  }
+
+  usersOfTeam (team) {
+    const result = database.query(`SELECT User_in_Match.user_id
+    FROM \`Match\`
+    JOIN User_in_Match ON (User_in_Match.match_id = \`Match\`.id)
+    WHERE \`Match\`.id = :id AND User_in_Match.team = :team`, {
+      id: this._id,
+      team: team
+    })
+
+    const users = []
+    for (const row of result) {
+      users.push(require('./user').by_id(row.user_id))
+    }
+    return users
   }
 
   addUser (userId, team) {

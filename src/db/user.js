@@ -83,7 +83,6 @@ function getUser (property, value) {
   const result = database.query('SELECT id FROM User WHERE ' + property + ' = :value', {
     value: value
   })
-  console.log(result)
   return new User(result[0].id)
 }
 
