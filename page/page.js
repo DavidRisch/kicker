@@ -81,4 +81,7 @@ function init (app) {
     require('./matches').page(req, res)
   })
 
+  app.get('/dummy_db', function (req, res) {
+    require('./dummy_db').page(req, res)
+  })
 }
