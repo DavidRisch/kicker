@@ -98,6 +98,18 @@ function byEmail (email) {
   return getUser('email', email)
 }
 
+function getGroupsOfUser (userId) {
+  const result = database.query('SELECT group_id FROM User_in_Group WHERE user_id = :value', {
+    value: userId
+  })
+  const groupList = []
+  const groupJS = require('./group')
+  result.forEach(element => {
+    groupList.append(groupJS.by_id(element))
+  })
+  return groupList
+}
+
 function create (name, email, telephone, password) {
   const salt = require('../account_util').generate_random_string(64)
 
@@ -115,6 +127,7 @@ module.exports = {
   by_name: byName,
   by_email: byEmail,
   create: create,
+  get_groups: getGroupsOfUser,
   InvalidUsernameException: InvalidUsernameException,
   InvalidEmailException: InvalidEmailException,
   InsecurePasswordException: InsecurePasswordException

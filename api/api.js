@@ -66,6 +66,11 @@ function init (app) {
         break
       }
 
+      case 'leaveGroup': {
+        response = require('./leave_group').leaveGroup(req, body.group)
+        break
+      }
+
       // ^^^ Insert new api calls here ^^^
 
       default:

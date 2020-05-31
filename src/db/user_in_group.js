@@ -21,11 +21,11 @@ function getUserInGroup (property, value) {
 }
 
 function byUser (userId) {
-  getUserInGroup('user_id', userId)
+  return getUserInGroup('user_id', userId)
 }
 
 function byGroup (groupId) {
-  getUserInGroup('group_id', groupId)
+  return getUserInGroup('group_id', groupId)
 }
 
 function addUser (userId, groupId) {
@@ -44,6 +44,7 @@ function addUser (userId, groupId) {
     group_id: groupId
   })
 }
+
 
 module.exports = {
   by_Group: byGroup,

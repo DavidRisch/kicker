@@ -88,9 +88,25 @@ function create (name, description) {
   return byId(result.insertId)
 }
 
+function getUserCountInGroup (groupId) {
+  const result = database.query('select COUNT(user_id) as count FROM User_in_Group WHERE group_id = :group_id', {
+    group_id: groupId
+  })
+  return result[0].count
+}
+
+function removeUser (userId, groupId) {
+  database.query('DELETE FROM User_in_Group WHERE user_id = :value AND group_id = :group_id', {
+    value: userId,
+    group_id: groupId
+  })
+}
+
 module.exports = {
   by_id: byId,
   by_name: byName,
   create: create,
-  get_all: getAllGroups
+  get_all: getAllGroups,
+  remove_User: removeUser,
+  get_user_count: getUserCountInGroup
 }
