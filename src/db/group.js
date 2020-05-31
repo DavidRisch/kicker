@@ -113,7 +113,7 @@ function getUserCountInGroup (groupId) {
   return result[0].count
 }
 
-function removeUser (userId, groupId) {
+function removeUser (groupId, userId) {
   database.query('DELETE FROM User_in_Group WHERE user_id = :value AND group_id = :group_id', {
     value: userId,
     group_id: groupId

@@ -105,7 +105,7 @@ function getGroupsOfUser (userId) {
   const groupList = []
   const groupJS = require('./group')
   result.forEach(element => {
-    groupList.append(groupJS.by_id(element))
+    groupList.push(groupJS.by_id(element.group_id))
   })
   return groupList
 }

@@ -7,10 +7,9 @@ function leaveGroup (req, groupId) {
     return { success: false, error: 'userNotAuthenticated' }
   }
   // never trust user input!
-  groupId = parseInt(groupId).toString()
-
-  if (require('../src/db/user').get_groups().includes(groupId)) {
-    require('../src/db/group').remove_User(user.id)
+  groupId = parseInt(groupId)
+  if (require('../src/db/user').get_groups(user.id).filter(groupElement => groupElement.id === groupId).length > 0) {
+    require('../src/db/group').remove_User(groupId, user.id)
   } else {
     return { success: false, error: 'user cannot leave a group that he didn\'t joined!' }
   }

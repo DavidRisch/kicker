@@ -45,7 +45,6 @@ function addUser (userId, groupId) {
   })
 }
 
-
 module.exports = {
   by_Group: byGroup,
   by_User: byUser,
