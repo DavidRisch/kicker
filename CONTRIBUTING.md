@@ -89,4 +89,4 @@ Api parameters and responses must be written in `camelCase`.
   - Run `kicker.sql` with the `kicker` schema selected. In MySQL Workbench: File | Run SQL Script...
   - Enter valid credentials for the db in `config/config.env`.
   - If you get a `ER_NOT_SUPPORTED_AUTH_MODE` see [this answer](https://stackoverflow.com/a/50547109/13623303).
-  
+  - Optional: open `http://localhost:8080/dummy_db` to fill the db with dummy values (results in data loss!).

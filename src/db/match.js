@@ -35,6 +35,14 @@ const Match = class {
     return this._update('goals_b', goals)
   }
 
+  finish (goalsA, goalsB) {
+    database.query('UPDATE `Match` SET goals_a = :goals_a, goals_b = :goals_b, finished_timestamp = NOW() WHERE id = :id', {
+      goals_a: goalsA,
+      goals_b: goalsB,
+      id: this._id
+    }, null)
+  }
+
   get roundId () {
     return this._select('round_id')
   }
@@ -45,6 +53,14 @@ const Match = class {
     JOIN User_in_Match ON (User_in_Match.match_id = \`Match\`.id)
     WHERE \`Match\`.id = :id`, {
       id: this._id
+    })
+  }
+
+  addUser (userId, team) {
+    database.query('INSERT INTO User_in_Match (user_id, match_id, team) VALUES (:user_id, :match_id, :team)', {
+      user_id: userId,
+      team: team,
+      match_id: this._id
     })
   }
 

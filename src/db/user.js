@@ -101,7 +101,7 @@ function byEmail (email) {
 
 function create (name, email, telephone, password) {
   // check user exists
-  const result = database.query('SELECT name FROM User WHERE name = :value', {
+  let result = database.query('SELECT name FROM User WHERE name = :value', {
     value: name
   })
 
@@ -112,13 +112,15 @@ function create (name, email, telephone, password) {
 
   const salt = require('../account_util').generate_random_string(64)
 
-  database.query('INSERT INTO User (name, email, telephone, password, salt) VALUES (:name, :email, :telephone, :password, :salt)', {
+  result = database.query('INSERT INTO User (name, email, telephone, password, salt) VALUES (:name, :email, :telephone, :password, :salt)', {
     name: name,
     email: email,
     telephone: telephone,
     password: require('../account_util').hash_password(password, salt),
     salt: salt
   })
+
+  return byId(result.insertId)
 }
 
 module.exports = {

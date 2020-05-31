@@ -42,6 +42,10 @@ const Group = class {
     })
   }
 
+  addUser (userId) {
+    require('./user_in_group').add_User(userId, this._id)
+  }
+
   _select (property) {
     return database.query('SELECT ' + property + ' FROM `Group` WHERE id = :id', {
       id: this._id
