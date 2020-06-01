@@ -12,17 +12,16 @@
             <div class="intrinsic_row">
                 <label for="tournament_mode" class="intrinsic_left">Turniermodus:&emsp;</label>
                 <select id="tournament_mode" class="dropdown_box intrinsic_right">
-                    <option>Jeder gegen jeden</option>
-                    <option>K.O.-System</option>
-                    <option>Schweizer System</option>
+                    <option value="???">Jeder gegen jeden</option>
+                    <option value="DEATHMATCH">K.O.-System</option>
+                    <option value="SWISS">Schweizer System</option>
                 </select>
             </div>
             <div class="intrinsic_row">
                 <label for="match_mode" class="intrinsic_left">Matchmodus:&emsp;</label>
                 <select id="match_mode" class="dropdown_box intrinsic_right">
-                    <option>2 vs. 2</option>
-                    <option>1 vs. 2</option>
-                    <option>1 vs. 1</option>
+                    <option value="2v2">2 vs. 2</option>
+                    <option value="1v1">1 vs. 1</option>
                 </select>
             </div>
         </div>
@@ -37,15 +36,7 @@
             <div class="intrinsic_row">
                 <label for="participants" class="intrinsic_left">Teilnehmerliste:&emsp;</label>
                 <select id="participants" class="tournament_participants intrinsic_right" multiple>
-                    <option value="1">Alice</option>
-                    <option value="2">Bob</option>
-                    <option value="3">Jeff</option>
-                    <option value="4">Jonas</option>
-                    <option value="5">Michael</option>
-                    <option value="6">Natalie</option>
-                    <option value="7">Paula</option>
-                    <option value="8">Thorgan</option>
-                    <option value="9">Thorsten</option>
+                    §users§
                 </select>
             </div>
         </div>
@@ -55,5 +46,5 @@
     <div class="box light" style="grid-row: 1; grid-column: 1 / 13;">
         <h1 class="box_title">3. Fertigstellung</h1>
     </div>
-    <button class="button_big" style="grid-row: 2; grid-column: 4 / 10; margin-top: 40px">Turnier erstellen</button>
+    <button class="button_big" style="grid-row: 2; grid-column: 4 / 10; margin-top: 40px" onclick="submitTournament();">Turnier erstellen</button>
 </div>

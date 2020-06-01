@@ -66,7 +66,10 @@ function init (app) {
         break
       }
 
-      // ^^^ Insert new api calls here ^^^
+      case 'createTournament': {
+        response = require('./create_tournament').process(req, body.name, body.tournament_mode, body.match_mode, body.participants)
+        break
+      }
 
       default:
       {
