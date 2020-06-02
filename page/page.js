@@ -80,4 +80,8 @@ function init (app) {
   app.get('/dummy_db', function (req, res) {
     require('./dummy_db').page(req, res)
   })
+
+  app.get('/faq', function (req, res) {
+    require('./faq').page(req, res)
+  })
 }
