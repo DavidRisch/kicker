@@ -21,8 +21,7 @@ function createRow (match) {
     matchRow = matchRow.replace('§tournament§', '')
   } else {
     let tournament = require('./db/tournament').by_id(require('./db/round').by_id(match.roundId).tournamentId)
-    console.log(tournament.name)
-    matchRow = matchRow.replace('§tournament§', '<a class="tournament">' + tournament.name + '</a>')
+    matchRow = matchRow.replace('§tournament§', '<a class="tournament" href="/running_tournament?tournament=' + tournament.id + '">' + tournament.name + '</a>')
   }
 
   const teams = [[], []]
