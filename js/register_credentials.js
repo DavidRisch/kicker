@@ -66,7 +66,7 @@ async function ValidateUserInput () {
   }
 
   if (!res.validName) {
-    label.innerHTML = 'Ungültiger Nutzername (mind. 5 Zeichen, keine Leerzeichen)'
+    label.innerHTML = 'Ungültiger Nutzername (mind. 5 Zeichen aus aus Klein-/Großbuchstaben, Zahlen, _ und -)'
     return false
   }
 
