@@ -72,7 +72,7 @@ function getGroup (req) {
   if (cookie === undefined) {
     return null
   } else {
-    return cookie
+    return parseInt(cookie)
   }
 }
 

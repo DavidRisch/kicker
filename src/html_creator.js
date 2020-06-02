@@ -64,15 +64,20 @@ const nav = require('fs').readFileSync('html/nav.html', 'utf8')
 function htmlNav (req) {
   const group = require('./db/group')
 
-  let user = require('./account_util').get_current_user(req)
-  let groups = user.groups
-  let groupHtml = '';
-  for(let groupId of groups){
-    let grp = group.by_id(groupId['group_id'])
+  const user = require('./account_util').get_current_user(req)
+  const groups = user.groups
+  let groupHtml = ''
+  for (const groupId of groups) {
+    const grp = group.by_id(groupId.group_id)
+
+    let style = ''
+    if (grp.id === require('./account_util').get_group(req)) {
+      style = 'font-weight: bold;'
+    }
     groupHtml += `
         <button class="group_select_button" onclick="switchGroup(${grp.id})">
             <img src="images/no_group_selected.png" alt="Gruppe"/>
-            <span>${grp.name}</span>
+            <span style="${style}">${grp.name}</span>
         </button>
         <hr>`
   }

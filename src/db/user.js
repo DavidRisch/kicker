@@ -66,7 +66,7 @@ const User = class {
   }
 
   get groups () {
-    return database.query(`SELECT group_id FROM User_in_Group WHERE user_id = :id`, {
+    return database.query('SELECT group_id FROM User_in_Group WHERE user_id = :id', {
       id: this._id
     })
   }
