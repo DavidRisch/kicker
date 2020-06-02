@@ -1,10 +1,6 @@
 module.exports = init
 
 function init (app) {
-  app.get('/example', function (req, res) {
-    require('./example').page(req, res)
-  })
-
   app.get('/choose_login_method', function (req, res) {
     require('./choose_login_method').page(req, res)
   })
@@ -77,5 +73,11 @@ function init (app) {
     require('./statistics').page(req, res)
   })
 
-  // ^^^ Insert new pages here ^^^
+  app.get('/matches', function (req, res) {
+    require('./matches').page(req, res)
+  })
+
+  app.get('/dummy_db', function (req, res) {
+    require('./dummy_db').page(req, res)
+  })
 }

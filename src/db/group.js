@@ -42,6 +42,24 @@ const Group = class {
     })
   }
 
+  get usersObj () {
+    const result = database.query(`SELECT User_in_Group.user_id, User_in_Group.join_timestamp
+    FROM \`Group\`
+    JOIN User_in_Group ON (User_in_Group.group_id = Group.id)
+    WHERE Group.id = :id`, {
+      id: this._id
+    })
+    const users = []
+    for (const row of result) {
+      users.push(require('./user').by_id(row.user_id))
+    }
+    return users
+  }
+
+  addUser (userId) {
+    require('./user_in_group').add_User(userId, this._id)
+  }
+
   _select (property) {
     return database.query('SELECT ' + property + ' FROM `Group` WHERE id = :id', {
       id: this._id

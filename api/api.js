@@ -16,11 +16,6 @@ function init (app) {
     let response = ''
 
     switch (body.action) {
-      case 'add': {
-        const result = require('./add_example').add(parseInt(body.a), parseInt(body.b))
-        response = { sum: result }
-        break
-      }
       case 'registerCredentials': {
         response = require('./register_credentials').process(body.name, body.email, body.password, body.telephone)
         break
@@ -66,7 +61,10 @@ function init (app) {
         break
       }
 
-      // ^^^ Insert new api calls here ^^^
+      case 'createTournament': {
+        response = require('./create_tournament').process(req, body.name, body.tournament_mode, body.match_mode, body.participants)
+        break
+      }
 
       default:
       {

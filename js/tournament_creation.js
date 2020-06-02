@@ -1,4 +1,4 @@
-/* global $ */
+/* global $ apiPost */
 
 $(function () {
   $('.tournament_participants').tokenize2({
@@ -47,7 +47,23 @@ $(function () {
     // allows empty values
     allowEmptyValues: false,
 
-    // z-inde
+    // z-index
     zIndexMargin: 500
   })
 })
+
+async function submitTournament () { // eslint-disable-line no-unused-vars
+  const data = {
+    action: 'createTournament',
+    name: document.getElementById('tournament_name').value,
+    tournament_mode: document.getElementById('tournament_mode').value,
+    match_mode: document.getElementById('match_mode').value,
+    participants: $('#participants').val()
+
+  }
+
+  const res = await apiPost(data)
+  if (res.success) {
+    window.location.replace('/running_tournament?id=' + res.tournament_id)
+  }
+}

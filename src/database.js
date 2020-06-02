@@ -19,7 +19,7 @@ connection.config.queryFormat = function (query, values) {
     return txt
   }.bind(this))
   if (process.env.DEBUG_PRINT_SQL === '1') {
-    console.log(query)
+    console.log('SQL: ' + query)
   }
   return query
 }
