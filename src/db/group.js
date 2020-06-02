@@ -1,5 +1,7 @@
 const database = require('../database')
 
+const DuplicateGroupException = class extends Error {}
+
 const Group = class {
   constructor (id) {
     this._id = id
@@ -99,10 +101,20 @@ function byName (name) {
 }
 
 function create (name, description) {
+// prevent duplicate names
+  const res = database.query('SELECT id FROM `Group` WHERE name = :value', {
+    value: name
+  })
+
+  if (res.length !== 0) {
+    throw new DuplicateGroupException('Name is already taken')
+  }
+
   const result = database.query('INSERT INTO `Group` (name, description) VALUES (:name, :description)', {
     name: name,
     description: description
   })
+
   return byId(result.insertId)
 }
 
@@ -110,5 +122,6 @@ module.exports = {
   by_id: byId,
   by_name: byName,
   create: create,
-  get_all: getAllGroups
+  get_all: getAllGroups,
+  DuplicateGroupException: DuplicateGroupException
 }
