@@ -198,6 +198,10 @@ a:active {
 		linear-gradient(-225deg, transparent 50%, #31bebe 50%),
 		linear-gradient(#31bebe 42%, #000000 42%);
 }
+.dropdown_box:disabled{
+	background-color: #2a333c;
+	color: #2a333c;
+}
 /*Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
@@ -207,6 +211,9 @@ input::-webkit-inner-spin-button{
 /*Firefox*/
 input[type=number]{
 	-moz-appearance: textfield;
+}
+.custom-control-input{
+	color: #31bebe !important;
 }
 /* -------------- Tokenize2 (Multi-Selection) -------------- */
 .tokenize > .tokens-container {

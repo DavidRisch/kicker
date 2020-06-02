@@ -14,7 +14,11 @@
                         <option value="3">Cain</option>
                         <option value="4">Dan</option>
                     </select>
-                    <input id="checkboxA" name="checkboxA" class="checkbox" type="checkbox" maxlength="100" checked=true onclick="teamAHas2ndPlayer()">
+                    <div class="custom-control custom-switch align-self-center">
+                        <input type="checkbox" class="custom-control-input" id="checkboxA" name="checkboxA"
+                               onclick="teamAHas2ndPlayer()">
+                        <label class="custom-control-label" for="checkboxA"></label>
+                    </div>
                     <select id="playerA2" class="dropdown_box w-25">
                         <option value="1">Alice</option>
                         <option value="2">Bob</option>
@@ -33,8 +37,9 @@
                         <option value="3">Cain</option>
                         <option value="4">Dan</option>
                     </select>
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="checkboxB" name="checkboxB" onclick="teamBHas2ndPlayer()">
+                    <div class="custom-control custom-switch align-self-center">
+                        <input type="checkbox" class="custom-control-input" id="checkboxB" name="checkboxB"
+                               onclick="teamBHas2ndPlayer()">
                         <label class="custom-control-label" for="checkboxB"></label>
                     </div>
                     <select id="playerB2" class="dropdown_box w-25">
@@ -53,7 +58,7 @@
             <div class="d-flex">
                 <div class="mr-auto p-2">
                     <label class="box_title">Tore A</label>
-                    <input name="goalsA" type="number" class="text_input" min="0">
+                    <input name="goalsA" type="number" class="text_input align-middle" min="0" max="30">
                 </div>
                 <div class="ml-auto p-2">
                     <label class="box_title">Tore B</label>

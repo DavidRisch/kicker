@@ -8,7 +8,7 @@ function hideElment (id, hide) {
   }
 }
 
-function disableElment (id, disable) {
+function disableElement (id, disable) {
   const element = document.getElementById(id) // textinput A
   element.disabled = disable
 }
@@ -19,9 +19,10 @@ function setCheckbox (id, checked) {
 }
 
 // to keep track of the states for the checkboxes
-var isAhidden = false
-var isBhidden = false
-
+//var isAhidden = false
+//var isBhidden = false
+var isADisabled = false
+var isBDisabled = false
 function oneVsOne () { // eslint-disable-line no-unused-vars
   console.log('1 vs 1')
 
@@ -60,22 +61,22 @@ function twoVsTwo () { // eslint-disable-line no-unused-vars
 
 function teamAHas2ndPlayer () { // eslint-disable-line no-unused-vars
   // textinput A
-  if (isAhidden) {
-    hideElment('playerA2', false)
-    isAhidden = false
+  if (isADisabled) {
+    disableElement('playerA2', false)
+    isADisabled = false
   } else {
-    hideElment('playerA2', true)
-    isAhidden = true
+    disableElement('playerA2', true)
+    isADisabled = true
   }
 }
 
 function teamBHas2ndPlayer () { // eslint-disable-line no-unused-vars
   // textinput B
-  if (isBhidden) {
-    hideElment('playerB2', false)
-    isBhidden = false
+  if (isBDisabled) {
+    disableElement('playerB2', false)
+    isBDisabled = false
   } else {
-    hideElment('playerB2', true)
-    isBhidden = true
+    disableElement('playerB2', true)
+    isBDisabled = true
   }
 }
