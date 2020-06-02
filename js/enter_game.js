@@ -77,3 +77,15 @@ function teamBHas2ndPlayer () { // eslint-disable-line no-unused-vars
     isBDisabled = true
   }
 }
+
+async function Submit () { // eslint-disable-line no-unused-vars
+  data = {
+    action: '',
+    playerA1: document.getElementById('playerA1').value,
+    playerB1: document.getElementById('playerB1').value,
+    goalsA: document.getElementById('goalsAInput').value,
+    goalsB: document.getElementById('goalsBInput').value
+  }
+  data.playerA2 = !isADisabled ? document.getElementById('playerA2').value : null
+  data.playerB2 = !isBDisabled ? document.getElementById('playerB2').value : null
+}
