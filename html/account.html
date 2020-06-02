@@ -1,33 +1,31 @@
-<div>
-    <b>Dein Profil:</b>
-    <form method="post" id="form" action="/api">
-        <label>
-            Name:
-            <br>
-            <input name="name" id="userNameInput">
-        </label><br>
-        <label>
-            Email:
-            <br>
-            <input name="mail" id="mailInput">
-        </label><br>
-        <label>
-            Passwort:
-            <br>
-            <input name="password" type="password" id="passwordInput" placeholder="************">
-        </label><br>
-        <label>
-            Telefonnummer:
-            <br>
-            <input name="phoneNumber" id="phoneNumberInput">
-        </label><br>
-        <br>
-        <button type="button" onclick="Submit()">Änderungen speichern</button>
-        <br>
-        <label id="errorLabel"></label>
-        <br>
-        <button type="button" onclick="LoadEntries()">Änderungen verwerfen</button>
-        <br>
+<div class="divisiontop light"></div>
+<div class="division dark">
+    <form method="post" id="form" class="grid" action="/api" style="grid-row: 1; grid-column: 1 / 13;">
+        <div class="intrinsic_area" style="grid-row: 1; grid-column: 2 / 12;">
+            <div class="intrinsic_row">
+                <label class="button_description intrinsic_left">Name:</label>
+                <input name="name" class="text_input intrinsic_right" id="userNameInput">
+            </div>
+            <div class="intrinsic_row">
+                <label class="button_description intrinsic_left">Email:</label>
+                <input name="mail" class="text_input intrinsic_right" id="mailInput">
+            </div>
+            <div class="intrinsic_row">
+                <label class="button_description intrinsic_left">Passwort:</label>
+                <input name="password" class="text_input intrinsic_right" type="password" id="passwordInput" placeholder="************">
+            </div>
+            <div class="intrinsic_row">
+                <label class="button_description intrinsic_left">Telefonnummer:</label>
+                <input name="phoneNumber" class="text_input intrinsic_right" id="phoneNumberInput">
+            </div>
+        </div>
+        
+        <label id="errorLabel" class="error_text" style="grid-row: 2; grid-column: 3 / 11;"></label>
+
+        <button type="button" class="button_big" onclick="Submit()" style="grid-row: 3; grid-column: 3 / 11;">Änderungen speichern</button>
+
+        <button type="button" class="button_big cancel" onclick="LoadEntries()" style="grid-row: 4; grid-column: 3 / 11;">Änderungen verwerfen</button>
     </form>
 </div>
+<div class="division light"></div>
 <script>LoadEntries();</script>

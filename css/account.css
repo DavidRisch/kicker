@@ -1,0 +1,9 @@
+.grid {
+	display: grid;
+	grid-template-columns: repeat(12, 8.3333333%);
+}
+
+.error_text {
+    color: #ff0000;
+	font: 20px sans-serif, Arial;
+}
