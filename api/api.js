@@ -16,11 +16,6 @@ function init (app) {
     let response = ''
 
     switch (body.action) {
-      case 'add': {
-        const result = require('./add_example').add(parseInt(body.a), parseInt(body.b))
-        response = { sum: result }
-        break
-      }
       case 'registerCredentials': {
         response = require('./register_credentials').process(body.name, body.email, body.password, body.telephone)
         break
