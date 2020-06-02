@@ -19,10 +19,9 @@ function setCheckbox (id, checked) {
 }
 
 // to keep track of the states for the checkboxes
-//var isAhidden = false
-//var isBhidden = false
 var isADisabled = false
 var isBDisabled = false
+
 function oneVsOne () { // eslint-disable-line no-unused-vars
   console.log('1 vs 1')
 
@@ -60,7 +59,6 @@ function twoVsTwo () { // eslint-disable-line no-unused-vars
 }
 
 function teamAHas2ndPlayer () { // eslint-disable-line no-unused-vars
-  // textinput A
   if (isADisabled) {
     disableElement('playerA2', false)
     isADisabled = false
@@ -71,7 +69,6 @@ function teamAHas2ndPlayer () { // eslint-disable-line no-unused-vars
 }
 
 function teamBHas2ndPlayer () { // eslint-disable-line no-unused-vars
-  // textinput B
   if (isBDisabled) {
     disableElement('playerB2', false)
     isBDisabled = false
