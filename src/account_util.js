@@ -68,8 +68,6 @@ function setGroup (res, groupId) {
 }
 
 function getGroup (req) {
-  return 1 // TODO: remove this once the group can be set
-
   const cookie = req.cookies[currentGroupCookieName]
   if (cookie === undefined) {
     return null

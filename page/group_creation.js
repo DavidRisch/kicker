@@ -6,7 +6,8 @@ function page (req, res) {
       title: 'Gruppen Erstellung',
       js: ['jquery', 'jquery-ui', 'tokenize2', 'dropzone', 'group_creation'],
       css: ['groups', 'bootstrap', 'tokenize2', 'styles_general', 'jquery-ui', 'dropzone'],
-      nav: true
+      nav: true,
+      req: req
     }))
   })
 }

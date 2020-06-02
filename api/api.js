@@ -66,6 +66,11 @@ function init (app) {
         break
       }
 
+      case 'switchGroup': {
+        require('./switchGroup').process(res, body.groupId)
+        break
+      }
+
       default:
       {
         throw Error('Unknown action: ' + body.action)

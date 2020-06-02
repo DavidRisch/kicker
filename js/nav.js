@@ -49,3 +49,11 @@ function closeGroups () { // eslint-disable-line no-unused-vars
   document.getElementById('group_select').style.width = '0'
   document.getElementById('group_select').style.boxShadow = 'none'
 }
+
+async function switchGroup (groupId) {
+  const res = await apiPost({
+    action: 'switchGroup',
+    groupId: groupId
+  })
+  location.reload();
+}

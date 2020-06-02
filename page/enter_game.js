@@ -6,7 +6,8 @@ function page (req, res) {
       title: 'Neues Spiel',
       js: ['enter_game'],
       css: ['styles_general'],
-      nav: true
+      nav: true,
+      req: req
     }))
   })
 }

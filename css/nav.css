@@ -160,6 +160,9 @@ nav .group_select_button span {
     position: absolute;
     padding-top: 10px;
     margin-left: -100px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: calc(100% - 65px);
 }
 
 nav .closebutton {
