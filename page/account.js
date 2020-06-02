@@ -10,8 +10,10 @@ function page (req, res) {
 
     res.end(require('../src/html_creator').create_html(html, {
       title: 'Dein Profil',
-      css: ['styles_general','account'],
+      css: ['styles_general', 'account'],
       js: ['edit_account'],
-      nav: true }))
+      nav: true,
+      req: req
+    }))
   })
 }
