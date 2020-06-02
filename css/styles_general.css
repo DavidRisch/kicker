@@ -125,6 +125,12 @@ a:active {
 	text-align: center;
 }
 
+.button_description {
+	color: #ffffff;
+	font: 24px sans-serif, Arial;
+	padding-top: 10px;
+}
+
 .text_input {
 	background-color: #000000;
 	color: #ffffff;
