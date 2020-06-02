@@ -77,5 +77,11 @@ function init (app) {
     require('./statistics').page(req, res)
   })
 
-  // ^^^ Insert new pages here ^^^
+  app.get('/matches', function (req, res) {
+    require('./matches').page(req, res)
+  })
+
+  app.get('/dummy_db', function (req, res) {
+    require('./dummy_db').page(req, res)
+  })
 }
