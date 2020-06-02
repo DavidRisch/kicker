@@ -1,23 +1,31 @@
 <div class="divisiontop light"></div>
 <div class="division dark">
     <form method="post" id="form" class="grid" action="/api" style="grid-row: 1; grid-column: 1 / 13;">
-        <label class="button_description" style="grid-row: 1; grid-column: 2 / 6;">Name:</label>
-        <input name="name" class="text_input" id="userNameInput" style="grid-row: 1; grid-column: 6 / 12;">
+        <div class="intrinsic_area" style="grid-row: 1; grid-column: 2 / 12;">
+            <div class="intrinsic_row">
+                <label class="button_description intrinsic_left">Name:</label>
+                <input name="name" class="text_input intrinsic_right" id="userNameInput">
+            </div>
+            <div class="intrinsic_row">
+                <label class="button_description intrinsic_left">Email:</label>
+                <input name="mail" class="text_input intrinsic_right" id="mailInput">
+            </div>
+            <div class="intrinsic_row">
+                <label class="button_description intrinsic_left">Passwort:</label>
+                <input name="password" class="text_input intrinsic_right" type="password" id="passwordInput" placeholder="************">
+            </div>
+            <div class="intrinsic_row">
+                <label class="button_description intrinsic_left">Telefonnummer:</label>
+                <input name="phoneNumber" class="text_input intrinsic_right" id="phoneNumberInput">
+            </div>
+        </div>
+        
+        <label id="errorLabel" class="error_text" style="grid-row: 2; grid-column: 3 / 11;"></label>
 
-        <label class="button_description" style="grid-row: 2; grid-column: 2 / 6;">Email:</label>
-        <input name="mail" class="text_input" id="mailInput" style="grid-row: 2; grid-column: 6 / 12;">
+        <button type="button" class="button_big" onclick="Submit()" style="grid-row: 3; grid-column: 3 / 11;">Änderungen speichern</button>
 
-        <label class="button_description" style="grid-row: 3; grid-column: 2 / 6;">Passwort:</label>
-        <input name="password" class="text_input" type="password" id="passwordInput" placeholder="************" style="grid-row: 3; grid-column: 6 / 12;">
-
-        <label class="button_description" style="grid-row: 4; grid-column: 2 / 6;">Telefonnummer:</label>
-        <input name="phoneNumber" class="text_input" id="phoneNumberInput" style="grid-row: 4; grid-column: 6 / 12;">
-
-        <label id="errorLabel" class="error_text" style="grid-row: 5; grid-column: 3 / 11;"></label>
-
-        <button type="button" class="button_big" onclick="Submit()" style="grid-row: 6; grid-column: 3 / 11;">Änderungen speichern</button>
-
-        <button type="button" class="button_big" onclick="LoadEntries()" style="grid-row: 7; grid-column: 3 / 11;">Änderungen verwerfen</button>
+        <button type="button" class="button_big cancel" onclick="LoadEntries()" style="grid-row: 4; grid-column: 3 / 11;">Änderungen verwerfen</button>
     </form>
 </div>
+<div class="division light"></div>
 <script>LoadEntries();</script>
