@@ -61,8 +61,28 @@ function htmlHeader (title, js = [], css = [], additional = '') {
 
 const nav = require('fs').readFileSync('html/nav.html', 'utf8')
 
-function htmlNav () {
-  return nav
+function htmlNav (req) {
+  const group = require('./db/group')
+
+  const user = require('./account_util').get_current_user(req)
+  const groups = user.groups
+  let groupHtml = ''
+  for (const groupId of groups) {
+    const grp = group.by_id(groupId.group_id)
+
+    let style = ''
+    if (grp.id === require('./account_util').get_group(req)) {
+      style = 'font-weight: bold;'
+    }
+    groupHtml += `
+        <button class="group_select_button" onclick="switchGroup(${grp.id})">
+            <img src="images/no_group_selected.png" alt="Gruppe"/>
+            <span style="${style}">${grp.name}</span>
+        </button>
+        <hr>`
+  }
+
+  return nav.replace('§groupList§', groupHtml)
 }
 
 function htmlFooter () {
@@ -78,7 +98,10 @@ function createHtml (html, options) {
 
   let nav = ''
   if (options.nav) {
-    nav = htmlNav()
+    if (!('req' in options)) {
+      throw Error()
+    }
+    nav = htmlNav(options.req)
     nav = nav.replace('§nav_title§', options.title)
     jsFiles.push('nav')
     cssFiles.push('nav')

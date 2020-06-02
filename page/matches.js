@@ -18,7 +18,8 @@ function page (req, res) {
       title: 'Letzte Spiele',
       js: [],
       css: ['styles_general', 'row'],
-      nav: true
+      nav: true,
+      req: req
     }))
   })
 }
