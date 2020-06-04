@@ -123,7 +123,7 @@ function create (name, email, telephone, password) {
 }
 
 function getAllUsernames () {
-  const result = database.query('SELECT id, name from USER')
+  const result = database.query('SELECT id, name from User')
   return result
 }
 
