@@ -2,7 +2,7 @@ const user = require('./db/user')
 const group = require('./db/group')
 
 /* Returns the <option>-tags for a player selection dropdown field */
-function createDropdown (groupId) {
+function createDropdownForGroup (groupId) {
   let result = ''
   const grp = group.by_id(groupId)
   const users = grp.users
@@ -13,6 +13,16 @@ function createDropdown (groupId) {
   return result
 }
 
+function createDropdownAllUsers () {
+  let result = ''
+  const users = require('./db/user').get_all_usernames()
+  for (const row of users) {
+    result += '<option value="' + row.id + '">' + row.name + '</option>'
+  }
+  return result
+}
+
 module.exports = {
-  createDropdown: createDropdown
+  create_dropdown_all_users: createDropdownAllUsers,
+  create_dropdown_for_group: createDropdownForGroup
 }

@@ -128,11 +128,17 @@ function create (name, email, telephone, password) {
   return byId(result.insertId)
 }
 
+function getAllUsernames () {
+  const result = database.query('SELECT id, name from User')
+  return result
+}
+
 module.exports = {
   by_id: byId,
   by_name: byName,
   by_email: byEmail,
   create: create,
+  get_all_usernames: getAllUsernames,
   InvalidUsernameException: InvalidUsernameException,
   InvalidEmailException: InvalidEmailException,
   InsecurePasswordException: InsecurePasswordException,

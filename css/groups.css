@@ -1,31 +1,64 @@
-  .background{
-    padding: 1vh 2vw 1vh 2vw;
-    width: 92vw; 
-    height: 88vh;
-  }
-.description_group{
-    resize: none;
+#nav{
+  z-index: 100;
 }
-  .group_up {
-      vertical-align: top;
-  }
-
-  .tokenize > .tokens-container{
-    left: 0.5em;
+.background{
+  padding: 1vh 2vw 1vh 2vw;
+  width: 92vw;
+  height: 88vh;
+}
+.box .light .background {
+  width: 90%;
+}
+.description_group{
+  resize: none;
+}
+.group_up{
+  vertical-align: top;
+}
+.tokenize > .tokens-container{
+  left: 0.5em;
 }
 .dropzone{
   border-radius: 50% !important;
-  width: 150px !important;
-  height: 150px !important;
+  width: 202px !important;
+  height: 202px !important;
   min-height: auto !important;
   position: relative !important;
   margin: auto !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
   border: 1px solid #31bebe !important;
   background: black !important;
   background-image: url("../images/camera.png") !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: contain !important;
-  display: block !important;
   color: transparent;
+  vertical-align: middle !important;
+}
+.dropzone .dz-preview.dz-image-preview{
+  margin-top: -20px !important;
+  margin-left: -20px !important;
+  background: transparent !important;
+  border-radius: 50% !important;
+  width: 200px !important;
+  height: 200px !important;
+}
+.dz-preview .dz-image-preview{
+  border-radius: 50%;
+}
+.dropzone .dz-preview .dz-image{
+  border-radius: 50% !important;
+  width: auto !important;
+  height: auto !important;
+  background-color: transparent !important;
+}
+.dz-progress {
+  display: none;
+}
+
+.error {
+  color: #ac0000;
+  text-align: center;
+  margin: 10px 0;
 }
