@@ -5,7 +5,7 @@ const database = require('../database')
 
 const UserInGroup = class {
   constructor (userInGroup) {
-    this._id = userInGroup.id
+    this._id = userInGroup.group_id
     this.userId = userInGroup.user_id
     this.groupId = userInGroup.group_id
     this.joinTimestamp = userInGroup.join_timestamp
@@ -21,11 +21,11 @@ function getUserInGroup (property, value) {
 }
 
 function byUser (userId) {
-  getUserInGroup('user_id', userId)
+  return getUserInGroup('user_id', userId)
 }
 
 function byGroup (groupId) {
-  getUserInGroup('group_id', groupId)
+  return getUserInGroup('group_id', groupId)
 }
 
 function addUser (userId, groupId) {
