@@ -27,14 +27,19 @@ async function Submit () { // eslint-disable-line no-unused-vars
     playerB1: document.getElementById('playerB1').value,
     playerA2: !document.getElementById('playerA2').disabled ? document.getElementById('playerA2').value : null,
     playerB2: !document.getElementById('playerB2').disabled ? document.getElementById('playerB2').value : null,
-    goalsA: document.getElementById('goalsAInput').value,
-    goalsB: document.getElementById('goalsBInput').value
+    goalsA: document.getElementById('goalsAInput').value ? document.getElementById('goalsAInput').value : null,
+    goalsB: document.getElementById('goalsBInput').value ? document.getElementById('goalsBInput').value : null
   }
   data.action = 'enterGame'
 
+  // check if match result (goals per team) is entered
+  if (data.goalsA === null || data.goalsB === null) {
+    console.log('Enter a complete match result!')
+    return
+  }
+
   // check if entered players are all different
-  const diffPlayers = await differentPlayersEntered(data)
-   if(diffPlayers){
+   if(await differentPlayersEntered(data)){
        const res = await apiPost(data)
        if (res.success) {
            console.log('New match was successfully added!')
