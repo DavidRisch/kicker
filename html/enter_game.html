@@ -1,72 +1,59 @@
 <div class="divisiontop light"></div>
-
-<form method="post" action="/api">
-    <input type="hidden" name="action" value="enterGame">
-
-    <div class="division light">
-        <div class="box light" style="grid-row: 1; grid-column: 1 / 13">
-            <h1 class="box_title" style="grid-row: 1; grid-column: 1 / 13">Team A</h1>
-            <form method="post" id="teamA" action="/api">
-                <div class="d-flex justify-content-center">
-                    <select id="playerA1" class="dropdown_box w-25">
-                        <option value="1">Alice</option>
-                        <option value="2">Bob</option>
-                        <option value="3">Cain</option>
-                        <option value="4">Dan</option>
-                    </select>
-                    <div class="custom-control custom-switch align-self-center">
-                        <input type="checkbox" class="custom-control-input" id="checkboxA" name="checkboxA" checked
-                               onclick="teamAHas2ndPlayer(this)">
-                        <label class="custom-control-label" for="checkboxA"></label>
-                    </div>
-                    <select id="playerA2" class="dropdown_box w-25">
-                        <option value="1">Alice</option>
-                        <option value="2">Bob</option>
-                        <option value="3">Cain</option>
-                        <option value="4">Dan</option>
-                    </select>
-                </div>
-            </form>
-            <h1 class="box_title" style="grid-row: 1; grid-column: 1 / 13">Team B</h1>
-            <form method="post" id="teamB" action="/api">
-                <!--<input id="playerA1" name="playerA1" class="text_input" maxlength="100" style="grid-row: 2; grid-column: 4 / 9;"> -->
-                <div class="d-flex justify-content-center">
-                    <select id="playerB1" class="dropdown_box w-25">
-                        <option value="1">Alice</option>
-                        <option value="2">Bob</option>
-                        <option value="3">Cain</option>
-                        <option value="4">Dan</option>
-                    </select>
-                    <div class="custom-control custom-switch align-self-center">
-                        <input type="checkbox" class="custom-control-input" id="checkboxB" name="checkboxB" checked
-                               onclick="teamBHas2ndPlayer(this)">
-                        <label class="custom-control-label" for="checkboxB"></label>
-                    </div>
-                    <select id="playerB2" class="dropdown_box w-25">
-                        <option value="1">Alice</option>
-                        <option value="2">Bob</option>
-                        <option value="3">Cain</option>
-                        <option value="4">Dan</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div class="division dark">
-        <div class="box dark" style="grid-row: 1; grid-column: 1 / 13">
-            <div class="d-flex">
-                <div class="mr-auto p-2">
-                    <label class="box_title">Tore A</label>
-                    <input name="goalsA" id="goalsAInput" type="number" class="text_input align-middle" min="0" max="30">
-                </div>
-                <div class="ml-auto p-2">
-                    <label class="box_title">Tore B</label>
-                    <input name="goalsB" id="goalsBInput" type="number" class="text_input" min="0">
-                </div>
+<div class="division light">
+    <div class="box dark" style="grid-row: 1; grid-column: 3 / 11">
+        <h1 class="box_title" style="grid-row: 1; grid-column: 1 / 13">Team A</h1>
+        <div class="d-flex justify-content-center" style="margin: 10px 0">
+            <select id="playerA1" class="player_selection w-25" multiple>
+                <option value="1">Alice</option>
+                <option value="2">Bob</option>
+                <option value="3">Cain</option>
+                <option value="4">Dan</option>
+            </select>
+            <div class="custom-control custom-switch align-self-center" style="margin: 0 4em">
+                <input type="checkbox" class="custom-control-input" id="checkboxA" name="checkboxA" checked
+                       onclick="teamAHas2ndPlayer(this)">
+                <label class="custom-control-label" for="checkboxA"></label>
             </div>
+            <select id="playerA2" class="player_selection w-25" multiple>
+                <option value="1">Alice</option>
+                <option value="2">Bob</option>
+                <option value="3">Cain</option>
+                <option value="4">Dan</option>
+            </select>
         </div>
-
-        <button class="button_big" style="grid-row: 2; grid-column: 6 / 8;" onclick="Submit()">Hinzufügen</button>
     </div>
-</form>
+    <div class="box dark" style="grid-row: 2; grid-column: 3 / 11">
+        <h1 class="box_title" style="grid-row: 1; grid-column: 1 / 13">Team B</h1>
+        <div class="d-flex justify-content-center" style="margin: 10px 0">
+            <select id="playerB1" class="player_selection w-25" multiple>
+                <option value="1">Alice</option>
+                <option value="2">Bob</option>
+                <option value="3">Cain</option>
+                <option value="4">Dan</option>
+            </select>
+            <div class="custom-control custom-switch align-self-center" style="margin: 0 4em">
+                <input type="checkbox" class="custom-control-input" id="checkboxB" name="checkboxB" checked
+                       onclick="teamBHas2ndPlayer(this)">
+                <label class="custom-control-label" for="checkboxB"></label>
+            </div>
+            <select id="playerB2" class="player_selection w-25" multiple>
+                <option value="1">Alice</option>
+                <option value="2">Bob</option>
+                <option value="3">Cain</option>
+                <option value="4">Dan</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="division dark">
+    <div class="box light" style="grid-row: 1; grid-column: 2 / 6;">
+        <h1 class="box_title">Tore A</h1>
+        <input name="goalsA" id="goalsAInput" type="number" class="text_input" min="0" max="100" style="display: block; margin: 10px auto; text-align: center;">
+    </div>
+    <div class="box light" style="grid-row: 1; grid-column: 8 / 12;">
+        <h1 class="box_title">Tore B</h1>
+        <input name="goalsB" id="goalsBInput" type="number" class="text_input" min="0" max="100" style="display: block; margin: 10px auto; text-align: center;">
+    </div>
+    <button class="button_big"  style="grid-row: 2; grid-column: 5 / 9; margin-top: 80px" onclick="Submit()">Hinzufügen</button>
+</div>

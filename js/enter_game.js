@@ -1,9 +1,86 @@
+/* global $ apiPost */
+var tok2 = null;
+
+$(function () {
+  tok2 = $('.player_selection').tokenize2({
+    // max number of tags
+    tokensMaxItems: 1,
+
+    // allow you to create custom tokens
+    tokensAllowCustom: false,
+
+    // max items in the dropdown
+    dropdownMaxItems: 10,
+
+    // minimum/maximum of characters required to start searching
+    searchMinLength: 0,
+    searchMaxLength: 0,
+
+    // specify if Tokenize2 will search from the beginning of a string
+    searchFromStart: true,
+
+    // choose if you want your search highlighted in the result dropdown
+    searchHighlight: true,
+
+    // custom delimiter
+    delimiter: ';',
+
+    // display no results message
+    displayNoResultsMessage: false,
+    noResultsMessageText: 'Keine Ergebnisse zu "%s" gefunden.',
+
+    // data source
+    dataSource: 'select',
+
+    // waiting time between each search
+    debounce: 0,
+
+    // custom placeholder text
+    placeholder: false,
+
+    // enable sortable
+    // requires jQuery UI
+    sortable: false,
+
+    // tabIndex
+    tabIndex: 0,
+
+    // allows empty values
+    allowEmptyValues: false,
+
+    // z-index
+    zIndexMargin: 500
+  })
+})
+
 function teamAHas2ndPlayer(checkbox) { // eslint-disable-line no-unused-vars
     document.getElementById('playerA2').disabled = !checkbox.checked
+    // enable/disable tokenize2 instance of playerA2 explicitly
+    let tok2pA2 = tok2.find(tok2p => {
+      return tok2p.element[0].id === 'playerA2'
+    })
+    if(checkbox.checked) {
+      tok2pA2.enable()
+    }
+    else {
+      tok2pA2.clear()
+      tok2pA2.disable()
+    }
 }
 
 function teamBHas2ndPlayer(checkbox) { // eslint-disable-line no-unused-vars
     document.getElementById('playerB2').disabled = !checkbox.checked
+    // enable/disable tokenize2 instance of playerB2 explicitly
+    let tok2pB2 = tok2.find(tok2p => {
+      return tok2p.element[0].id === 'playerB2'
+    })
+    if(checkbox.checked) {
+      tok2pB2.enable()
+    }
+    else {
+      tok2pB2.clear()
+      tok2pB2.disable()
+    }
 }
 
 async function differentPlayersEntered(data) { // eslint-disable-line no-unused-vars
@@ -19,6 +96,28 @@ async function differentPlayersEntered(data) { // eslint-disable-line no-unused-
     return playerIDList.length === playerIDSet.size
 }
 
+async function validateUserInput(data) { // eslint-disable-line no-unused-vars
+  // check if enabled players are entered
+  if ((!document.getElementById('playerA2').disabled && !data.playerA2) || (!document.getElementById('playerB2').disabled && !data.playerB2)) {
+    console.log('Enter missing players or disable them!')
+    return false
+  }
+
+  // check if entered players are all different
+  if(!await differentPlayersEntered(data)){
+    console.log('Choose different players!')
+    return false
+  }
+
+  // check if match result (goals per team) is entered
+  if (data.goalsA === null || data.goalsB === null) {
+    console.log('Enter a complete match result!')
+    return false
+  }
+
+  return true
+}
+
 async function Submit () { // eslint-disable-line no-unused-vars
   // collect entered data
   const data = {
@@ -32,21 +131,14 @@ async function Submit () { // eslint-disable-line no-unused-vars
   }
   data.action = 'enterGame'
 
-  // check if match result (goals per team) is entered
-  if (data.goalsA === null || data.goalsB === null) {
-    console.log('Enter a complete match result!')
+  // validate entered data
+  if(!await validateUserInput(data)) {
     return
   }
 
-  // check if entered players are all different
-   if(await differentPlayersEntered(data)){
-       const res = await apiPost(data)
-       if (res.success) {
-           console.log('New match was successfully added!')
-       }
-   }
-   else{
-       console.log('Choose different players!')
-   }
+  const res = await apiPost(data)
+  if (res.success) {
+    console.log('New match was successfully added!')
+  }
 
 }
