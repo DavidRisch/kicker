@@ -1,38 +1,26 @@
-// helper functions
-
-function setCheckbox(id, checked) {
-    const element = document.getElementById(id) // textinput A
-    element.checked = checked
-}
-
 function teamAHas2ndPlayer(checkbox) { // eslint-disable-line no-unused-vars
-    document.getElementById('playerA2').disabled = !checkbox.checked;
+    document.getElementById('playerA2').disabled = !checkbox.checked
 }
 
 function teamBHas2ndPlayer(checkbox) { // eslint-disable-line no-unused-vars
-    document.getElementById('playerB2').disabled = !checkbox.checked;
+    document.getElementById('playerB2').disabled = !checkbox.checked
 }
 
-function differentPlayers(data) { // eslint-disable-line no-unused-vars
-    if(data.playerA2 === null || data.playerB2 === null){
-        if(data.playerA1 === data.playerB1)
-            return false;
-    }
-    let playerList = [data.playerA1, data.playerA2, data.playerB1, data.playerB2];
-    const playerIDSet = new Set(playerList);
-    playerIDSet.delete(null);
-    let participantCount = 0;
-    playerList.forEach(function (item,index ) {
-        console.log(item,index);
-        if (item !== null) {
-            ++participantCount;
-        }
-    });
-    console.log(participantCount);
-    return playerIDSet.size === participantCount;
+async function differentPlayersEntered(data) { // eslint-disable-line no-unused-vars
+    // create list of entered players
+    let playerIDList = [data.playerA1, data.playerA2, data.playerB1, data.playerB2]
+    // remove null from list of entered players -> list of actual players
+    playerIDList = playerIDList.filter(function (value, index, array) {
+      return value !== null
+    })
+    // create set of actual players -> remove duplicate entries (little reminiscence of The Exmatriculator)
+    const playerIDSet = new Set(playerIDList)
+    // entered players are all different, if list of actual players contains as much elements as set of actual players
+    return playerIDList.length === playerIDSet.size
 }
+
 async function Submit () { // eslint-disable-line no-unused-vars
-    console.log('In Submit()');
+  // collect entered data
   const data = {
     action: '',
     playerA1: document.getElementById('playerA1').value,
@@ -42,14 +30,18 @@ async function Submit () { // eslint-disable-line no-unused-vars
     goalsA: document.getElementById('goalsAInput').value,
     goalsB: document.getElementById('goalsBInput').value
   }
-   if( differentPlayers(data)){
+  data.action = 'enterGame'
+
+  // check if entered players are all different
+  const diffPlayers = await differentPlayersEntered(data)
+   if(diffPlayers){
        const res = await apiPost(data)
        if (res.success) {
-           console.log('Enter game success')
+           console.log('New match was successfully added!')
        }
    }
    else{
-       console.log('Chose different players')
+       console.log('Choose different players!')
    }
 
 }

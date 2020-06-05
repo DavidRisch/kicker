@@ -52,7 +52,7 @@ function init (app) {
       }
 
       case 'enterGame': {
-        require('./enter_game').process(body.playerA1, body.playerA2, body.playerB1, body.playerB2, body.goalsA, body.goalsB)
+        response = require('./enter_game').process(req, body.playerA1, body.playerB1, body.playerA2, body.playerB2, body.goalsA, body.goalsB)
         break
       }
 
