@@ -99,6 +99,7 @@ nav .logout_button:hover {
 .hamburger {
     z-index: 10;
     float: left;
+	position: relative;
 }
 
 
