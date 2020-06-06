@@ -15,7 +15,7 @@ function process (req, playerA1, playerB1, playerA2, playerB2, goalsA, goalsB) {
   }
 
   // create new match entry
-  newMatch = require('../src/db/match').create(group, null)
+  const newMatch = require('../src/db/match').create(group, null)
 
   // add participating users
   newMatch.addUser(playerA1, 0)
