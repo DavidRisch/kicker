@@ -1,3 +1,5 @@
+/* global apiPost location */
+
 // Burger menu
 const stateModule = (function () {
   let state
@@ -48,4 +50,12 @@ function openGroups () { // eslint-disable-line no-unused-vars
 function closeGroups () { // eslint-disable-line no-unused-vars
   document.getElementById('group_select').style.width = '0'
   document.getElementById('group_select').style.boxShadow = 'none'
+}
+
+async function switchGroup (groupId) { // eslint-disable-line no-unused-vars
+  await apiPost({
+    action: 'switchGroup',
+    groupId: groupId
+  })
+  location.reload()
 }

@@ -8,7 +8,8 @@ function page (req, res) {
       title: 'Turnier erstellen',
       js: ['jquery', 'tokenize2', 'tournament_creation'],
       css: ['bootstrap', 'tokenize2', 'styles_general'],
-      nav: true
+      nav: true,
+      req: req
     }))
   })
 }

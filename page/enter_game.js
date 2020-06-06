@@ -11,7 +11,8 @@ function page (req, res) {
       title: 'Neues Spiel',
       js: ['jquery', 'jquery-ui', 'tokenize2', 'enter_game'],
       css: ['bootstrap', 'jquery-ui', 'tokenize2', 'styles_general'],
-      nav: true
+      nav: true,
+      req: req
     }))
   })
 }

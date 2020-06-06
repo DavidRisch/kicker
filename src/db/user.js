@@ -65,6 +65,12 @@ const User = class {
     this._update('picture', picture)
   }
 
+  get groups () {
+    return database.query('SELECT group_id FROM User_in_Group WHERE user_id = :id', {
+      id: this._id
+    })
+  }
+
   _select (property) {
     return database.query('SELECT ' + property + ' FROM User WHERE id = :id', {
       id: this._id
@@ -122,11 +128,17 @@ function create (name, email, telephone, password) {
   return byId(result.insertId)
 }
 
+function getAllUsernames () {
+  const result = database.query('SELECT id, name from User')
+  return result
+}
+
 module.exports = {
   by_id: byId,
   by_name: byName,
   by_email: byEmail,
   create: create,
+  get_all_usernames: getAllUsernames,
   InvalidUsernameException: InvalidUsernameException,
   InvalidEmailException: InvalidEmailException,
   InsecurePasswordException: InsecurePasswordException,

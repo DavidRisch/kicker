@@ -22,6 +22,10 @@ a {
     background-color: #31bebe;
 }
 
+.cancel{
+    background-color: #ff3737 !important;
+}
+
 .division {
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -117,12 +121,18 @@ a:active {
     background-color: #31bebe;
     color: #ffffff;
     font: 40px sans-serif, Arial;
-    margin: 10px;
-    border-radius: 25px;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 30px;
     border-width: 0;
-    height: 50px;
     cursor: pointer;
     text-align: center;
+}
+
+.button_description {
+    color: #ffffff;
+    font: 32px sans-serif, Arial;
+    padding-right: 20px;
 }
 
 .text_input {
@@ -132,7 +142,7 @@ a:active {
     border-style: solid;
     border-radius: 10px;
     border-width: 1px;
-    font: 18px sans-serif, Arial;
+    font: 30px sans-serif, Arial;
     line-height: 1.25;
     outline: 0;
     padding: 0.25em 0.75em;
@@ -163,7 +173,7 @@ a:active {
 .dropdown_box {
     -webkit-appearance: none;
     appearance: none;
-    font: 18px sans-serif, Arial;
+    font: 30px sans-serif, Arial;
     color: #ffffff;
     border: 1px solid #31bebe;
     line-height: 1.25;

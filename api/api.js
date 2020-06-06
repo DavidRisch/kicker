@@ -2,6 +2,8 @@ module.exports = init
 
 function init (app) {
   const bodyParser = require('body-parser')
+  var multer = require('multer')
+  var upload = multer({ storage: multer.memoryStorage() })
 
   app.use(
     bodyParser.urlencoded({
@@ -11,7 +13,7 @@ function init (app) {
 
   app.use(bodyParser.json())
 
-  app.post('/api', function (req, res) {
+  app.post('/api', upload.single('image'), function (req, res) {
     const body = req.body
     let response = ''
 
@@ -63,6 +65,21 @@ function init (app) {
 
       case 'createTournament': {
         response = require('./create_tournament').process(req, body.name, body.tournament_mode, body.match_mode, body.participants)
+        break
+      }
+
+      case 'switchGroup': {
+        require('./switchGroup').process(res, body.groupId)
+        break
+      }
+
+      case 'createGroup': {
+        response = require('./group_creation').process(req, body.groupMembers, body.groupName, body.groupDesc)
+        break
+      }
+
+      case 'uploadGroupImage': {
+        response = require('./upload_file').upload_group_image(req, body.group)
         break
       }
 

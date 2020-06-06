@@ -5,7 +5,8 @@ function page (req, res) {
     res.end(require('../src/html_creator').create_html(html, {
       title: 'Erfolge',
       css: ['styles_general', 'achievements'],
-      nav: true
+      nav: true,
+      req: req
     }))
   })
 }

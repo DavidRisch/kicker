@@ -61,12 +61,12 @@ async function ValidateUserInput () {
   }
 
   if (!res.validPassword) {
-    label.innerHTML = 'Ungültiges Passwort'
+    label.innerHTML = 'Ungültiges Passwort (mind. 8 Zeichen aus Klein-/Großbuchstaben, Zahlen & Sonderzeichen)'
     return false
   }
 
   if (!res.validName) {
-    label.innerHTML = 'Ungültiger Nutzername'
+    label.innerHTML = 'Ungültiger Nutzername (mind. 5 Zeichen aus aus Klein-/Großbuchstaben, Zahlen, _ und -)'
     return false
   }
 
