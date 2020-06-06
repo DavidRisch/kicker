@@ -1,8 +1,11 @@
 function page (req, res) {
+  require('../src/account_util').require_logged_in_user(req, res)
+
   require('fs').readFile('html/enter_game.html', 'utf8', function (err, html) {
     if (err) throw err
 
-    html = html.replace('§users§', require('../src/player_dropdown').createDropdown(1))
+    const groupId = require('../src/account_util').get_group(req)
+    html = html.replace(/§users§/g, require('../src/player_dropdown').createDropdown(groupId))
 
     res.end(require('../src/html_creator').create_html(html, {
       title: 'Neues Spiel',
