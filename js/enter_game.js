@@ -91,19 +91,22 @@ async function differentPlayersEntered (data) { // eslint-disable-line no-unused
 async function validateUserInput (data) { // eslint-disable-line no-unused-vars
   // check if enabled players are entered
   if ((!document.getElementById('playerA2').disabled && !data.playerA2) || (!document.getElementById('playerB2').disabled && !data.playerB2)) {
-    console.log('Enter missing players or disable them!')
+    console.log('Missing player entries detected')
+    window.alert('Wähle die fehlenden Spieler aus oder ändere den Spielmodus!')
     return false
   }
 
   // check if entered players are all different
   if (!await differentPlayersEntered(data)) {
-    console.log('Choose different players!')
+    console.log('Equal player entries detected')
+    window.alert('Wähle unterschiedliche Spieler aus!')
     return false
   }
 
   // check if match result (goals per team) is entered
   if (data.goalsA === null || data.goalsB === null) {
-    console.log('Enter a complete match result!')
+    console.log('Missing match result detected')
+    window.alert('Gib das Spielergebnis vollständig ein!')
     return false
   }
 
@@ -130,5 +133,7 @@ async function Submit () { // eslint-disable-line no-unused-vars
   const res = await apiPost(data)
   if (res.success) {
     console.log('New match was successfully added!')
+    // redirect to matches page
+    window.location.replace('/matches')
   }
 }
