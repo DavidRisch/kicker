@@ -2,14 +2,35 @@ module.exports = {
   process: process
 }
 
-function process (playerA1, playerA2, playerB1, playerB2, goalsA, goalsB) {
-  // TODO: check if it is a 'one vs one' or a 'one vs two' or 'two vs two' game
+function process (req, playerA1, playerB1, playerA2, playerB2, goalsA, goalsB) {
+  // take current group id
+  const group = require('../src/account_util').get_group(req)
 
-  console.log('game entered')
+  // check, if group is actually given
+  if (group === null) {
+    return {
+      success: false,
+      errorReason: 'You are not in a group!'
+    }
+  }
 
-  console.log('player A1: ' + playerA1)
-  console.log('player A2: ' + playerA2)
-  console.log('player B1: ' + playerB1)
-  console.log('goals A:   ' + goalsA)
-  console.log('goals B:   ' + goalsB)
+  // create new match entry
+  const newMatch = require('../src/db/match').create(group, null)
+
+  // add participating users
+  newMatch.addUser(playerA1, 0)
+  newMatch.addUser(playerB1, 1)
+  if (playerA2 !== null) {
+    newMatch.addUser(playerA2, 0)
+  }
+  if (playerB2 !== null) {
+    newMatch.addUser(playerB2, 1)
+  }
+
+  // add match result (goals per team)
+  newMatch.finish(goalsA, goalsB)
+
+  return {
+    success: true
+  }
 }
