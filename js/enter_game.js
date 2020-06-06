@@ -1,4 +1,4 @@
-/* global apiPost */
+/* global $ apiPost */
 
 let tok2 = null
 
