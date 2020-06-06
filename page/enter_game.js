@@ -5,7 +5,7 @@ function page (req, res) {
     if (err) throw err
 
     const groupId = require('../src/account_util').get_group(req)
-    html = html.replace(/§users§/g, require('../src/player_dropdown').createDropdown(groupId))
+    html = html.replace(/§users§/g, require('../src/player_dropdown').create_dropdown_for_group(groupId))
 
     res.end(require('../src/html_creator').create_html(html, {
       title: 'Neues Spiel',
