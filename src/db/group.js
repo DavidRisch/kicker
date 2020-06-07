@@ -1,5 +1,8 @@
 const database = require('../database')
 
+const DuplicateGroupException = class extends Error {}
+const UserAlreadyInGroupException = class extends Error {}
+
 const Group = class {
   constructor (id) {
     this._id = id
@@ -57,7 +60,20 @@ const Group = class {
   }
 
   addUser (userId) {
-    require('./user_in_group').add_User(userId, this._id)
+    // check if the user is already in the group
+    const result = database.query('SELECT * FROM User_in_Group WHERE user_id = :value AND group_id = :group_id', {
+      value: userId,
+      group_id: this._id
+    })
+
+    if (result.length !== 0) {
+      throw new UserAlreadyInGroupException()
+    }
+
+    database.query('INSERT INTO User_in_Group (user_id, group_id) VALUES (:user_id, :group_id)', {
+      user_id: userId,
+      group_id: this._id
+    })
   }
 
   _select (property) {
@@ -99,10 +115,20 @@ function byName (name) {
 }
 
 function create (name, description) {
+// prevent duplicate names
+  const res = database.query('SELECT id FROM `Group` WHERE name = :value', {
+    value: name
+  })
+
+  if (res.length !== 0) {
+    throw new DuplicateGroupException('Name is already taken')
+  }
+
   const result = database.query('INSERT INTO `Group` (name, description) VALUES (:name, :description)', {
     name: name,
     description: description
   })
+
   return byId(result.insertId)
 }
 
@@ -125,6 +151,11 @@ module.exports = {
   by_name: byName,
   create: create,
   get_all: getAllGroups,
+<<<<<<< HEAD
   remove_User: removeUser,
   get_user_count: getUserCountInGroup
+=======
+  DuplicateGroupException: DuplicateGroupException,
+  UserAlreadyInGroupException: UserAlreadyInGroupException
+>>>>>>> c520f6c1fd21ee192b3b76eba0bdd0e27d2cfb9b
 }

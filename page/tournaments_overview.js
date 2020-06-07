@@ -5,7 +5,8 @@ function page (req, res) {
     res.end(require('../src/html_creator').create_html(html, {
       title: 'Turniere',
       css: ['styles_general'],
-      nav: true
+      nav: true,
+      req: req
     }))
   })
 }

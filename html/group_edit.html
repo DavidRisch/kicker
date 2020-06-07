@@ -1,32 +1,32 @@
+<div class="divisiontop light"></div>
 <div class="division dark">
-    <div class="box light background">
-        <form action="/file-upload" class="dropzone" id="group_image_dropzone"></form>
-        <div class="intrinsic_area">
-            <div class="intrinsic_row">
-                <label for="groupNameInput" class="intrinsic_left">Gruppenname:&emsp;</label>
-                <input class="text_input intrinsic_right" name="groupName" id="groupNameInput">
-            </div>
-            <div class="intrinsic_row">
-                <label id="label_textarea" for="group_members" class="intrinsic_left">Gruppenmitglieder: </label>
-                <select id="group_members" class="group_members intrinsic_right" multiple>
-                    <option value="1">Alice</option>
-                    <option value="2">Bob</option>
-                    <option value="3">Jeff</option>
-                    <option value="4">Jonas</option>
-                    <option value="5">Michael</option>
-                    <option value="6">Natalie</option>
-                    <option value="7">Paula</option>
-                    <option value="8">Thorgan</option>
-                    <option value="9">Thorsten</option>
-                </select>
-            </div>
-            <div class="intrinsic_row">
-                <label for="groupDescriptionInput" class="intrinsic_left group_up">Gruppenbeschreibung: </label>
-                <textarea rows="5" class="text_input intrinsic_right description_group" name="groupDescription" id="groupDescriptionInput"></textarea>
-            </div>
+    <form action="/file-upload" class="dropzone" id="group_image_dropzone" style="grid-row: 1; grid-column: 2 / 12;"></form>
+    <div class="intrinsic_area" style="grid-row: 2; grid-column: 2 / 12;">
+        <div class="intrinsic_row">
+            <label for="groupNameInput" class="button_description intrinsic_left">Gruppenname:&emsp;</label>
+            <input class="text_input intrinsic_right" name="groupName" id="groupNameInput">
         </div>
-        <button class="button_big" type="button" onclick="CheckAndCreateGroup()">Gruppe erstellen</button>
-        <button class="button_big cancel" type="button" onclick="AbortGroupEdit()">Abbrechen</button>
-        <button class="button_big cancel" type="button" onclick="AbortGroupEdit()">Gruppe löschen</button>
+        <div class="intrinsic_row">
+            <label id="label_textarea" for="group_members" class="button_description intrinsic_left">Gruppenmitglieder: </label>
+            <select id="group_members" class="group_members intrinsic_right" multiple>
+                <option value="1">Alice</option>
+                <option value="2">Bob</option>
+                <option value="3">Jeff</option>
+                <option value="4">Jonas</option>
+                <option value="5">Michael</option>
+                <option value="6">Natalie</option>
+                <option value="7">Paula</option>
+                <option value="8">Thorgan</option>
+                <option value="9">Thorsten</option>
+            </select>
+        </div>
+        <div class="intrinsic_row">
+            <label for="groupDescriptionInput" class="button_description intrinsic_left group_up">Gruppenbeschreibung: </label>
+            <textarea rows="5" class="text_input intrinsic_right description_group" name="groupDescription" id="groupDescriptionInput"></textarea>
+        </div>
     </div>
+    <button class="button_big" type="button" onclick="CheckAndCreateGroup()" style="grid-row: 3; grid-column: 3 / 11;">Änderungen speichern</button>
+    <button class="button_big cancel" type="button" onclick="AbortGroupEdit()" style="grid-row: 4; grid-column: 3 / 11;">Abbrechen</button>
+    <button class="button_big cancel" type="button" onclick="AbortGroupEdit()" style="grid-row: 5; grid-column: 3 / 11;">Gruppe löschen</button>
 </div>
+<div class="division light"></div>

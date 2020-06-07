@@ -12,7 +12,8 @@ function page (req, res) {
         title: 'Statistiken',
         js: ['example_statistics', 'chartjs'],
         css: ['styles_general'],
-        nav: true
+        nav: true,
+        req: req
       })
     )
   })

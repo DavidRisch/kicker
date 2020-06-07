@@ -177,6 +177,12 @@ E-Mail: info@dhbw-mannheim.de
 	\caption{Use Case: Registrierung und Anmeldung}
 	\label{uc_reg_anm}
 \end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{text/aktiv_reg_anm.png}
+	\caption{Aktivitätsdiagramm: Registrierung und Anmeldung}
+	\label{ak_reg_anm}
+\end{figure}
 \textbf{Registrieren}
 \begin{itemize}
 	\item \textbf{Use Case:} Registrieren
@@ -221,12 +227,6 @@ E-Mail: info@dhbw-mannheim.de
 	\item \textbf{Alternativen:} 1a. Nutzer an eingegebener E-Mail-Adresse bestimmen
 \end{itemize}
 \clearpage
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=\linewidth]{text/aktiv_reg_anm.png}
-	\caption{Aktivitätsdiagramm: Registrierung und Anmeldung}
-	\label{ak_reg_anm}
-\end{figure}
 
 
 \section{Turniererstellung}
@@ -235,6 +235,12 @@ E-Mail: info@dhbw-mannheim.de
 	\includegraphics[width=\linewidth]{text/uc_turnier.png}
 	\caption{Use Case: Turniererstellung}
 	\label{uc_turnier}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{text/ak_turnier.png}
+	\caption{Aktivitätsdiagramm: Turniererstellung}
+	\label{ak_turnier}
 \end{figure}
 \begin{itemize}
 	\item \textbf{Use Case:} Turnier erstellen
@@ -256,7 +262,6 @@ E-Mail: info@dhbw-mannheim.de
 	\item \textbf{Alternativen:} Die Ausführungsschritte 2.-4. können in beliebiger Reihenfolge ausgeführt werden
 \end{itemize}
 
-
 \section{Spielerstellung}
 \begin{figure}[h!]
 	\centering
@@ -270,7 +275,26 @@ E-Mail: info@dhbw-mannheim.de
 	\caption{Aktivitätsdiagramm: Spielerstellung}
 	\label{aktiv_spiel}
 \end{figure}
-
+\begin{itemize}
+	\item \textbf{Use Case:} Spiel erstellen
+	\item \textbf{Ziel:} Spiel erstellt
+	\item \textbf{Kategorie:} Primär
+	\item \textbf{Vorbedingung:} Nutzer ist angemeldet und befindet sich in einer Gruppe und alle Mitglieder bei diesem Spiel haben einen Account und befinden sich in der selben Gruppe
+	\item \textbf{Nachbedingung Erfolg:} Spiel wurde erstellt
+	\item \textbf{Nachbedingung Fehlschlag:} Spiel konnte nicht erstellt werden
+	\item \textbf{Akteure:} Nutzer
+	\item \textbf{Auslösendes Ereignis:} Nutzer betätigt den "neues Spiel erstellen"-Button
+	\item \textbf{Beschreibung:} \begin{enumerate}
+		\item Spieler 1 von Team A aus dem Menü auswählen
+		\item Anzahl Tore von Team A eintragen
+		\item Spieler 1 von Team B aus dem Menü auswählen
+		\item Anzahl Tore von Team B eintragen
+		\item Spiel in der Datenbank hinzufügen
+	\end{enumerate}
+	\item \textbf{Erweiterungen:} \\1a. Spieler 2 von Team A aus dem Menü auswählen\\
+	3a. Spieler 2 von Team B aus dem Menü auswählen
+	\item \textbf{Alternativen:} /
+\end{itemize}
 
 \section{Gruppenerstellung}
 \begin{figure}[h!]
@@ -279,6 +303,30 @@ E-Mail: info@dhbw-mannheim.de
 	\caption{Use Case und Aktivitätsdiagramm: Gruppenerstellung}
 	\label{uc_ac_gruppenerstellung}
 \end{figure}
+\begin{itemize}
+	\item \textbf{Use Case:} Gruppenerstellung
+	\item \textbf{Ziel:} Benutzer kann Gruppe mit mehreren Teilnehmern erstellen
+	\item \textbf{Kategorie:} Primär
+	\item \textbf{Vorbedingung:} Benutzer ist bereits registriert
+	\item \textbf{Nachbedingung Erfolg:} Benutzer kann Gruppe verwalten
+	\item \textbf{Nachbedingung Fehlschlag:} Keine Gruppe erstellt
+	\item \textbf{Akteure:} Benutzer
+	\item \textbf{Auslösendes Ereignis:} "Neue Gruppe erstellen" wurde ausgewählt
+	\item \textbf{Beschreibung:} \begin{enumerate}
+		\item Gruppennamen festlegen
+		\item Gruppenmitglieder hinzufügen
+		\item Gruppenbeschreibung festlegen
+		\item Gruppenprofilbild festlegen
+		\item Gruppenerstellung abschließen
+		\item Gruppe in der Datenbank anlegen
+		\item Einladungslink an Gruppenmitglieder versenden
+		\item Gruppenansicht öffnen
+	\end{enumerate}
+	\item \textbf{Erweiterungen:} \\2a. Gruppenmitglieder löschen\\
+	3a. Ohne Gruppenbeschreibung fortfahren\\
+	4a. Ohne Gruppenbild fortfahren
+	\item \textbf{Alternativen:} /
+\end{itemize}
 
 \section{Gruppenbeitritt}
 \begin{figure}[h!]
@@ -307,6 +355,7 @@ E-Mail: info@dhbw-mannheim.de
 	2b. Beitrittsanfrage ablehnen
 	\item \textbf{Alternativen:} /
 \end{itemize}
+
 
 
 

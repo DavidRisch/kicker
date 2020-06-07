@@ -10,10 +10,19 @@ function createRow (match) {
   // wait until template is loaded
   require('deasync').loopWhile(function () { return template === null })
 
+  const group = require('./db/group').by_id(match.groupId)
   let matchRow = template
+  matchRow = matchRow.replace('§group§', group.name)
   matchRow = matchRow.replace('§date§', match.finishedTimestamp)
   matchRow = matchRow.replace('§a_score§', match.goalsA)
   matchRow = matchRow.replace('§b_score§', match.goalsB)
+
+  if (match.roundId === null) {
+    matchRow = matchRow.replace('§tournament§', '')
+  } else {
+    const tournament = require('./db/tournament').by_id(require('./db/round').by_id(match.roundId).tournamentId)
+    matchRow = matchRow.replace('§tournament§', '<a class="tournament" href="/running_tournament?tournament=' + tournament.id + '">' + tournament.name + '</a>')
+  }
 
   const teams = [[], []]
   const users = match.users

@@ -2,6 +2,8 @@ module.exports = init
 
 function init (app) {
   const bodyParser = require('body-parser')
+  var multer = require('multer')
+  var upload = multer({ storage: multer.memoryStorage() })
 
   app.use(
     bodyParser.urlencoded({
@@ -11,16 +13,11 @@ function init (app) {
 
   app.use(bodyParser.json())
 
-  app.post('/api', function (req, res) {
+  app.post('/api', upload.single('image'), function (req, res) {
     const body = req.body
     let response = ''
 
     switch (body.action) {
-      case 'add': {
-        const result = require('./add_example').add(parseInt(body.a), parseInt(body.b))
-        response = { sum: result }
-        break
-      }
       case 'registerCredentials': {
         response = require('./register_credentials').process(body.name, body.email, body.password, body.telephone)
         break
@@ -57,7 +54,7 @@ function init (app) {
       }
 
       case 'enterGame': {
-        require('./enter_game').process(body.playerA1, body.playerA2, body.playerB1, body.playerB2, body.goalsA, body.goalsB)
+        response = require('./enter_game').process(req, body.playerA1, body.playerB1, body.playerA2, body.playerB2, body.goalsA, body.goalsB)
         break
       }
 
@@ -71,7 +68,25 @@ function init (app) {
         break
       }
 
-      // ^^^ Insert new api calls here ^^^
+      case 'createTournament': {
+        response = require('./create_tournament').process(req, body.name, body.tournament_mode, body.match_mode, body.participants)
+        break
+      }
+
+      case 'switchGroup': {
+        require('./switchGroup').process(res, body.groupId)
+        break
+      }
+
+      case 'createGroup': {
+        response = require('./group_creation').process(req, body.groupMembers, body.groupName, body.groupDesc)
+        break
+      }
+
+      case 'uploadGroupImage': {
+        response = require('./upload_file').upload_group_image(req, body.group)
+        break
+      }
 
       default:
       {
@@ -82,4 +97,7 @@ function init (app) {
     res.writeHead(200, { 'Content-Type': 'text/json' })
     res.end(JSON.stringify(response))
   })
+
+  // ^^^ Insert new api calls here ^^^
+
 }
