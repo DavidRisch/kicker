@@ -85,11 +85,9 @@ function init (app) {
     require('./dummy_db').page(req, res)
   })
 
-<<<<<<< HEAD
-  // ^^^ Insert new pages here ^^^
-=======
   app.get('/faq', function (req, res) {
     require('./faq').page(req, res)
   })
->>>>>>> c520f6c1fd21ee192b3b76eba0bdd0e27d2cfb9b
+
+  // ^^^ Insert new pages here ^^^
 }
