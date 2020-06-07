@@ -150,11 +150,8 @@ module.exports = {
   by_name: byName,
   by_email: byEmail,
   create: create,
-<<<<<<< HEAD
   get_groups: getGroupsOfUser,
-=======
   get_all_usernames: getAllUsernames,
->>>>>>> c520f6c1fd21ee192b3b76eba0bdd0e27d2cfb9b
   InvalidUsernameException: InvalidUsernameException,
   InvalidEmailException: InvalidEmailException,
   InsecurePasswordException: InsecurePasswordException,

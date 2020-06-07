@@ -151,11 +151,8 @@ module.exports = {
   by_name: byName,
   create: create,
   get_all: getAllGroups,
-<<<<<<< HEAD
   remove_User: removeUser,
-  get_user_count: getUserCountInGroup
-=======
+  get_user_count: getUserCountInGroup,
   DuplicateGroupException: DuplicateGroupException,
   UserAlreadyInGroupException: UserAlreadyInGroupException
->>>>>>> c520f6c1fd21ee192b3b76eba0bdd0e27d2cfb9b
 }
