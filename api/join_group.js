@@ -1,7 +1,6 @@
 exports.joinGroup = joinGroup
 
 function joinGroup (req, token) {
-  const userInGroup = require('../src/db/user_in_group')
   let invite
   try {
     invite = require('../src/db/group_invitations').by_Token(token)
@@ -15,11 +14,13 @@ function joinGroup (req, token) {
     // user not authenticated
     return { success: false, error: 'userNotAuthenticated' }
   }
+  const groupFile = require('../src/db/group')
   try {
     // add user to group
-    userInGroup.add_User(user.id, invite.groupId)
+    const group = groupFile.by_id(invite.groupId)
+    group.addUser(user.id)
   } catch (e) {
-    if (e instanceof userInGroup.UserAlreadyInGroupException) {
+    if (e instanceof groupFile.UserAlreadyInGroupException) {
       return { success: false, error: 'userAlreadyInGroup' }
     } else {
       return { success: false, error: e.message }

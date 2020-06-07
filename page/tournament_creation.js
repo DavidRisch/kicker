@@ -1,24 +1,20 @@
 function page (req, res) {
-  // get user and group
-  const user = require('../src/account_util').get_current_user(req)
-  if (!user) {
-    // not auth --> redirect to auth
-    res.cookie('redirect', req.url)
-    res.writeHead(302, { Location: '/login' })
-    res.end()
+  try {
+    require('../src/account_util').require_logged_in_user(req, res)
+  } catch (e) {
+    // account_util handles redirect
     return
   }
 
   // get group from cookie
-  const groupID = require('../src/account_util').get_group(req)
-  if (!groupID) {
-    // TODO page needs proper error handling
-  }
+  const groupId = require('../src/account_util').get_group(req)
 
   require('fs').readFile('html/tournament_creation.html', 'utf8', function (err, html) {
     if (err) throw err
 
-    html = html.replace('§users§', require('../src/player_dropdown').create_dropdown_for_group(groupID))
+    if (groupId) {
+      html = html.replace('§users§', require('../src/player_dropdown').create_dropdown_for_group(groupId))
+    }
 
     res.end(require('../src/html_creator').create_html(html, {
       title: 'Turnier erstellen',
