@@ -132,7 +132,7 @@ function initEditInfo () {
     $('#groupNameInput').val(myGroupInfo.name)
     $('#groupDescriptionInput').val(myGroupInfo.description)
     // print all users in group to the console
-    console.log("Users in group: " + myGroupInfo.users_in_group)
+    console.log('Users in group: ' + myGroupInfo.users_in_group)
     // Deactivate Buttons if user is not in the group!
     if (!myGroupInfo.userIsPartOfGroup) {
       disableButtons = true

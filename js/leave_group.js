@@ -27,7 +27,7 @@ function setUpLeaveButtonExampleText () {
   if (myGroupInfo.id == 0) {
     $('#groupLabel').parent().text('Du kannst nur eine Gruppe verlassen, wenn du dich in einer befindest!')
     // send the user to the front page!
-    $('#submitButton').click(function () { returnToMainPage()})
+    $('#submitButton').click(function () { returnToMainPage() })
   }
 }
 
