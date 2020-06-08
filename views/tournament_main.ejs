@@ -1,11 +1,11 @@
 <div class="divisiontop light"></div>
 <div class="division dark">
     <div class="box light" style="grid-row: 1; grid-column: 1 / 7;">
-      <h1 class="box_value">2</h1>
+      <h1 class="box_value"><%- ownRank %> </h1>
 		  <h1 class="box_title">Rang</h1>
     </div>
     <div class="box light" style="grid-row: 1; grid-column: 7 / 13;">
-      <h1 class="box_value">1</h1>
+      <h1 class="box_value"><%- round %> </h1>
 		  <h1 class="box_title">Runde</h1>
     </div>
     <div class="box light" style="grid-row: 2; grid-column: 1 / 13;">
@@ -20,12 +20,14 @@
 <div class="division light">
     <h1 class="division_description" style="grid-column: 1 / 13;">offene Spiele (<%- outstandingMatches.length %>)</h1>
     <% outstandingMatches.forEach(match => { %>
-        <%- include('partials/tournament_1v1_game_outstanding.ejs', {match: match}) %>
+    <% if(match.matchMode === '2v2') { %><%-  include('partials/tournament_2v2_game_outstanding.ejs', {match: match}) %> 
+    <% } else { %><%- include('partials/tournament_1v1_game_outstanding.ejs', {match: match}) %> <% } %>
     <% }) %>
 </div>
 <div class="division dark">
     <h1 class="division_description" style="grid-column: 1 / 13;">gespielte Spiele (<%- finishedMatches.length %>)</h1>
     <% finishedMatches.forEach(match => { %>
-        <%- include('partials/tournament_1v1_game_finished.ejs', {match: match}) %>
+        <% if(match.matchMode === '2v2') { %> <%- include('partials/tournament_2v2_game_finished.ejs', {match: match}) %>
+            <% } else { %><%- include('partials/tournament_1v1_game_finished.ejs', {match: match}) %> <% } %>
     <% }) %>
 </div>
