@@ -136,8 +136,28 @@ function involvingUserAndGroup (userId, groupId) {
   return matches
 }
 
+function getAllMatchesByGroup (groupId) {
+  const result = database.query('SELECT id FROM `Match` WHERE group_id = :group_id', {
+    group_id: groupId
+  })
+  const matches = []
+  for (const row of result) {
+    const match = byId(row.id)
+    matches.push(match)
+  }
+  return matches
+}
+
+function deleteMatchesOfGroupPlaceHolder (groupId) {
+  const allMatches = getAllMatchesByGroup(groupId)
+  allMatches.forEach(match => {})
+  console.log('Match deletion is not implemented yet')
+}
+
 module.exports = {
   by_id: byId,
   create: create,
-  involving_user_and_group: involvingUserAndGroup
+  involving_user_and_group: involvingUserAndGroup,
+  involving_group: getAllMatchesByGroup,
+  delete_matches_of_group: deleteMatchesOfGroupPlaceHolder
 }

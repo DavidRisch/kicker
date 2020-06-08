@@ -171,6 +171,7 @@ function getAllUsersInGroup (groupId) {
 
 function deleteEmptyGroup (groupId) {
   require('./group_invitations').delete_all_group_invitations(groupId)
+  require('./match').delete_matches_of_group(groupId)
   database.query('delete from `Group` WHERE id = :group_id', {
     group_id: groupId
   })
