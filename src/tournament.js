@@ -1,22 +1,23 @@
 // TODO: add support for 2v2 tournaments
 
-function createTournament (groupId, name, mode) {
-  const tournament = require('./db/tournament').create(groupId, name, mode)
+function createTournament (groupId, name, tournamentMode, matchMode, participants) {
+  const tournament = require('./db/tournament').create(groupId, name, tournamentMode)
+  participants.forEach(participant => {
+    tournament.addParticipant(participant)
+  })
   addRound(tournament)
   return tournament
 }
 
 function addRound (tournament) {
   const dbMatch = require('../src/db/match')
-  const dbGroup = require('../src/db/group')
 
   const previousRounds = tournament.rounds
 
   const roundId = tournament.addRound()
 
-  if (tournament.mode === 'DEATHMATCH') {
-    let remainingUsers = dbGroup.by_id(tournament.groupId).usersObj
-
+  if (tournament.mode === 'KO') {
+    let remainingUsers = tournament.getParticipants()
     for (const round of previousRounds) {
       for (const match of round.matches) {
         if (match.goalsA > match.goalsB) {
