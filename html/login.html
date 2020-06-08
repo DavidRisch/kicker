@@ -4,15 +4,13 @@
 <h2>Bitte melde dich mit deinen Nutzerdaten an.</h2>
 <br><br><br><br>
 <div class="division">
-    <div class="box dark main_box" style="grid-row: 1; grid-column:3/11">
+    <div class="box dark main_box" style="grid-row: 1; grid-column:3/11; min-height: 20vh">
         <form id="loginForm" method="post" action="/api" style="grid-row-gap:20px">
             <input name="userName" class="text_input" id="userNameInput" placeholder="Nutzername" style="grid-row:2; grid-column:2/12;">
-
             <input name="password" class="text_input" id="passwordInput" type="password" placeholder="Passwort" style="grid-row:3; grid-column:2/12;">
 
-            <a class="button_big" onclick="Login()" style="grid-row: 4; grid-column: 3/11;">Anmelden</a>
-
-            <label id="errorLabel" style="display: none; grid-row: 5;grid-column: 2/11;">Ungültige Zugangsdaten</label>
+            <button type="button" class="button_big" onclick="Login()" style="grid-row: 4; grid-column: 3/11;">Anmelden</button>
+            <label id="errorLabel" style="display: none; grid-row: 5;grid-column: 5/9">Ungültige Zugangsdaten</label>
         </form>
     </div>
 </div>
