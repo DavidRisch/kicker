@@ -115,8 +115,9 @@ function byName (name) {
 }
 
 function isGroupIdValid (id) {
-  // Check for the case that id has the value NaN, because NaN is not a valid Group id
-  if (Number.isInteger(id) === false) { return 0 }
+  if (Number.isInteger(id) === false) {
+    return false // all valid ids are integers
+  }
   const result = database.query('SELECT id FROM `Group` WHERE id = :targetId', {
     targetId: id
   })
