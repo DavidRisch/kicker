@@ -22,7 +22,8 @@ function buildDeathmatchTournament (tournament, matchMode) {
     const cmb = combinatorics.combination(participants, 2)
     const i = 0
     while (userPair = cmb.next()) { // eslint-disable-line no-cond-assign, no-undef
-      const match = dbMatch.create(tournament.groupId, i)
+      const round = require('../src/db/round').create(tournament.id)
+      const match = dbMatch.create(tournament.groupId, round.id, tournament.id)
       match.addUser(userPair[0], 0) // eslint-disable-line no-undef
       match.addUser(userPair[1], 1) // eslint-disable-line no-undef
     }
@@ -35,7 +36,8 @@ function buildDeathmatchTournament (tournament, matchMode) {
     shuffle(participants)
     // create matches
     for (let i = 0; i < participants.length; i += 4) {
-      const match = dbMatch.create(tournament.groupId, i / 2)
+      const round = require('../src/db/round').create(tournament.id)
+      const match = dbMatch.create(tournament.groupId, round.id, tournament.id)
       match.addUser(participants[i], 0)
       match.addUser(participants[i + 1], 0)
       match.addUser(participants[i + 2], 1)
@@ -70,7 +72,7 @@ function addRound (tournament) {
     for (let i = 0; i + 1 < remainingUsers.length; i += 2) {
       const userA = remainingUsers[i]
       const userB = remainingUsers[i + 1]
-      const match1 = dbMatch.create(tournament.groupId, roundId.id)
+      const match1 = dbMatch.create(tournament.groupId, roundId.id, tournament.id)
       match1.addUser(userA.id, 0)
       match1.addUser(userB.id, 1)
     }
