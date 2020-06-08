@@ -1,11 +1,12 @@
 // this script requires jquery
-/* global apiPost urlParams */
+
+/* global apiPost $ myGroupInfo */
 
 function returnToMainPage () { // eslint-disable-line no-unused-vars
   window.location.replace('/front_page')
 }
 
-async function onLeaveGroupBtnClicked () {
+async function onLeaveGroupBtnClicked () { // eslint-disable-line no-unused-vars
   const res = await apiPost({
     action: 'leaveGroup',
     group: myGroupInfo.id
@@ -24,7 +25,7 @@ async function onLeaveGroupBtnClicked () {
 
 function setUpLeaveButtonExampleText () {
   $('#groupLabel').text(myGroupInfo.name)
-  if (myGroupInfo.id == 0) {
+  if (myGroupInfo.id === 0) {
     $('#groupLabel').parent().text('Du kannst nur eine Gruppe verlassen, wenn du dich in einer befindest!')
     // send the user to the front page!
     $('#submitButton').click(function () { returnToMainPage() })

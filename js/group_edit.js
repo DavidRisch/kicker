@@ -1,5 +1,5 @@
 // this script requires jquery
-/* global apiPost urlParams $ Dropzone */
+/* global apiPost $ Dropzone myGroupInfo */
 
 // Configure Dropzone
 Dropzone.options.group_member_select = {
@@ -64,15 +64,15 @@ $(function () {
 })
 
 function alertUserIsNotPartOfGroup () {
-  alert('Du bist nicht teil dieser Gruppe!')
+  window.alert('Du bist nicht teil dieser Gruppe!')
 }
 
 function alertInvalidGroup () {
-  alert('Ungültige Gruppe!')
+  window.alert('Ungültige Gruppe!')
 }
 
 function alertNotYetImplemented () {
-  alert('Nicht Implementiert')
+  window.alert('Nicht Implementiert')
 }
 
 async function onLeaveGroupRequested () {
@@ -81,16 +81,16 @@ async function onLeaveGroupRequested () {
     group: myGroupInfo.id
   })
   if (res.success === true) {
-    alert('Du hast die Gruppe erfolgreich verlassen!')
+    window.alert('Du hast die Gruppe erfolgreich verlassen!')
     returnToMainPage()
   } else if (res.success === false) {
-    alert('Fehler: ' + res.error)
+    window.alert('Fehler: ' + res.error)
   } else {
-    alert('Unbekannter Fehler')
+    window.alert('Unbekannter Fehler')
   }
 }
 
-function checkAndUpdateGroup () {
+function checkAndUpdateGroup () { // eslint-disable-line no-unused-vars
   if (myGroupInfo.success === true) {
     if (myGroupInfo.userIsPartOfGroup !== true) {
       alertUserIsNotPartOfGroup()
@@ -103,15 +103,15 @@ function returnToMainPage () { // eslint-disable-line no-unused-vars
   window.location.replace('/front_page')
 }
 
-function abortGroupEdit () {
+function abortGroupEdit () { // eslint-disable-line no-unused-vars
   returnToMainPage()
 }
 
-function deleteGroup () {
+function deleteGroup () { // eslint-disable-line no-unused-vars
   alertNotYetImplemented()
 }
 
-function leaveGroup () {
+function leaveGroup () { // eslint-disable-line no-unused-vars
   if (myGroupInfo.success === true) {
     if (myGroupInfo.userIsPartOfGroup !== true) {
       alertUserIsNotPartOfGroup()
@@ -126,7 +126,7 @@ function leaveGroup () {
 function initEditInfo () {
   var disableButtons = false
   if (myGroupInfo.success !== true) {
-    alert('Error: ' + myGroupInfo.error)
+    window.alert('Error: ' + myGroupInfo.error)
     disableButtons = true
   } else {
     $('#groupNameInput').val(myGroupInfo.name)
