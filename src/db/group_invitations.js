@@ -34,7 +34,30 @@ function create (groupId) {
   return byToken(token)
 }
 
+function getAllGroupInvitationsOfGroup (groupId) {
+  const result = database.query('select token from Group_invitations where group_id = :group_id', {
+    group_id: groupId
+  })
+  var tokenArr = []
+  result.forEach(element => {
+    tokenArr.push(byToken(element.token))
+  }
+  )
+  return tokenArr
+}
+
+function deleteAllGroupInvitations (groupId) {
+  const allInvitations = getAllGroupInvitationsOfGroup(groupId)
+  allInvitations.forEach(element => {
+    element.deleteInvite()
+  })
+  // return count of deleted invites
+  return allInvitations.length
+}
+
 module.exports = {
   by_Token: byToken,
-  create: create
+  create: create,
+  get_group_invitations_of_group: getAllGroupInvitationsOfGroup,
+  delete_all_group_invitations: deleteAllGroupInvitations
 }

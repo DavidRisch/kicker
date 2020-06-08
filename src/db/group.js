@@ -169,6 +169,13 @@ function getAllUsersInGroup (groupId) {
   return userArr
 }
 
+function deleteEmptyGroup (groupId) {
+  require('./group_invitations').delete_all_group_invitations(groupId)
+  database.query('delete from `Group` WHERE id = :group_id', {
+    group_id: groupId
+  })
+}
+
 module.exports = {
   by_id: byId,
   by_name: byName,
@@ -178,6 +185,7 @@ module.exports = {
   get_user_count: getUserCountInGroup,
   is_group_id_valid: isGroupIdValid,
   get_all_users_in_group: getAllUsersInGroup,
+  delete_empty_group: deleteEmptyGroup,
   DuplicateGroupException: DuplicateGroupException,
   UserAlreadyInGroupException: UserAlreadyInGroupException
 }
