@@ -19,8 +19,10 @@ function buildDeathmatchTournament (tournament, matchMode) {
   const participants = tournament.getParticipants()
 
   if (matchMode === '1v1') {
+    if (participants % 2 !== 0) {
+      // TODO error handling
+    }
     const cmb = combinatorics.combination(participants, 2)
-    const i = 0
     while (userPair = cmb.next()) { // eslint-disable-line no-cond-assign, no-undef
       const round = require('../src/db/round').create(tournament.id)
       const match = dbMatch.create(tournament.groupId, round.id, tournament.id)
