@@ -1,12 +1,47 @@
-// TODO: add support for 2v2 tournaments
-
 function createTournament (groupId, name, tournamentMode, matchMode, participants) {
   const tournament = require('./db/tournament').create(groupId, name, tournamentMode)
   participants.forEach(participant => {
     tournament.addParticipant(participant)
   })
-  addRound(tournament)
+  // create matches
+  if (tournamentMode === 'DEATHMATCH') {
+    buildDeathmatchTournament(tournament, matchMode)
+  } else {
+    addRound(tournament)
+  }
   return tournament
+}
+
+function buildDeathmatchTournament (tournament, matchMode) {
+  const dbMatch = require('../src/db/match')
+  const combinatorics = require('js-combinatorics') // https://www.npmjs.com/package/js-combinatorics
+  const shuffle = require('shuffle-array') // https://www.npmjs.com/package/shuffle-array
+  const participants = tournament.getParticipants()
+
+  if (matchMode === '1v1') {
+    const cmb = combinatorics.combination(participants, 2)
+    const i = 0
+    while (userPair = cmb.next()) { // eslint-disable-line no-cond-assign, no-undef
+      const match = dbMatch.create(tournament.groupId, i)
+      match.addUser(userPair[0], 0) // eslint-disable-line no-undef
+      match.addUser(userPair[1], 1) // eslint-disable-line no-undef
+    }
+  } else if (matchMode === '2v2') {
+    // check length
+    if (participants % 4 !== 0) {
+      // TODO error handling
+    }
+    // shuffle to create random teams
+    shuffle(participants)
+    // create matches
+    for (let i = 0; i < participants.length; i += 4) {
+      const match = dbMatch.create(tournament.groupId, i / 2)
+      match.addUser(participants[i], 0)
+      match.addUser(participants[i + 1], 0)
+      match.addUser(participants[i + 2], 1)
+      match.addUser(participants[i + 3], 1)
+    }
+  }
 }
 
 function addRound (tournament) {
@@ -39,6 +74,8 @@ function addRound (tournament) {
       match1.addUser(userA.id, 0)
       match1.addUser(userB.id, 1)
     }
+  } else if (tournament.mode === 'SWISS') {
+    // TODO implement swiss matchmaking
   }
 }
 

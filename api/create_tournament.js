@@ -1,6 +1,4 @@
 function process (req, name, tournamentMode, matchMode, participants) {
-  require('../src/account_util').require_logged_in_user()
-
   // TODO: validate
 
   const groupId = require('../src/account_util').get_group(req)

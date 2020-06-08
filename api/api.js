@@ -64,6 +64,11 @@ function init (app) {
       }
 
       case 'createTournament': {
+        try {
+          require('../src/account_util').require_logged_in_user(req, res)
+        } catch (e) {
+          return
+        }
         response = require('./create_tournament').process(req, body.name, body.tournament_mode, body.match_mode, body.participants)
         break
       }
