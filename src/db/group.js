@@ -114,6 +114,16 @@ function byName (name) {
   return getGroup('name', name)
 }
 
+function isGroupIdValid (id) {
+  if (Number.isInteger(id) === false) {
+    return false // all valid ids are integers
+  }
+  const result = database.query('SELECT id FROM `Group` WHERE id = :targetId', {
+    targetId: id
+  })
+  return result.length > 0
+}
+
 function create (name, description) {
 // prevent duplicate names
   const res = database.query('SELECT id FROM `Group` WHERE name = :value', {
@@ -132,11 +142,42 @@ function create (name, description) {
   return byId(result.insertId)
 }
 
+function getUserCountInGroup (groupId) {
+  const result = database.query('select COUNT(user_id) as count FROM User_in_Group WHERE group_id = :group_id', {
+    group_id: groupId
+  })
+  return result[0].count
+}
+
+function removeUser (groupId, userId) {
+  database.query('DELETE FROM User_in_Group WHERE user_id = :value AND group_id = :group_id', {
+    value: userId,
+    group_id: groupId
+  })
+}
+
+function getAllUsersInGroup (groupId) {
+  const result = database.query('select user_id FROM User_in_Group WHERE group_id = :group_id', {
+    group_id: groupId
+  })
+  var userArr = []
+  const userFileRef = require('./user')
+  result.forEach(element => {
+    userArr.push(userFileRef.by_id(element.user_id))
+  }
+  )
+  return userArr
+}
+
 module.exports = {
   by_id: byId,
   by_name: byName,
   create: create,
   get_all: getAllGroups,
+  remove_User: removeUser,
+  get_user_count: getUserCountInGroup,
+  is_group_id_valid: isGroupIdValid,
+  get_all_users_in_group: getAllUsersInGroup,
   DuplicateGroupException: DuplicateGroupException,
   UserAlreadyInGroupException: UserAlreadyInGroupException
 }

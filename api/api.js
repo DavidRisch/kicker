@@ -63,6 +63,11 @@ function init (app) {
         break
       }
 
+      case 'leaveGroup': {
+        response = require('./leave_group').leaveGroup(req, body.group)
+        break
+      }
+
       case 'createTournament': {
         response = require('./create_tournament').process(req, body.name, body.tournament_mode, body.match_mode, body.participants)
         break

@@ -1,4 +1,5 @@
-/* global $ Dropzone */
+// this script requires jquery
+/* global apiPost $ Dropzone myGroupInfo */
 
 // Configure Dropzone
 Dropzone.options.group_member_select = {
@@ -61,3 +62,93 @@ $(function () {
     zIndexMargin: 500
   })
 })
+
+function alertUserIsNotPartOfGroup () {
+  window.alert('Du bist nicht teil dieser Gruppe!')
+}
+
+function alertInvalidGroup () {
+  window.alert('Ungültige Gruppe!')
+}
+
+function alertNotYetImplemented () {
+  window.alert('Nicht Implementiert')
+}
+
+async function onLeaveGroupRequested () {
+  const res = await apiPost({
+    action: 'leaveGroup',
+    group: myGroupInfo.id
+  })
+  if (res.success === true) {
+    window.alert('Du hast die Gruppe erfolgreich verlassen!')
+    returnToMainPage()
+  } else if (res.success === false) {
+    window.alert('Fehler: ' + res.error)
+  } else {
+    window.alert('Unbekannter Fehler')
+  }
+}
+
+function checkAndUpdateGroup () { // eslint-disable-line no-unused-vars
+  if (myGroupInfo.success === true) {
+    if (myGroupInfo.userIsPartOfGroup !== true) {
+      alertUserIsNotPartOfGroup()
+    }
+  }
+  alertNotYetImplemented()
+}
+
+function returnToMainPage () { // eslint-disable-line no-unused-vars
+  window.location.replace('/front_page')
+}
+
+function abortGroupEdit () { // eslint-disable-line no-unused-vars
+  returnToMainPage()
+}
+
+function deleteGroup () { // eslint-disable-line no-unused-vars
+  alertNotYetImplemented()
+}
+
+function leaveGroup () { // eslint-disable-line no-unused-vars
+  if (myGroupInfo.success === true) {
+    if (myGroupInfo.userIsPartOfGroup !== true) {
+      alertUserIsNotPartOfGroup()
+    } else {
+      onLeaveGroupRequested()
+    }
+  } else {
+    alertInvalidGroup()
+  }
+}
+
+function initEditInfo () {
+  var disableButtons = false
+  if (myGroupInfo.success !== true) {
+    window.alert('Error: ' + myGroupInfo.error)
+    disableButtons = true
+  } else {
+    $('#groupNameInput').val(myGroupInfo.name)
+    $('#groupDescriptionInput').val(myGroupInfo.description)
+    // print all users in group to the console
+    console.log('Users in group: ' + myGroupInfo.users_in_group)
+    // Deactivate Buttons if user is not in the group!
+    if (!myGroupInfo.userIsPartOfGroup) {
+      disableButtons = true
+    }
+  }
+  if (disableButtons === true) {
+    const buttonsToDeactivate = [$('#updateGroupBtn'), $('#deleteGroupBtn'), $('#leaveGroupBtn')]
+    buttonsToDeactivate.forEach(element => {
+      element.css('opacity', '50%')
+      element.css('pointer-events', 'none')
+    })
+  }
+}
+
+$(document).ready(
+  function () {
+    initEditInfo()
+  }
+)

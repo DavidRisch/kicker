@@ -104,6 +104,18 @@ function byEmail (email) {
   return getUser('email', email)
 }
 
+function getGroupsOfUser (userId) {
+  const result = database.query('SELECT group_id FROM User_in_Group WHERE user_id = :value', {
+    value: userId
+  })
+  const groupList = []
+  const groupJS = require('./group')
+  result.forEach(element => {
+    groupList.push(groupJS.by_id(element.group_id))
+  })
+  return groupList
+}
+
 function create (name, email, telephone, password) {
   // check user exists
   let result = database.query('SELECT name FROM User WHERE name = :value', {
@@ -138,6 +150,7 @@ module.exports = {
   by_name: byName,
   by_email: byEmail,
   create: create,
+  get_groups: getGroupsOfUser,
   get_all_usernames: getAllUsernames,
   InvalidUsernameException: InvalidUsernameException,
   InvalidEmailException: InvalidEmailException,
