@@ -16,6 +16,6 @@ function page (req, res) {
   fs.readFile('html/leave_group_example.html', 'utf8', function (err, html) {
     const combinedHTML = groupIdAsJSTag + html
     if (err) throw err
-    res.end(require('../src/html_creator').create_html(combinedHTML, { title: 'Gruppe verlassen', js: ['cookie_parser', 'jquery', 'query_parser', 'leave_group'] }))
+    res.end(require('../src/html_creator').create_html(combinedHTML, { title: 'Gruppe verlassen', css: ['styles_general'], js: ['cookie_parser', 'jquery', 'query_parser', 'leave_group'] }))
   })
 }

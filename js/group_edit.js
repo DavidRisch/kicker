@@ -75,7 +75,7 @@ function alertNotYetImplemented () {
   window.alert('Nicht Implementiert')
 }
 
-async function onLeaveGroupRequested () {
+async function onLeaveGroupConfirmed () { // eslint-disable-line no-unused-vars
   const res = await apiPost({
     action: 'leaveGroup',
     group: myGroupInfo.id
@@ -109,6 +109,18 @@ function abortGroupEdit () { // eslint-disable-line no-unused-vars
 
 function deleteGroup () { // eslint-disable-line no-unused-vars
   alertNotYetImplemented()
+}
+
+function onLeaveGroupRequested () { // eslint-disable-line no-unused-vars
+  openLeaveGroupDialog()
+}
+
+function openLeaveGroupDialog () {
+  $('#leaveDialog').show()
+}
+
+function onCloseLeaveGroupDialog () { // eslint-disable-line no-unused-vars
+  $('#leaveDialog').hide()
 }
 
 function leaveGroup () { // eslint-disable-line no-unused-vars

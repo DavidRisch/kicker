@@ -6,7 +6,7 @@ function returnToMainPage () { // eslint-disable-line no-unused-vars
   window.location.replace('/front_page')
 }
 
-async function onLeaveGroupBtnClicked () { // eslint-disable-line no-unused-vars
+async function onLeaveGroupConfirmBtnClicked () { // eslint-disable-line no-unused-vars
   const res = await apiPost({
     action: 'leaveGroup',
     group: myGroupInfo.id
@@ -30,6 +30,18 @@ function setUpLeaveButtonExampleText () {
     // send the user to the front page!
     $('#submitButton').click(function () { returnToMainPage() })
   }
+}
+
+function onLeaveGroupBtnClicked () { // eslint-disable-line no-unused-vars
+  openLeaveGroupDialog()
+}
+
+function openLeaveGroupDialog () {
+  $('#leaveDialog').show()
+}
+
+function onCloseLeaveGroupDialog () { // eslint-disable-line no-unused-vars
+  $('#leaveDialog').hide()
 }
 
 $(document).ready(
