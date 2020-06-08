@@ -20,7 +20,7 @@ function page (req, res) {
     }
     let finalSqlDump = ''
     let match
-    do {  
+    do {
       match = /LOCK TABLES `([A-Za-z_]+)` WRITE;\n/.exec(sqlDump)
       if (match) {
         const tableName = match[1]
