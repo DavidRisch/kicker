@@ -25,6 +25,24 @@ const Tournament = class {
     return require('./round').create(this._id)
   }
 
+  addParticipant (participant) {
+    database.query('INSERT INTO User_in_Tournament (user_id, tournament_id) VALUES (:user_id, :tournament_id)', {
+      user_id: participant,
+      tournament_id: this._id
+    })
+  }
+
+  getParticipants () {
+    const result = database.query('SELECT user_id FROM User_in_Tournament WHERE tournament_id = :tournament_id', {
+      tournament_id: this._id
+    })
+    const participants = []
+    result.forEach(element => {
+      participants.push(element.user_id)
+    })
+    return participants
+  }
+
   get rounds () {
     const result = database.query(`SELECT Round.id
     FROM Round
