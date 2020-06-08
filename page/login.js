@@ -9,6 +9,6 @@ function page (req, res) {
   fs.readFile('html/login.html', 'utf8', function (err, html) {
     if (err) throw err
 
-    res.end(require('../src/html_creator').create_html(html, { title: 'Login', js: ['login', 'cookie_parser'] }))
+      res.end(require('../src/html_creator').create_html(html, { title: 'Login', js: ['login', 'cookie_parser'], css: ['register_credentials', 'styles_general'], nav:false }))
   })
 }
