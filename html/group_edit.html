@@ -25,8 +25,9 @@
             <textarea rows="5" class="text_input intrinsic_right description_group" name="groupDescription" id="groupDescriptionInput"></textarea>
         </div>
     </div>
-    <button class="button_big" type="button" onclick="CheckAndCreateGroup()" style="grid-row: 3; grid-column: 3 / 11;">Änderungen speichern</button>
-    <button class="button_big cancel" type="button" onclick="AbortGroupEdit()" style="grid-row: 4; grid-column: 3 / 11;">Abbrechen</button>
-    <button class="button_big cancel" type="button" onclick="AbortGroupEdit()" style="grid-row: 5; grid-column: 3 / 11;">Gruppe löschen</button>
+    <button id="updateGroupBtn" class="button_big" type="button" onclick="checkAndUpdateGroup()" style="grid-row: 3; grid-column: 3 / 11;">Änderungen speichern</button>
+    <button id="abortGroupEditBtn" class="button_big cancel" type="button" onclick="abortGroupEdit()" style="grid-row: 4; grid-column: 3 / 11;">Abbrechen</button>
+    <button id="deleteGroupBtn" class="button_big cancel" type="button" onclick="deleteGroup()" style="grid-row: 5; grid-column: 3 / 11;">Gruppe löschen</button>
+    <button id="leaveGroupBtn" class="button_big cancel" type="button" onclick="leaveGroup()" style="grid-row: 6; grid-column: 3 / 11;">Gruppe verlassen</button>
 </div>
 <div class="division light"></div>
