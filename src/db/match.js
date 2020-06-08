@@ -112,10 +112,11 @@ function byId (id) {
   return getMatch('id', id)
 }
 
-function create (groupId, roundId) {
-  const result = database.query('INSERT INTO `Match` (group_id, goals_a, goals_b, round_id) VALUES (:group_id, 0, 0, :round_id)', {
+function create (groupId, roundId, tournamentId) {
+  const result = database.query('INSERT INTO `Match` (group_id, goals_a, goals_b, round_id, tournament_id) VALUES (:group_id, 0, 0, :round_id, :tournament_id)', {
     group_id: groupId,
-    round_id: roundId
+    round_id: roundId,
+    tournament_id: tournamentId
   })
   return byId(result.insertId)
 }

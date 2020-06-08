@@ -6,11 +6,10 @@ function process (req, name, tournamentMode, matchMode, participants) {
       errorReason: 'login failed'
     }
   }
-
   // TODO: validate
 
   const groupId = require('../src/account_util').get_group(req)
-  const tournament = require('../src/tournament').create_tournament(groupId, name, tournamentMode)
+  const tournament = require('../src/tournament').create_tournament(groupId, name, tournamentMode, matchMode, participants)
 
   return {
     success: true,
