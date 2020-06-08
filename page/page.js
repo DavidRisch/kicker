@@ -88,6 +88,4 @@ function init (app) {
   app.get('/faq', function (req, res) {
     require('./faq').page(req, res)
   })
-
-  // ^^^ Insert new pages here ^^^
 }

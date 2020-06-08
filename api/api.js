@@ -97,7 +97,4 @@ function init (app) {
     res.writeHead(200, { 'Content-Type': 'text/json' })
     res.end(JSON.stringify(response))
   })
-
-  // ^^^ Insert new api calls here ^^^
-
 }

@@ -1,5 +1,5 @@
 // this script requires jquery
-/* global apiPost, urlParams, $ Dropzone */
+/* global apiPost urlParams $ Dropzone */
 
 // Configure Dropzone
 Dropzone.options.group_member_select = {

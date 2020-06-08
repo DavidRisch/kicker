@@ -1,5 +1,5 @@
 // this script requires jquery
-/* global apiPost, urlParams */
+/* global apiPost urlParams */
 
 function returnToMainPage () { // eslint-disable-line no-unused-vars
   window.location.replace('/front_page')

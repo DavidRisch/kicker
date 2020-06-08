@@ -1,14 +1,8 @@
 function page (req, res) {
-  const user = require('../src/account_util').get_current_user(req)
-  if (user === null) {
-    res.cookie('redirect', req.url)
-    res.writeHead(302, { Location: '/login' })
-    res.end()
-    return
-  }
+  const user = require('../src/account_util').require_logged_in_user(req, res)
   const host = req.protocol + '://' + req.get('host')
+  // extract the group id from the url
   const targetGroup = (new URL(host + req.url)).searchParams.get('group')
-  // Never trust user input!
   const groupId = parseInt(targetGroup)
   const groupFileRef = require('../src/db/group')
   const succeeded = groupFileRef.is_group_id_valid(groupId)

@@ -3,13 +3,7 @@ module.exports = {
 }
 
 function page (req, res) {
-  const user = require('../src/account_util').get_current_user(req)
-  if (user === null) {
-    res.cookie('redirect', req.url)
-    res.writeHead(302, { Location: '/login' })
-    res.end()
-    return
-  }
+  const user = require('../src/account_util').require_logged_in_user(req, res)
   const userGroups = require('../src/db/user').get_groups(user.id)
   var fs = require('fs')
   const groupInfo = { id: 0, name: '' }
