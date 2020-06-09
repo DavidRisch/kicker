@@ -42,6 +42,14 @@ const Match = class {
     return this._update('goals_b', goals)
   }
 
+  get mode () {
+    return this._select('mode')
+  }
+
+  set mode (mode) {
+    return this._update('mode', mode)
+  }
+
   finish (goalsA, goalsB) {
     database.query('UPDATE `Match` SET goals_a = :goals_a, goals_b = :goals_b, finished_timestamp = NOW() WHERE id = :id', {
       goals_a: goalsA,
@@ -112,11 +120,12 @@ function byId (id) {
   return getMatch('id', id)
 }
 
-function create (groupId, roundId, tournamentId) {
-  const result = database.query('INSERT INTO `Match` (group_id, goals_a, goals_b, round_id, tournament_id) VALUES (:group_id, 0, 0, :round_id, :tournament_id)', {
+function create (groupId, roundId, tournamentId, mode) {
+  const result = database.query('INSERT INTO `Match` (group_id, goals_a, goals_b, round_id, tournament_id, mode) VALUES (:group_id, 0, 0, :round_id, :tournament_id, :mode)', {
     group_id: groupId,
     round_id: roundId,
-    tournament_id: tournamentId
+    tournament_id: tournamentId,
+    mode: mode
   })
   return byId(result.insertId)
 }

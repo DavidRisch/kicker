@@ -88,6 +88,11 @@ function init (app) {
         break
       }
 
+      case 'submitMatchResults' : {
+        response = require('./match_results').submit_match_results(req, body.matchId, body.goalsA, body.goalsB)
+        break
+      }
+
       default:
       {
         throw Error('Unknown action: ' + body.action)

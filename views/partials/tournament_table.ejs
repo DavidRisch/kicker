@@ -1,0 +1,6 @@
+<tr <% if (row % 2 == 0) {%>- class="light" <%} else { %> class="dark" <% } %>>
+    <td><%- user.rank || 'unbekannt' %></td>
+    <td><%- user.name || 'unbekannt' %></td>
+    <td><%- user.points || 'unbekannt' %></td>
+    <td><%- user.playedGames || 'unbekannt' %></td>
+</tr>
