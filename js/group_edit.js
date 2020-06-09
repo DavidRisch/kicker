@@ -90,13 +90,59 @@ async function onLeaveGroupConfirmed () { // eslint-disable-line no-unused-vars
   }
 }
 
-function checkAndUpdateGroup () { // eslint-disable-line no-unused-vars
+async function validateUserInput (data) { // eslint-disable-line no-unused-vars
+  // check if group name is valid
+  if (data.groupName === null) {
+    console.log('Missing group name detected')
+    window.alert('Gib einen Gruppennamen ein!')
+    return false
+  }
+
+  // check if new user set is empty
+  if (data.newUsers.size === 0) {
+    console.log('Empty set of group members detected')
+    window.alert('Die Gruppe muss mindestens ein Mitglied enthalten!')
+    return false
+  }
+
+  return true
+}
+
+async function checkAndUpdateGroup () { // eslint-disable-line no-unused-vars
   if (myGroupInfo.success === true) {
     if (myGroupInfo.userIsPartOfGroup !== true) {
       alertUserIsNotPartOfGroup()
     }
   }
-  alertNotYetImplemented()
+
+  // get set of old users
+  const oldUserSet = new Set(myGroupInfo.users_in_group)
+
+  // get set of new users
+  const newUserSet = new Set($('#group_members').val())
+
+  // compute set difference of old users and new users
+  const deletedUserSet = new Set(oldUserSet.filter(x => !newUserSet.has(x)));
+
+  const data = {
+    action: 'editGroup',
+    groupName: document.getElementById('groupNameInput').value ? document.getElementById('groupNameInput').value : null,
+    groupDesc: document.getElementById('groupDescriptionInput').value,
+    newUsers: newUserSet,
+    deletedUsers: deletedUserSet
+  }
+
+  // validate entered data
+  if (!await validateUserInput(data)) {
+    return
+  }
+
+  const res = await apiPost(data)
+  if (res.success) {
+    console.log('Group was successfully edited!')
+    // redirect to matches page
+    returnToMainPage()
+  }
 }
 
 function returnToMainPage () { // eslint-disable-line no-unused-vars
@@ -107,7 +153,7 @@ function abortGroupEdit () { // eslint-disable-line no-unused-vars
   returnToMainPage()
 }
 
-function deleteGroup () { // eslint-disable-line no-unused-vars
+async function deleteGroup () { // eslint-disable-line no-unused-vars
   alertNotYetImplemented()
 }
 
