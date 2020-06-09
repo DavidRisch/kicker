@@ -1,0 +1,112 @@
+\documentclass[ngerman,12pt,titlepage]{article}
+\usepackage{amsmath,amssymb,amstext}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{dcolumn} %für tabelle
+\usepackage[utf8]{inputenc} %Codierung 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[colorlinks=true, linkcolor={black}]{hyperref}
+
+\begin{document}
+\pagenumbering{arabic}
+\section{Definition der Äquivalenzklassen}
+
+	\subsection{Übersicht der möglichen Nutzereingaben}
+	
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{c|c|c|c}
+				\textbf{Feldname}&\textbf{Wertebereich} & \textbf{Feldart} &\textbf{Repräsentant} \\  
+				\hline
+							  	&  [A-Z, a-z, 0-9, \_, -]			 	&&\\ 
+				Nutzername		& \(5 \leq \) Namenslänge \(\leq 45\) 	&verpflichtend&awesome\_user-name\\ \hline
+								& [A-Z, a-z, 0-9] \& Sonderzeichen 		&&\\  
+				Passwort		& \(8 \leq \) Passwortlänge \(\leq 32\)	&verpflichtend&!PaS~ßw0rt?\\\hline
+								& z \(\in\)[A-Z, a-z, 0-9, \_, -] 		&&\\
+				%				& x \(\in\) [A-Z, a-z, 0-9]
+				Email			& z*@z*.[a-z, A-z]* \textit{(*: mind 1\(\times\))} 		& verpflichtend&test\_email@test.uk\\
+								& \(8 \leq \) Emaillänge \(\leq 320\) 	&&\\\hline
+								& [0-9, +]								&&\\
+				Telefonnummer	&\(8 \leq \) Nummerlänge \(\leq 15\)	&freiwillig&+49 0123 4567\\
+			\end{tabular}
+			\caption{Nutzereingaben der Registrierung}
+			\label{tab:eingabe-nutzerregistrierung}
+		\end{table}
+		\noindent
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{c|c|c|c}
+				\textbf{Feldname}&\textbf{Wertebereich} & \textbf{Feldart} & \textbf{Repräsentant}  \\  
+				\hline
+				Gruppenname  			& [A-Z, a-z, 0-9, \_, -] 				& &\\ 
+										& \(8 \leq \) Namenslänge \(\leq 320\) 	&verpflichtend &coolest\_Group-4ever\\ \hline 
+				Gruppenbild				& 0MB \(\leq\) Bildgröße \(\leq\) 5MB	&&\\  
+										& Format png/jpg						&freiwillig&png der Größe 3MB\\ \hline
+				Gruppenmitglieder		& \(1 \leq \) Mitgliederanzahl			&Suchfeld, verpflichtend&\\
+
+			\end{tabular}
+			\caption{Nutzereingaben der Gruppenerstellung}
+		\end{table}
+		\noindent
+		
+				\begin{table}[H]
+			\centering
+			\begin{tabular}{c|c|c|c}
+				\textbf{Feldname}&\textbf{Wertebereich} & \textbf{Feldart} & \textbf{Repräsentant}  \\  
+				\hline
+				Turniername  			& [A-Z, a-z, 0-9, \_, -] 	&&\\ 
+										& mind. 5 Zeichen 			&verpflichtend& great\_est-Game2020\\ \hline 
+				Anzahl Turniermitglieder&  \(1 \leq \) Mitgliederanzahl	&&\\
+				
+			\end{tabular}
+			\caption{Nutzereingaben der Turniererstellung}
+		\end{table}
+		\noindent
+
+	\subsection{Ableitung von Äquivalenzklassen}
+		\subsubsection{Äquivalenzklasse Gruppenname und zugehörige Testfälle}
+		\begin{table}[H]
+		\centering
+		\begin{tabular}{l|c|c}
+			\textbf{Äquivalenzklasse \textit{Gruppenname}} &\textbf{Wert für Feld}  &\textbf {Erwartetes Resultat} \\  
+			\hline
+			 \(8 \leq \) Zeichen \(\leq 320\) aus [A-Z, a-z, 0-9, \_, -]  & awesome\_user-name &gültig  \\  
+			keine Eingabe (Zeichenanzahl = 0)&(leer)  & ungültig \\  
+			Zeichenanzahl \(\leq\) 7 & 1234567 & ungültig \\  
+			321 \(\leq\) Zeichenanzahl  & xx...x (Länge 46) &ungültig  \\  
+		\end{tabular}
+		\caption{Testfalltabelle der Äquivalenzklasse Gruppenname}
+		\end{table}
+	\noindent
+	\subsubsection{Äquivalenzklasse Gruppenbild und zugehörige Testfälle}
+			\begin{table}[H]
+		\centering
+		\begin{tabular}{l|c|c}
+			\textbf{Äquivalenzklasse \textit{Gruppenbild}} &\textbf{Wert für Feld}  &\textbf {Erwartetes Resultat} \\  
+			\hline
+			Bild in Format jpg/png, Bildgröße \(\leq\) 5MB & png-Bild, Größe 3MB &gültig  \\  
+			keine Eingabe &(leer)  & gültig \\  
+			Bild nicht in Format jpg/png & 3MB xml Datei & ungültig \\  
+			Bild in Format jpg/png, 5MB < Bildgröße  & jpg-Bild, Größe 5.1MB &ungültig  \\  
+		\end{tabular}
+		\caption{Testfalltabelle der Äquivalenzklasse Gruppenbild}
+	\end{table}
+	\noindent
+	\subsubsection{Äquivalenzklasse Gruppenmitglieder und zugehörige Testfälle}
+		\begin{table}[H]
+		\centering
+		\begin{tabular}{l|c|c}
+			\textbf{Äquivalenzklasse \textit{Gruppenmitglieder}} &\textbf{Wert für Feld}  &\textbf {Erwartetes Resultat} \\  
+			\hline
+			Anzahl Gruppenmitglieder \(\leq\) 1 & Mitgliedsliste der Länge 3 &gültig  \\  
+			keine Eingabe &(leer)  & ungültig \\    
+		\end{tabular}
+		\caption{Testfalltabelle der Äquivalenzklasse Gruppenmitglieder}
+	\end{table}
+	\noindent
+\end{document}
