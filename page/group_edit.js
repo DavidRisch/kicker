@@ -1,9 +1,6 @@
 function page (req, res) {
   const user = require('../src/account_util').require_logged_in_user(req, res)
-  const host = req.protocol + '://' + req.get('host')
-  // extract the group id from the url
-  const targetGroup = (new URL(host + req.url)).searchParams.get('group')
-  const groupId = parseInt(targetGroup)
+  const groupId = require('../src/account_util').get_group(req)
   const groupFileRef = require('../src/db/group')
   const succeeded = groupFileRef.is_group_id_valid(groupId)
 
@@ -34,6 +31,7 @@ function page (req, res) {
 
   require('fs').readFile('html/group_edit.html', 'utf8', function (err, html) {
     if (err) throw err
+    html = html.replace(/§users§/g, require('../src/player_dropdown').create_dropdown_for_group(groupId))
     const combinedHTML = groupInfoAsJSTag + html
     res.end(require('../src/html_creator').create_html(combinedHTML, {
       title: 'Gruppen Bearbeitung',
