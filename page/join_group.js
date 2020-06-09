@@ -21,7 +21,12 @@ function page (req, res) {
     fs.readFile('html/join_group.html', 'utf8', function (err, html) {
       if (err) throw err
       const nameAsScript = '<script> var groupName = \'' + groupName + '\'</script>'
-      res.end(require('../src/html_creator').create_html(nameAsScript + html, { title: 'Gruppe beitreten', js: ['join_group', 'cookie_parser', 'query_parser'] }))
+      res.end(require('../src/html_creator').create_html(nameAsScript + html, {
+        title: 'Gruppe beitreten',
+        js: ['join_group', 'cookie_parser', 'query_parser'],
+        css: ['styles_general'],
+        nav: true
+      }))
     })
   }
 }
