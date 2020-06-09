@@ -69,10 +69,6 @@ function init (app) {
     require('./account').page(req, res)
   })
 
-  app.get('/leave_group', function (req, res) {
-    require('./leave_group').page(req, res)
-  })
-
   app.get('/statistics', function (req, res) {
     require('./statistics').page(req, res)
   })

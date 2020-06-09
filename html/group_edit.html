@@ -31,3 +31,27 @@
     <button id="leaveGroupBtn" class="button_big cancel" type="button" onclick="leaveGroup()" style="grid-row: 6; grid-column: 3 / 11;">Gruppe verlassen</button>
 </div>
 <div class="division light"></div>
+<!--- Leave Group Dialog -->
+<div id="leaveDialog" style="display:none;box-sizing: border-box; pointer-events: auto; position: fixed;top: 0px;width: 100vw; height: 100vh; background-color: #12141eb5;" >
+    <div class="box dark main_box" title="Basic dialog" style="min-width: 50%; left: 25%;position: absolute;top: 40%;max-width: 20%;display: grid; grid-template-rows: 100% 100%;grid-template-columns: auto auto auto auto;padding: 0px;margin: 0px;">
+        <div style="grid-column-start: 1;grid-column-end: 13;">
+            <p style="text-align: center;font-size: 2em; word-wrap: break-word;grid-column-start: 1;grid-column-end: 13;">
+                Möchtest du die Gruppe wirklich verlassen?
+            </p>
+        </div>
+        <div style="min-height: 30%;grid-row-start: 2;grid-row-end: 4;grid-column-start: 1;grid-column-end: 13;/*! display: inline-block; *//*! position: unset; */">
+            <table>
+                <tbody> 
+                    <tr>
+                        <th style="width: 50%; margin: auto;">
+                            <button style="margin: auto;" class="button_big cancel" onclick="onLeaveGroupConfirmed()">Verlassen</button>
+                        </th>
+                        <th style="width: 50%;text-align: center;">
+                            <button class="button_big" style="margin: auto;" onclick="onCloseLeaveGroupDialog()">Abbrechen</button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>    
+        </div>
+    </div>    
+</div>
