@@ -1,0 +1,27 @@
+.profile_picture{
+    border-radius: 50%;
+    grid-column: 6/8;
+    width: 200px;
+    height: 200px;
+    margin: -120px auto auto;
+    background-color: #0094ff;
+}
+
+.statistic_box{
+    text-align: center;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.statistic_box label{
+    display: block;
+}
+
+.statistic_box .statistic{
+    font-size:40px;
+}
+
+.statistic_box .statistic_subtitle{
+    color: #31bebe;
+    font-family: sans-serif, Arial;
+}

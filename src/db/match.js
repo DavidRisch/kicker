@@ -123,10 +123,24 @@ function create (groupId, roundId, tournamentId) {
 
 function involvingUserAndGroup (userId, groupId) {
   const result = database.query('SELECT id FROM `Match` ' +
-      'INNER JOIN User_in_Match ON (User_in_Match.match_id = `Match`.id) ' +
-      'WHERE User_in_Match.user_id = :user_id AND `Match`.group_id = :group_id', {
+    'INNER JOIN User_in_Match ON (User_in_Match.match_id = `Match`.id) ' +
+    'WHERE User_in_Match.user_id = :user_id AND `Match`.group_id = :group_id', {
     user_id: userId,
     group_id: groupId
+  })
+  const matches = []
+  for (const row of result) {
+    const match = byId(row.id)
+    matches.push(match)
+  }
+  return matches
+}
+
+function involvingUser (userId) {
+  const result = database.query('SELECT id FROM `Match` ' +
+    'INNER JOIN User_in_Match ON (User_in_Match.match_id = `Match`.id) ' +
+    'WHERE User_in_Match.user_id = :user_id ORDER BY id DESC', {
+    user_id: userId
   })
   const matches = []
   for (const row of result) {
@@ -139,5 +153,6 @@ function involvingUserAndGroup (userId, groupId) {
 module.exports = {
   by_id: byId,
   create: create,
-  involving_user_and_group: involvingUserAndGroup
+  involving_user_and_group: involvingUserAndGroup,
+  involving_user: involvingUser
 }
