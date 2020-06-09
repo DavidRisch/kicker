@@ -1,9 +1,17 @@
 function page (req, res) {
+  // login
+  try {
+    require('../src/account_util').require_logged_in_user(req, res)
+  } catch (e) {
+    return
+  }
   // get id
   const tournamentId = req.query.id
   if (!tournamentId) {
     res.writeHead(404)
     res.end()
+    console.log('error getting running tournament page - invalid id')
+    return
   }
 
   let tournament
@@ -12,6 +20,8 @@ function page (req, res) {
   } catch (e) {
     res.writeHead(404)
     res.end()
+    console.log('error getting running tournament page - found no tournament with id: ' + tournamentId)
+    return
   }
 
   // get corresponding matches

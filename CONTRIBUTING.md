@@ -66,6 +66,8 @@ Api parameters and responses must be written in `camelCase`.
 - _js_: js files for use in the client browser
 - _page_: js files generating html on get requests
 - _src_: js files for importing in other javascript files
+- _views_: ejs templates for dynamic pages
+- _views/partials_: subtemplates for usage in _views/..._ templates
 
 # Installation
 
