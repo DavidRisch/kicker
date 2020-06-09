@@ -15,6 +15,7 @@ const pageCollection = {
   '/join_group': './join_group',
   '/enter_game': './enter_game',
   '/running_tournament': './running_tournament',
+  '/tournaments_overview': './tournaments_overview',
   '/account': './account',
   '/statistics': './statistics',
   '/matches': './matches',
