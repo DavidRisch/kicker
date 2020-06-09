@@ -31,7 +31,7 @@ function page (req, res) {
 
   require('fs').readFile('html/group_edit.html', 'utf8', function (err, html) {
     if (err) throw err
-    html = html.replace(/§users§/g, require('../src/player_dropdown').create_dropdown_for_group(groupId))
+    html = html.replace(/§users§/g, require('../src/player_dropdown').create_dropdown_for_group(groupId,true))
     const combinedHTML = groupInfoAsJSTag + html
     res.end(require('../src/html_creator').create_html(combinedHTML, {
       title: 'Gruppen Bearbeitung',
