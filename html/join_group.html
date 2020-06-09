@@ -1,28 +1,16 @@
 <div>
-    <div class="division dark">
-        <div class="box dark" style="grid-column: 1 / 13; padding: 10px;"></div>
-        <div class="box dark" style="grid-column: 1 / 13; padding: 10px;"></div>
-        <div class="box dark" style="grid-column: 1 / 13; padding: 10px;"></div>
-        <div class="box dark" style="grid-column: 1 / 13; padding: 10px;"></div>
-        <div class="box dark" style="grid-column: 1 / 13; padding: 10px;"></div>
-        <div class="box dark" style="grid-column: 1 / 13; padding: 10px;"></div>
-        <div class="box light" style="grid-column: 1 / 13; padding: 10px;">
+    <div class="division dark" style="width: 100%; height: 93%; position: absolute;">
+        <div class="box light" style="top: 45%; left: 50%; transform: translate(-50%, -50%); position: absolute; grid-column: 1 / 13; padding: 10px;">
             <form>
                 <div id="headRegion">
-                    <h2 class="box_value">Möchten sie der Gruppe "<label id="groupLabel"></label>" beitreten?</h2>
-                    <a class="button_big" id="submitButton" onclick="submitForm()" style="grid-column: 3 / 11;">Ja</a>
+                    <br><br><h2 class="box_title" style="color: #ffffff;">Möchten sie der Gruppe "<label id="groupLabel"></label>" beitreten?</h2><br>
+                    <a class="button_big" id="submitButton" onclick="submitForm()" style="grid-column: 5 / 9;">Ja</a>
                 </div>
                 <div id="errorRegion">
-                    <label id="errorLabel"></label><br>
+                    <br><h2 class="box_subtitle" style="text-align: center"><label id="errorLabel"></label></h2><br>
                     <a class="button_big" id="returnButton" onclick="returnToMainPage()" style="display: none; grid-column: 3 / 11;">Zurück zur Hauptseite</a>
                 </div>
             </form>
         </div>
-        <div class="box dark" style="grid-column: 1 / 13; padding: 10px;"></div>
-        <div class="box dark" style="grid-column: 1 / 13; padding: 10px;"></div>
-        <div class="box dark" style="grid-column: 1 / 13; padding: 10px;"></div>
-        <div class="box dark" style="grid-column: 1 / 13; padding: 10px;"></div>
-        <div class="box dark" style="grid-column: 1 / 13; padding: 10px;"></div>
-        <div class="box dark" style="grid-column: 1 / 13; padding: 10px;"></div>
     </div>
 </div>
