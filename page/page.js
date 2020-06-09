@@ -1,87 +1,41 @@
 module.exports = init
 
+const pageCollection = {
+  '/choose_login_method': './choose_login_method',
+  '/register_credentials': './register_credentials',
+  '/login': './login',
+  '/dump_db': './dump_db',
+  '/front_page': './front_page',
+  '/group_selection': './group_selection',
+  '/group_creation': './group_creation',
+  '/group_edit': './group_edit',
+  '/tournament_creation': './tournament_creation',
+  '/imprint': './imprint',
+  '/create_join_link': './create_join_link',
+  '/join_group': './join_group',
+  '/enter_game': './enter_game',
+  '/running_tournament': './running_tournament',
+  '/account': './account',
+  '/statistics': './statistics',
+  '/matches': './matches',
+  '/dummy_db': './dummy_db',
+  '/faq': './faq'
+}
+
+function handlePage (pageName, req, res) {
+  try {
+    require(pageCollection[pageName]).page(req, res)
+  } catch (error) {
+    const errorText = error.name + ': ' + error.message
+    res.writeHead(500)
+    res.end(errorText)
+  }
+}
+
 function init (app) {
-  app.get('/choose_login_method', function (req, res) {
-    require('./choose_login_method').page(req, res)
-  })
-
-  app.get('/register_credentials', function (req, res) {
-    require('./register_credentials').page(req, res)
-  })
-
-  app.get('/login', function (req, res) {
-    require('./login').page(req, res)
-  })
-
-  app.get('/dump_db', function (req, res) {
-    require('./dump_db').page(req, res)
-  })
-
-  app.get('/front_page', function (req, res) {
-    require('./front_page').page(req, res)
-  })
-
-  app.get('/group_selection', function (req, res) {
-    require('./group_selection').page(req, res)
-  })
-
-  app.get('/group_creation', function (req, res) {
-    require('./group_creation').page(req, res)
-  })
-
-  app.get('/group_edit', function (req, res) {
-    require('./group_edit').page(req, res)
-  })
-
-  app.get('/tournament_creation', function (req, res) {
-    require('./tournament_creation').page(req, res)
-  })
-
-  app.get('/imprint', function (req, res) {
-    require('./imprint').page(req, res)
-  })
-
-  app.get('/create_join_link', function (req, res) {
-    require('./create_join_link').page(req, res)
-  })
-
-  app.get('/join_group', function (req, res) {
-    require('./join_group').page(req, res)
-  })
-
-  app.get('/enter_game', function (req, res) {
-    require('./enter_game').page(req, res)
-  })
-
-  app.get('/running_tournament', function (req, res) {
-    require('./running_tournament').page(req, res)
-  })
-
-  app.get('/achievements', function (req, res) {
-    require('./achievements').page(req, res)
-  })
-
-  app.get('/tournaments_overview', function (req, res) {
-    require('./tournaments_overview').page(req, res)
-  })
-
-  app.get('/account', function (req, res) {
-    require('./account').page(req, res)
-  })
-
-  app.get('/statistics', function (req, res) {
-    require('./statistics').page(req, res)
-  })
-
-  app.get('/matches', function (req, res) {
-    require('./matches').page(req, res)
-  })
-
-  app.get('/dummy_db', function (req, res) {
-    require('./dummy_db').page(req, res)
-  })
-
-  app.get('/faq', function (req, res) {
-    require('./faq').page(req, res)
-  })
+  for (const pageName in pageCollection) {
+    app.get(pageName, function (req, res) {
+      handlePage(pageName, req, res)
+    })
+  }
 }
